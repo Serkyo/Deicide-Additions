@@ -1,6 +1,8 @@
 package com.serkyo.mysteriaadditions;
 
 import com.mojang.logging.LogUtils;
+import com.serkyo.mysteriaadditions.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,6 +26,8 @@ public class MysteriaAdditions {
     public MysteriaAdditions(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -36,7 +40,9 @@ public class MysteriaAdditions {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.DIVINITY_FRAGMENT);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
