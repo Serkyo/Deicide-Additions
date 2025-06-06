@@ -1,6 +1,7 @@
 package com.serkyo.mysteriaadditions;
 
 import com.mojang.logging.LogUtils;
+import com.serkyo.mysteriaadditions.item.ModCreativeModTabs;
 import com.serkyo.mysteriaadditions.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -26,6 +27,7 @@ public class MysteriaAdditions {
     public MysteriaAdditions(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
