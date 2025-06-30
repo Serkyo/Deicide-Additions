@@ -1,8 +1,8 @@
 package com.serkyo.mysteriaadditions;
 
 import com.mojang.logging.LogUtils;
-import com.serkyo.mysteriaadditions.item.ModCreativeModTabs;
-import com.serkyo.mysteriaadditions.item.ModItems;
+import com.serkyo.mysteriaadditions.core.CreativeTab;
+import com.serkyo.mysteriaadditions.core.Items;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,8 +27,8 @@ public class MysteriaAdditions {
     public MysteriaAdditions(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        ModCreativeModTabs.register(modEventBus);
-        ModItems.register(modEventBus);
+        CreativeTab.register(modEventBus);
+        Items.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -43,7 +43,7 @@ public class MysteriaAdditions {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.DIVINITY_FRAGMENT);
+            event.accept(Items.DIVINITY_FRAGMENT);
         }
     }
 
