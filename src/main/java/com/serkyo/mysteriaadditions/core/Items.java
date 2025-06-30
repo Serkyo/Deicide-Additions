@@ -1,4 +1,4 @@
-package com.serkyo.mysteriaadditions.item;
+package com.serkyo.mysteriaadditions.core;
 
 import com.serkyo.mysteriaadditions.MysteriaAdditions;
 import net.minecraft.world.item.Item;
@@ -7,10 +7,16 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModItems {
+public class Items {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MysteriaAdditions.MOD_ID);
 
     public static final RegistryObject<Item> DIVINITY_FRAGMENT = ITEMS.register("divinity_fragment",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> DIAMOND_SHEET = ITEMS.register("diamond_sheet",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ROUGH_DIAMOND = ITEMS.register("rough_diamond",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
