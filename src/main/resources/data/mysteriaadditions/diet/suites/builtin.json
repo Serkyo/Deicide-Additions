@@ -1,0 +1,160 @@
+{
+  "replace": true,
+  "groups": [
+    "fruits",
+    "grains",
+    "proteins",
+    "sugars",
+    "vegetables"
+  ],
+  "effects": [
+    {
+      "attributes": [
+        {
+          "name": "minecraft:generic.attack_damage",
+          "operation": "multiply_base",
+          "amount": 0.2
+        },
+        {
+          "name": "projectile_damage:generic",
+          "operation": "multiply_base",
+          "amount": 0.2
+        },
+        {
+          "name": "irons_spellbooks:spell_power",
+          "operation": "multiply_base",
+          "amount": 0.2
+        },
+        {
+          "name": "minecraft:generic.max_health",
+          "operation": "add",
+          "amount": 20.0
+        }
+      ],
+      "conditions": [
+        {
+          "groups": ["proteins", "fruits", "vegetables", "grains"],
+          "match": "all",
+          "above": 0.75,
+          "below": 1.0
+        }
+      ]
+    },
+    {
+      "attributes": [
+        {
+          "name": "minecraft:generic.armor_toughness",
+          "operation": "multiply_base",
+          "amount": 0.05
+        },
+        {
+          "name": "minecraft:generic.armor",
+          "operation": "multiply_base",
+          "amount": 0.1
+        },
+        {
+          "name": "minecraft:generic.attack_speed",
+          "operation": "multiply_base",
+          "amount": 0.1
+        },
+        {
+          "name": "attributeslib:draw_speed",
+          "operation": "add",
+          "amount": -0.05
+        },
+        {
+          "name": "irons_spellbooks:cast_time_reduction",
+          "operation": "multiply_base",
+          "amount": 0.05
+        },
+        {
+          "name": "minecraft:generic.max_health",
+          "operation": "add",
+          "amount": 5.0
+        }
+      ],
+      "conditions": [
+        {
+          "groups": ["proteins", "fruits", "vegetables", "grains"],
+          "match": "every",
+          "above": 0.75,
+          "below": 1.0
+        }
+      ]
+    },
+    {
+      "attributes": [
+        {
+          "name": "minecraft:generic.armor_toughness",
+          "operation": "multiply_base",
+          "amount": -0.05
+        },
+        {
+          "name": "minecraft:generic.armor",
+          "operation": "multiply_base",
+          "amount": -0.1
+        },
+        {
+          "name": "minecraft:generic.attack_speed",
+          "operation": "multiply_base",
+          "amount": -0.1
+        },
+        {
+          "name": "attributeslib:draw_speed",
+          "operation": "multiply_base",
+          "amount": -0.05
+        },
+        {
+          "name": "irons_spellbooks:cast_time_reduction",
+          "operation": "multiply_base",
+          "amount": -0.05
+        }
+      ],
+      "conditions": [
+        {
+          "groups": ["proteins", "fruits", "vegetables", "grains"],
+          "match": "every",
+          "above": 0,
+          "below": 0.25
+        }
+      ]
+    },
+    {
+      "attributes": [
+        {
+          "name": "minecraft:generic.movement_speed",
+          "operation": "multiply_base",
+          "amount": 0.2
+        },
+        {
+          "name": "attributeslib:mining_speed",
+          "operation": "multiply_base",
+          "amount": 0.1
+        },
+        {
+          "name": "epicfight:stamina_regen",
+          "operation": "multiply_base",
+          "amount": 0.05
+        }
+      ],
+      "status_effects": [
+        {
+          "name": "minecraft:hunger",
+          "power": 3
+        },
+        {
+          "name": "legendarysurvivaloverhaul:thirst",
+          "power": 1
+        }
+      ],
+      "conditions": [
+        {
+          "groups": ["sugars"],
+          "match": "all",
+          "above": 0.75,
+          "below": 1.0
+        }
+      ]
+    }
+  ]
+}
