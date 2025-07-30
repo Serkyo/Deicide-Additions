@@ -19,6 +19,12 @@ public class Items {
     public static final RegistryObject<Item> ROUGH_DIAMOND = ITEMS.register("rough_diamond",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> LEATHER_CHUNK = ITEMS.register("leather_chunk",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
