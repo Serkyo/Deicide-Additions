@@ -1,6 +1,6 @@
-package com.serkyo.mysteriaadditions.core;
+package com.serkyo.deicideadditions.core;
 
-import com.serkyo.mysteriaadditions.MysteriaAdditions;
+import com.serkyo.deicideadditions.DeicideAdditions;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -8,7 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class Items {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MysteriaAdditions.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DeicideAdditions.MOD_ID);
 
     public static final RegistryObject<Item> DIVINITY_FRAGMENT = ITEMS.register("divinity_fragment",
             () -> new Item(new Item.Properties()));

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mysteriaadditions:item/diamond_sheet"
+    "layer0": "deicideadditions:item/leather_chunk"
   }
 }
