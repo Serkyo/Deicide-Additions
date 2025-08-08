@@ -1,12 +1,10 @@
-package com.serkyo.mysteriaadditions;
+package com.serkyo.deicideadditions;
 
 import com.mojang.logging.LogUtils;
-import com.serkyo.mysteriaadditions.core.CreativeTab;
-import com.serkyo.mysteriaadditions.core.Items;
-import net.minecraft.world.item.CreativeModeTabs;
+import com.serkyo.deicideadditions.core.CreativeTab;
+import com.serkyo.deicideadditions.core.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,14 +15,14 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(MysteriaAdditions.MOD_ID)
-public class MysteriaAdditions {
+@Mod(DeicideAdditions.MOD_ID)
+public class DeicideAdditions {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "mysteriaadditions";
+    public static final String MOD_ID = "deicideadditions";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public MysteriaAdditions(FMLJavaModLoadingContext context) {
+    public DeicideAdditions(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
         CreativeTab.register(modEventBus);
