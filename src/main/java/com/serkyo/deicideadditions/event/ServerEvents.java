@@ -17,7 +17,7 @@ public class ServerEvents {
         LivingEntity entity = event.getEntity();
 
         if (entity instanceof Player){
-            if (source.is(DamageTypes.STARVE) || source.is(DamageTypes.IN_WALL) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.ON_FIRE) || source.is(DamageTypes.FREEZE)) {;
+            if (source.is(DamageTypes.STARVE) || source.is(DamageTypes.IN_WALL) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.ON_FIRE) || source.is(DamageTypes.FREEZE)) {;
                 event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * entity.getMaxHealth() / 2)));
             }
         }
