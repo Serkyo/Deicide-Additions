@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 public class MobEffectMixin {
 
     @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V", ordinal = 0))
-    public float modifyRegeneration(float defaultValue, @Local(argsOnly = true) LivingEntity entity){
+    public float modifyRegeneration(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player){
             return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth() / 3));
         }
@@ -20,17 +20,57 @@ public class MobEffectMixin {
     }
 
     @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 0))
-    public float modifyPoison(float defaultValue, @Local(argsOnly = true) LivingEntity entity){
+    public float modifyPoison(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player){
             return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getHealth() / 2));
         }
         return defaultValue;
     }
 
-    @ModifyArg(method = "applyEffectTick" ,at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 1))
+    @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 1))
     public float modifyWither(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player){
             return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth() / 3));
+        }
+        return defaultValue;
+    }
+
+    @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 2))
+    public float modifyInstantDamage1(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
+        if (entity instanceof Player) {
+            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth() / 2));
+        }
+        return defaultValue;
+    }
+
+    @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V", ordinal = 1))
+    public float modifyInstantHealth1(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
+        if (entity instanceof Player) {
+            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth()));
+        }
+        return defaultValue;
+    }
+
+    @ModifyArg(method = "applyInstantenousEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 0))
+    public float modifyInstantDamage2(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
+        if (entity instanceof Player) {
+            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth() / 2));
+        }
+        return defaultValue;
+    }
+
+    @ModifyArg(method = "applyInstantenousEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", ordinal = 1))
+    public float modifyInstantDamage3(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
+        if (entity instanceof Player) {
+            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth() / 2));
+        }
+        return defaultValue;
+    }
+
+    @ModifyArg(method = "applyInstantenousEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V"))
+    public float modifyInstantHealth2(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
+        if (entity instanceof Player) {
+            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth()));
         }
         return defaultValue;
     }
