@@ -193,8 +193,8 @@ dependencies {
 
 mixin {
     // MixinGradle Settings
-    add sourceSets.main, 'mixins.deicide.refmap.json'
-    config 'mixins.deicide.json'
+    add sourceSets.main, 'deicideadditions.refmap.json'
+    config 'mixins.deicideadditions.json'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
