@@ -2,8 +2,12 @@
   "required": true,
   "compatibilityLevel": "JAVA_17",
   "package": "com.serkyo.deicideadditions.mixin",
-  "refmap" : "deicideadditions.mixin-refmap.json",
+  "refmap": "deicideadditions.mixin-refmap.json",
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "FoodDataMixin",
+    "MobEffectMixin"
+  ]
 }
