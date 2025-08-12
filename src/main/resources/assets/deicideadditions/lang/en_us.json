@@ -4,5 +4,6 @@
   "item.deicideadditions.diamond_sheet": "Diamond Sheet",
   "item.deicideadditions.rough_diamond": "Rough Diamond",
   "item.deicideadditions.leather_chunk": "Leather Chunk",
-  "item.deicideadditions.leather_scrap": "Leather Scrap"
+  "item.deicideadditions.leather_scrap": "Leather Scrap",
+  "effect.deicideadditions.corrupting_presence": "Corrupting Presence"
 }

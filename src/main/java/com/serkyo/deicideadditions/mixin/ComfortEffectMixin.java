@@ -9,7 +9,6 @@ import vectorwing.farmersdelight.common.effect.ComfortEffect;
 
 @Mixin(ComfortEffect.class)
 public class ComfortEffectMixin {
-
     /**
      * @author Serkyo
      * @reason Natural healing disabled, so no need to check for saturation, and scaling on max health instead of a flat value
