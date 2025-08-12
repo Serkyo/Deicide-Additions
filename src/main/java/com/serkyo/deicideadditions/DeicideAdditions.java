@@ -2,6 +2,7 @@ package com.serkyo.deicideadditions;
 
 import com.mojang.logging.LogUtils;
 import com.serkyo.deicideadditions.core.CreativeTab;
+import com.serkyo.deicideadditions.core.Effects;
 import com.serkyo.deicideadditions.core.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,6 +28,7 @@ public class DeicideAdditions {
 
         CreativeTab.register(modEventBus);
         Items.register(modEventBus);
+        Effects.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

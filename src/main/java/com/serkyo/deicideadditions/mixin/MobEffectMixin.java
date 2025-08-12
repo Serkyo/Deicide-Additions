@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(MobEffect.class)
 public class MobEffectMixin {
-
     @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V", ordinal = 0))
     public float modifyRegeneration(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player){

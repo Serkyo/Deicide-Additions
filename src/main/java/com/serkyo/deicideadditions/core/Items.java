@@ -12,16 +12,12 @@ public class Items {
 
     public static final RegistryObject<Item> DIVINITY_FRAGMENT = ITEMS.register("divinity_fragment",
             () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> DIAMOND_SHEET = ITEMS.register("diamond_sheet",
             () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> ROUGH_DIAMOND = ITEMS.register("rough_diamond",
             () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> LEATHER_CHUNK = ITEMS.register("leather_chunk",
             () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap",
             () -> new Item(new Item.Properties()));
 
