@@ -21,7 +21,7 @@ public class ComfortEffectMixin {
         }
         if (entity.getHealth() < entity.getMaxHealth()) {
             if (entity instanceof Player) {
-                entity.heal((float) Math.max(1.0, Math.ceil(0.05 * entity.getHealth() / 2)));
+                entity.heal((float) Math.max(1.0, Math.ceil(0.05 * entity.getMaxHealth() / 2)));
             } else {
                 entity.heal(1.0F);
             }
