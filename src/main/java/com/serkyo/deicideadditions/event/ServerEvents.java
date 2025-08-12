@@ -15,8 +15,8 @@ public class ServerEvents {
     public static void onLivingDamage(LivingDamageEvent event) {
         DamageSource source = event.getSource();
         LivingEntity entity = event.getEntity();
-        if (entity instanceof Player){
-            if (source.is(DamageTypes.STARVE) || source.is(DamageTypes.IN_WALL) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.ON_FIRE) || source.is(DamageTypes.FREEZE) || source.is(DamageTypes.HOT_FLOOR) || source.is(DamageTypes.LAVA)) {;
+        if (entity instanceof Player) {
+            if (source.is(DamageTypes.STARVE) || source.is(DamageTypes.IN_WALL) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.ON_FIRE) || source.is(DamageTypes.FREEZE) || source.is(DamageTypes.HOT_FLOOR) || source.is(DamageTypes.LAVA) || source.is(DamageTypes.IN_FIRE)) {;
                 event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * entity.getMaxHealth() / 3)));
             }
         }
