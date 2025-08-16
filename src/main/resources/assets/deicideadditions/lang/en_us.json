@@ -3,7 +3,8 @@
   "item.deicideadditions.divinity_fragment": "Divinity Fragment",
   "item.deicideadditions.diamond_sheet": "Diamond Sheet",
   "item.deicideadditions.rough_diamond": "Rough Diamond",
-  "item.deicideadditions.leather_chunk": "Leather Chunk",
+  "item.deicideadditions.putrid_hide": "Putrid Hide",
   "item.deicideadditions.leather_scrap": "Leather Scrap",
-  "effect.deicideadditions.corrupting_presence": "Corrupting Presence"
+  "effect.deicideadditions.corrupting_presence": "Corrupting Presence",
+  "effect.deicideadditions.corrupting_presence.description": "An oppressive aura smothers your vitality, preventing the comfort effect from being applied"
 }

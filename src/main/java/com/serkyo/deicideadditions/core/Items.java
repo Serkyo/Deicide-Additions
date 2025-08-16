@@ -16,7 +16,7 @@ public class Items {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ROUGH_DIAMOND = ITEMS.register("rough_diamond",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LEATHER_CHUNK = ITEMS.register("leather_chunk",
+    public static final RegistryObject<Item> PUTRID_HIDE = ITEMS.register("putrid_hide",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap",
             () -> new Item(new Item.Properties()));
