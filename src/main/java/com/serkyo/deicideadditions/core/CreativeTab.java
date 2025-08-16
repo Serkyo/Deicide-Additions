@@ -19,7 +19,7 @@ public class CreativeTab {
                         pOutput.accept(Items.DIVINITY_FRAGMENT.get());
                         pOutput.accept(Items.DIAMOND_SHEET.get());
                         pOutput.accept(Items.ROUGH_DIAMOND.get());
-                        pOutput.accept(Items.LEATHER_CHUNK.get());
+                        pOutput.accept(Items.PUTRID_HIDE.get());
                         pOutput.accept(Items.LEATHER_SCRAP.get());
                     })
                     .build());
