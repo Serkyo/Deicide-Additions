@@ -58,11 +58,6 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-mixin {
-    add sourceSets.main, 'deicideadditions.refmap.json'
-    config 'mixins.deicideadditions.json'
-}
-
 repositories {
     // Create
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
@@ -121,6 +116,11 @@ dependencies {
     // Curios
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+}
+
+mixin {
+    add sourceSets.main, 'deicideadditions.refmap.json'
+    config 'mixins.deicideadditions.json'
 }
 
 tasks.named('processResources', ProcessResources).configure {
