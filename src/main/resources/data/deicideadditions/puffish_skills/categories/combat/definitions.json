@@ -159,6 +159,26 @@
             }
         ]
     },
+    "spell_damage": {
+      "title": "+5% Spell Damage",
+      "icon": {
+        "type": "item",
+        "data": {
+          "item": "irons_spellbooks:energized_core"
+        }
+      },
+      "size": 0.75,
+      "rewards": [
+        {
+          "type": "puffish_skills:attribute",
+          "data": {
+            "attribute": "irons_spellbooks:spell_power",
+            "value": 0.05,
+            "operation": "multiply_base"
+          }
+        }
+      ]
+    },
     "holy_spell_damage": {
         "title": "+5% Holy Spell Damage",
         "icon": {
