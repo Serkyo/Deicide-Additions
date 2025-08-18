@@ -852,25 +852,25 @@
 		"root": false
 	},
 	"6dbg7d8a9hex62ej": {
-		"definition": "armor_shred",
+		"definition": "melee_damage",
 		"x": -220,
 		"y": 240,
 		"root": false
 	},
 	"yt7833d36w0taq7j": {
-		"definition": "armor_shred",
+		"definition": "attack_speed",
 		"x": 220,
 		"y": 240,
 		"root": false
 	},
 	"9lzops34ox2oizoz": {
-		"definition": "armor_shred",
+		"definition": "attack_speed",
 		"x": 180,
 		"y": 280,
 		"root": false
 	},
 	"9xdue0ykd02j7iw3": {
-		"definition": "armor_shred",
+		"definition": "melee_damage",
 		"x": -180,
 		"y": 280,
 		"root": false
@@ -2106,13 +2106,13 @@
 		"root": false
 	},
 	"pkfk69ogorcsu2q4": {
-		"definition": "armor_shred",
+		"definition": "melee_damage",
 		"x": -300,
 		"y": 260,
 		"root": false
 	},
 	"6x2klj1c86h3abxh": {
-		"definition": "armor_shred",
+		"definition": "melee_damage",
 		"x": -260,
 		"y": 260,
 		"root": false
@@ -2250,13 +2250,13 @@
 		"root": false
 	},
 	"y5xiasaadnbyma5o": {
-		"definition": "armor_shred",
+		"definition": "attack_speed",
 		"x": 260,
 		"y": 260,
 		"root": false
 	},
 	"qm70zm4iezudovbh": {
-		"definition": "armor_shred",
+		"definition": "attack_speed",
 		"x": 300,
 		"y": 260,
 		"root": false
@@ -3168,13 +3168,13 @@
 		"root": false
 	},
 	"bphpesbqfh984pru": {
-		"definition": "melee_damage",
+		"definition": "armor_shred",
 		"x": -80,
 		"y": 400,
 		"root": false
 	},
 	"04wqulmha778jwhh": {
-		"definition": "melee_damage",
+		"definition": "armor_shred",
 		"x": -100,
 		"y": 440,
 		"root": false
@@ -3186,7 +3186,7 @@
 		"root": false
 	},
 	"gy3ikd7ie9xo6mjr": {
-		"definition": "melee_damage",
+		"definition": "armor_shred",
 		"x": -120,
 		"y": 500,
 		"root": false
@@ -3348,7 +3348,7 @@
 		"root": false
 	},
 	"sl7xcyfqeyp16von": {
-		"definition": "melee_damage",
+		"definition": "armor_shred",
 		"x": -180,
 		"y": 520,
 		"root": false
@@ -3414,19 +3414,19 @@
 		"root": false
 	},
 	"avziiayrxizhpbh5": {
-		"definition": "attack_speed",
+		"definition": "armor_shred",
 		"x": 80,
 		"y": 400,
 		"root": false
 	},
 	"wnfg5hrwtfj1qynu": {
-		"definition": "attack_speed",
+		"definition": "armor_shred",
 		"x": 100,
 		"y": 440,
 		"root": false
 	},
 	"ier4oc5tn455e8bf": {
-		"definition": "attack_speed",
+		"definition": "armor_shred",
 		"x": 120,
 		"y": 500,
 		"root": false
@@ -3633,6 +3633,12 @@
 		"definition": "spell_damage",
 		"x": 580,
 		"y": -300,
+		"root": false
+	},
+	"1u6xp9qeje3l4vz8": {
+		"definition": "armor_shred",
+		"x": 180,
+		"y": 500,
 		"root": false
 	}
 }
