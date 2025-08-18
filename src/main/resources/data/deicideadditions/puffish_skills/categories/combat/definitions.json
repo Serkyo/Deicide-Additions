@@ -14,7 +14,7 @@
                 "data": {
                     "attribute": "minecraft:generic.attack_damage",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -34,7 +34,7 @@
                 "data": {
                     "attribute": "projectile_damage:generic",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -114,7 +114,7 @@
                 "data": {
                     "attribute": "minecraft:generic.armor",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -174,7 +174,7 @@
           "data": {
             "attribute": "irons_spellbooks:spell_power",
             "value": 0.05,
-            "operation": "multiply_base"
+            "operation": "multiply_total"
           }
         }
       ]
@@ -194,7 +194,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:holy_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -214,7 +214,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:lightning_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -234,7 +234,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:fire_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -254,7 +254,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:ice_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -274,7 +274,7 @@
                 "data": {
                     "attribute": "traveloptics:aqua_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -294,7 +294,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:nature_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -314,7 +314,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:blood_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -334,7 +334,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:evocation_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -354,7 +354,7 @@
                 "data": {
                     "attribute": "alshanex_familiars:sound_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -374,7 +374,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:ender_spell_power",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -394,7 +394,7 @@
                 "data": {
                     "attribute": "epicfight:staminar",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -414,7 +414,7 @@
                 "data": {
                     "attribute": "epicfight:stamina_regen",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -474,7 +474,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:cast_time_reduction",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -514,7 +514,7 @@
                 "data": {
                     "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -534,7 +534,7 @@
                 "data": {
                     "attribute": "generic.attack_speed",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -554,7 +554,7 @@
                 "data": {
                     "attribute": "generic.max_health",
                     "value": 0.05,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -600,7 +600,7 @@
                 "data": {
                     "attribute": "minecraft:generic.attack_damage",
                     "value": 0.15,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             },
             {
@@ -608,7 +608,7 @@
                 "data": {
                     "attribute": "generic.attack_speed",
                     "value": 0.1,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             },
             {
@@ -616,7 +616,7 @@
                 "data": {
                     "attribute": "epicfight:staminar",
                     "value": 0.2,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -642,7 +642,7 @@
                 "data": {
                     "attribute": "projectile_damage:generic",
                     "value": 0.15,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             },
             {
@@ -676,7 +676,7 @@
                 "data": {
                     "attribute": "irons_spellbooks:spell_power",
                     "value": 0.15,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             },
             {
@@ -692,7 +692,7 @@
                 "data": {
                     "attribute": "ars_nouveau:ars_nouveau.perk.mana_regen",
                     "value": 0.2,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             }
         ]
@@ -718,7 +718,7 @@
                 "data": {
                     "attribute": "minecraft:generic.armor",
                     "value": 0.15,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             },
             {
@@ -726,7 +726,7 @@
                 "data": {
                     "attribute": "epicfight:staminar",
                     "value": 0.2,
-                    "operation": "multiply_base"
+                    "operation": "multiply_total"
                 }
             },
             {
