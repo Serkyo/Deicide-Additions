@@ -1002,7 +1002,7 @@
 		"root": false
 	},
 	"dlfvulv4cupn5mwm": {
-		"definition": "life_steal",
+		"definition": "overheal",
 		"x": 40,
 		"y": -180,
 		"root": false
@@ -2652,7 +2652,7 @@
 		"root": false
 	},
 	"g14dyq94dpqq6xxs": {
-		"definition": "life_steal",
+		"definition": "spell_damage",
 		"x": 0,
 		"y": -580,
 		"root": false
