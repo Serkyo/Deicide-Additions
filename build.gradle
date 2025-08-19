@@ -116,6 +116,8 @@ dependencies {
     // Curios
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    // Epic Fight
+    implementation fg.deobf("curse.maven:epic-fight-mod-405076:${epicfight_version}")
 }
 
 mixin {
