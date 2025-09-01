@@ -1389,31 +1389,6 @@
             }
         ]
     },
-    "ef_endurance": {
-        "title": "Endurance",
-        "description": "If you get hit while preparing an attack, you gain stun resistance by consuming your stamina.\n\nCost : 30% of current stamina\nCooldown : 12s\n+1 Heart\n+4 Stamina",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:stick"
-            }
-        },
-        "frame": {
-            "type": "advancement",
-            "data": {
-                "frame": "challenge"
-            }
-        },
-        "rewards": [
-            {
-                "type": "puffish_skills:command",
-                "data": {
-                    "unlock_command": "epicfight skill add @s passive3 epicfight:endurance",
-                    "lock_command": "epicfight skill remove @s passive3 epicfight:endurance"
-                }
-            }
-        ]
-    },
     "ef_hyper_vitality": {
         "title": "Hyper Vitality",
         "description": "You can use your stamina instead of your weapon charge when it is not full.\nThe stamina cost depends on the weapon used\n\nCooldown : 6s\n+2 Heart\n+2 Stamina",

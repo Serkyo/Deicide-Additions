@@ -119,12 +119,6 @@
 		"y": -500,
 		"root": false
 	},
-	"d8vweouydn76w4ii": {
-		"definition": "ef_critical_knowledge",
-		"x": 0,
-		"y": 0,
-		"root": false
-	},
 	"69drerzcyyv1i0np": {
 		"definition": "ef_latent_retribution",
 		"x": -480,
@@ -156,7 +150,7 @@
 		"root": false
 	},
 	"5pb19d44s561ezpw": {
-		"definition": "ef_endurance",
+		"definition": "ef_critical_knowledge",
 		"x": 480,
 		"y": -400,
 		"root": false
