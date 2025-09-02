@@ -1,9 +1,9 @@
 package com.serkyo.deicideadditions;
 
 import com.mojang.logging.LogUtils;
-import com.serkyo.deicideadditions.core.CreativeTab;
-import com.serkyo.deicideadditions.core.Effects;
-import com.serkyo.deicideadditions.core.Items;
+import com.serkyo.deicideadditions.core.DeicideCreativeTab;
+import com.serkyo.deicideadditions.core.DeicideEffects;
+import com.serkyo.deicideadditions.core.DeicideItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -26,9 +26,9 @@ public class DeicideAdditions {
     public DeicideAdditions(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        CreativeTab.register(modEventBus);
-        Items.register(modEventBus);
-        Effects.register(modEventBus);
+        DeicideCreativeTab.register(modEventBus);
+        DeicideItems.register(modEventBus);
+        DeicideEffects.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

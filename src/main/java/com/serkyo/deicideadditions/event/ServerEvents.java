@@ -1,7 +1,7 @@
 package com.serkyo.deicideadditions.event;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.core.Effects;
+import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -44,7 +44,7 @@ public class ServerEvents {
             if (player.tickCount % 40 == 0) {
                 boolean nearBoss = !player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(64), e -> e.getType().is(Tags.EntityTypes.BOSSES)).isEmpty();
                 if (nearBoss) {
-                    player.addEffect(new MobEffectInstance(Effects.CORRUPTING_PRESENCE_EFFECT.get(), 100, 0, true, true));
+                    player.addEffect(new MobEffectInstance(DeicideEffects.CORRUPTING_PRESENCE_EFFECT.get(), 100, 0, true, true));
                 }
             }
         }

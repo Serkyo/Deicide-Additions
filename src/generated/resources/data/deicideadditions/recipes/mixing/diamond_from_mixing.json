@@ -2,13 +2,13 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "deicideadditions:rough_diamond"
-    },
-    {
-      "item": "deicideadditions:rough_diamond"
-    },
-    {
       "item": "born_in_chaos_v1:diamond_termite_shard"
+    },
+    {
+      "item": "deicideadditions:rough_diamond"
+    },
+    {
+      "item": "deicideadditions:rough_diamond"
     }
   ],
   "results": [
