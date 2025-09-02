@@ -9,7 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class Effects {
+public class DeicideEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, DeicideAdditions.MOD_ID);
 
     public static final RegistryObject<MobEffect> CORRUPTING_PRESENCE_EFFECT = MOB_EFFECTS.register("corrupting_presence",

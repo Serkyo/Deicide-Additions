@@ -1,82 +1,41 @@
 {
-  "replace": false,
-  "values": [
-    "#minecraft:needs_stone_tool",
-    {
-      "id": "minecraft:copper_ore",
-      "required": false
-    },
-    {
-      "id": "minecraft:deepslate_copper_ore",
-      "required": false
-    },
-    {
-      "id": "minecraft:copper_block",
-      "required": false
-    },
-    {
-      "id": "minecraft:exposed_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:weathered_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:oxidized_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:cut_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:exposed_cut_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:weathered_cut_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:oxidized_cut_copper",
-      "required": false
-    },
-    {
-      "id": "minecraft:cut_copper_slab",
-      "required": false
-    },
-    {
-      "id": "minecraft:exposed_cut_copper_slab",
-      "required": false
-    },
-    {
-      "id": "minecraft:weathered_cut_copper_slab",
-      "required": false
-    },
-    {
-      "id": "minecraft:oxidized_cut_copper_slab",
-      "required": false
-    },
-    {
-      "id": "minecraft:cut_copper_stairs",
-      "required": false
-    },
-    {
-      "id": "minecraft:exposed_cut_copper_stairs",
-      "required": false
-    },
-    {
-      "id": "minecraft:weathered_cut_copper_stairs",
-      "required": false
-    },
-    {
-      "id": "minecraft:oxidized_cut_copper_stairs",
-      "required": false
-    },
-    {
-      "id": "minecraft:raw_copper_block",
-      "required": false
-    }
-  ]
+  "remove": [
+    "minecraft:copper_block",
+    "minecraft:raw_copper_block",
+    "minecraft:copper_ore",
+    "minecraft:deepslate_copper_ore",
+    "minecraft:cut_copper_slab",
+    "minecraft:cut_copper_stairs",
+    "minecraft:cut_copper",
+    "minecraft:weathered_copper",
+    "minecraft:weathered_cut_copper_slab",
+    "minecraft:weathered_cut_copper_stairs",
+    "minecraft:weathered_cut_copper",
+    "minecraft:oxidized_copper",
+    "minecraft:oxidized_cut_copper_slab",
+    "minecraft:oxidized_cut_copper_stairs",
+    "minecraft:oxidized_cut_copper",
+    "minecraft:exposed_copper",
+    "minecraft:exposed_cut_copper_slab",
+    "minecraft:exposed_cut_copper_stairs",
+    "minecraft:exposed_cut_copper",
+    "minecraft:waxed_copper_block",
+    "minecraft:waxed_cut_copper_slab",
+    "minecraft:waxed_cut_copper_stairs",
+    "minecraft:waxed_cut_copper",
+    "minecraft:waxed_weathered_copper",
+    "minecraft:waxed_weathered_cut_copper_slab",
+    "minecraft:waxed_weathered_cut_copper_stairs",
+    "minecraft:waxed_weathered_cut_copper",
+    "minecraft:waxed_exposed_copper",
+    "minecraft:waxed_exposed_cut_copper_slab",
+    "minecraft:waxed_exposed_cut_copper_stairs",
+    "minecraft:waxed_exposed_cut_copper",
+    "minecraft:waxed_oxidized_copper",
+    "minecraft:waxed_oxidized_cut_copper_slab",
+    "minecraft:waxed_oxidized_cut_copper_stairs",
+    "minecraft:waxed_oxidized_cut_copper",
+    "minecraft:lightning_rod"
+  ],
+  "values" : []
 }
