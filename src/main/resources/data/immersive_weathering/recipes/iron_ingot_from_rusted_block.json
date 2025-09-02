@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "immersive_weathering:rusted_iron_smelting"
+  },
+  "result": "minecraft:air",
+  "experience": 0.15,
+  "cookingtime": 200
+}
