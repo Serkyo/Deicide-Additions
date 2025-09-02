@@ -2,10 +2,10 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.1,
-  "group": "coal",
+  "experience": 0.7,
+  "group": "silver_ingot",
   "ingredient": {
-    "item": "minecraft:deepslate_coal_ore"
+    "item": "galosphere:silver_ore"
   },
   "result": "minecraft:air"
 }

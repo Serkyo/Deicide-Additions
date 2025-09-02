@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "experience": 10,
+  "cookingtime": 800,
+  "ingredient": {
+    "item": "seadwellers:copper_relics"
+  },
+  "result": "minecraft:copper_ingot"
+}
