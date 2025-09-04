@@ -120,6 +120,10 @@ dependencies {
     // Curios
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    // Questlog
+    implementation fg.deobf("curse.maven:questlog-${questlog_version}")
+    // Legendary tabs
+    implementation fg.deobf("curse.maven:legendary-tabs-${legendarytabs_version}")
 }
 
 mixin {
