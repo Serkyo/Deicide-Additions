@@ -11,6 +11,7 @@
     "ComfortEffectMixin",
     "LivingEntityMixin",
     "MobEffectMixin",
-    "MobEffectsMixin"
+    "MobEffectsMixin",
+    "RecoveryEffectMixin"
   ]
 }

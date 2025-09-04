@@ -2,10 +2,16 @@ package com.serkyo.deicideadditions.datagen;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideItems;
+import com.serkyo.deicideadditions.core.DeicideTags;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
+import com.simibubi.create.foundation.data.recipe.Mods;
 import net.mcreator.borninchaosv.init.BornInChaosV1ModItems;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluids;
+import plus.dragons.createenchantmentindustry.entry.CeiFluids;
 
 public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
     public DeicideMixingRecipeGenerator(PackOutput output) {
@@ -17,4 +23,28 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(DeicideItems.ROUGH_DIAMOND.get())
             .require(DeicideItems.ROUGH_DIAMOND.get())
             .output(Items.DIAMOND, 3));
+    GeneratedRecipe LIQUID_EXPERIENCE_FROM_SCULK = create("liquid_experience_from_mixing_sculk", b -> b
+            .require(Fluids.WATER, 100)
+            .require(Blocks.SCULK)
+            .require(Blocks.SCULK)
+            .require(Blocks.SCULK)
+            .require(Blocks.SCULK)
+            .require(Blocks.SCULK)
+            .output(CeiFluids.EXPERIENCE.get(), 10));
+    GeneratedRecipe LIQUID_EXPERIENCE_FROM_CATALYST = create("liquid_experience_from_mixing_sculk_catalyst", b -> b
+            .require(Fluids.WATER, 100)
+            .require(Blocks.SCULK_CATALYST)
+            .output(CeiFluids.EXPERIENCE.get(), 10));
+    GeneratedRecipe LIQUID_EXPERIENCE_FROM_SENSOR = create("liquid_experience_from_mixing_sculk_sensor", b -> b
+            .require(Fluids.WATER, 100)
+            .require(Blocks.SCULK_SENSOR)
+            .output(CeiFluids.EXPERIENCE.get(), 10));
+    GeneratedRecipe LIQUID_EXPERIENCE_FROM_SHRIEKER = create("liquid_experience_from_mixing_sculk_shrieker", b -> b
+            .require(Fluids.WATER, 100)
+            .require(Blocks.SCULK_SHRIEKER)
+            .output(CeiFluids.EXPERIENCE.get(), 50));
+    GeneratedRecipe LIQUID_EXPERIENCE_FROM_INFECTION = create("liquid_experience_from_mixing_infection", b -> b
+            .require(Fluids.WATER, 100)
+            .require(DeicideTags.Items.SCULK_INFESTED)
+            .output(CeiFluids.EXPERIENCE.get(), 20));
 }

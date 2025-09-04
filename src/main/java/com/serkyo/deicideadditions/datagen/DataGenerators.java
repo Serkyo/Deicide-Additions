@@ -4,6 +4,7 @@ import com.serkyo.deicideadditions.DeicideAdditions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,5 +25,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new DeicideItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new DeicideMixingRecipeGenerator(packOutput));
         generator.addProvider(event.includeServer(), new DeicidePressingRecipeGenerator(packOutput));
+        BlockTagsProvider blockTagsProvider = new DeicideBlockTagGenerator(packOutput, lookupProvider, existingFileHelper);
+        generator.addProvider(event.includeServer(), blockTagsProvider);
+        generator.addProvider(event.includeServer(), new DeicideItemTagGenerator(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
     }
 }
