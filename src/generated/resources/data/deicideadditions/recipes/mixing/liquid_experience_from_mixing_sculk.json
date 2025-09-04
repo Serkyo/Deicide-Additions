@@ -11,12 +11,6 @@
       "item": "minecraft:sculk"
     },
     {
-      "item": "minecraft:sculk"
-    },
-    {
-      "item": "minecraft:sculk"
-    },
-    {
       "amount": 100,
       "fluid": "minecraft:water",
       "nbt": {}
