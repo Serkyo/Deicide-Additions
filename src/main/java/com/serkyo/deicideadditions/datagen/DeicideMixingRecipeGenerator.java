@@ -4,6 +4,7 @@ import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideItems;
 import com.serkyo.deicideadditions.core.DeicideTags;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
+import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.foundation.data.recipe.Mods;
 import net.mcreator.borninchaosv.init.BornInChaosV1ModItems;
 import net.minecraft.data.PackOutput;
@@ -28,8 +29,6 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(Blocks.SCULK)
             .require(Blocks.SCULK)
             .require(Blocks.SCULK)
-            .require(Blocks.SCULK)
-            .require(Blocks.SCULK)
             .output(CeiFluids.EXPERIENCE.get(), 10));
     GeneratedRecipe LIQUID_EXPERIENCE_FROM_CATALYST = create("liquid_experience_from_mixing_sculk_catalyst", b -> b
             .require(Fluids.WATER, 100)
@@ -46,5 +45,6 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
     GeneratedRecipe LIQUID_EXPERIENCE_FROM_INFECTION = create("liquid_experience_from_mixing_infection", b -> b
             .require(Fluids.WATER, 100)
             .require(DeicideTags.Items.SCULK_INFESTED)
-            .output(CeiFluids.EXPERIENCE.get(), 20));
+            .output(CeiFluids.EXPERIENCE.get(), 20)
+            .requiresHeat(HeatCondition.HEATED));
 }

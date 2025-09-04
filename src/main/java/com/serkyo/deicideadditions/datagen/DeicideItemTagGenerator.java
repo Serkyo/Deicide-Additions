@@ -28,6 +28,7 @@ public class DeicideItemTagGenerator extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(DeicideTags.Items.SCULK_INFESTED)
+                .add(ModBlocks.INFESTED_CRYING_OBSIDIAN.get().asItem())
                 .add(ModBlocks.CALCITE_ORE.get().asItem())
                 .add(ModBlocks.SCULK_ANCIENT_NODE_BLOCK.get().asItem())
                 .add(ModBlocks.SCULK_NODE_BLOCK.get().asItem())
