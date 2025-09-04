@@ -1,6 +1,7 @@
 package com.serkyo.deicideadditions;
 
 import com.mojang.logging.LogUtils;
+import com.serkyo.deicideadditions.client.tabs_menu.QuestlogTab;
 import com.serkyo.deicideadditions.core.DeicideCreativeTab;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.core.DeicideItems;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import sfiomn.legendarytabs.api.tabs_menu.TabsMenu;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(DeicideAdditions.MOD_ID)
@@ -50,7 +52,7 @@ public class DeicideAdditions {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            TabsMenu.register(new QuestlogTab());
         }
     }
 }

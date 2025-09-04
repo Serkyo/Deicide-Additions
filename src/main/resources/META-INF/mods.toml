@@ -221,6 +221,18 @@ description='''${mod_description}'''
     versionRange="[1.20.1-0.10.5,1.20.1-0.11)"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="questlog"
+    mandatory=true
+    versionRange="[1.0.2,1.1)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="legendarytabs"
+    mandatory=true
+    versionRange="[1.20.1-1.1.3.1,1.20.1-1.2)"
+    ordering="AFTER"
+    side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
