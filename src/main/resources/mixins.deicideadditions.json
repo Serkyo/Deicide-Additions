@@ -13,6 +13,10 @@
     "LivingEntityMixin",
     "MobEffectMixin",
     "MobEffectsMixin",
-    "RecoveryEffectMixin"
+    "RecoveryEffectMixin",
+    "spells.BlessingOfLifeMixin",
+    "spells.GreaterHealSpellMixin",
+    "spells.HealingAoeMixin",
+    "spells.HealSpellMixin"
   ]
 }

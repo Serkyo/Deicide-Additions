@@ -18,7 +18,6 @@ import java.util.List;
 
 @Mixin(CampfireBlockEntity.class)
 public class CampfireBlockEntityMixin {
-
     @Inject(method = "cookTick", at = @At(value = "HEAD"))
     private static void campfireEffect(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
         if (level.getGameTime() % 40 == 0) {
@@ -27,7 +26,7 @@ public class CampfireBlockEntityMixin {
 
             for (Player player : nearby_players) {
                 if (!player.hasEffect(DeicideEffects.CORRUPTING_PRESENCE_EFFECT.get())) {
-                    player.addEffect(new MobEffectInstance(ModEffects.COMFORT.get(), 200, 0, true, true));
+                    player.addEffect(new MobEffectInstance(ModEffects.COMFORT.get(), 100, 0, true, true));
                 }
             }
         }
