@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import sfiomn.legendarysurvivaloverhaul.registry.MobEffectRegistry;
 
 @Mixin(BlessingOfLifeSpell.class)
-public class BlessingOfLifeMixin {
+public class BlessingOfLifeSpellMixin {
     @Inject(method = "onCast", at = @At(value = "TAIL"), remap = false)
     private void painkillerEffect(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci) {
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData healTargetingData) {

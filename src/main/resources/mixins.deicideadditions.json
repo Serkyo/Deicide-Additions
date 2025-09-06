@@ -14,7 +14,7 @@
     "MobEffectMixin",
     "MobEffectsMixin",
     "RecoveryEffectMixin",
-    "spells.BlessingOfLifeMixin",
+    "spells.BlessingOfLifeSpellMixin",
     "spells.GreaterHealSpellMixin",
     "spells.HealingAoeMixin",
     "spells.HealSpellMixin"
