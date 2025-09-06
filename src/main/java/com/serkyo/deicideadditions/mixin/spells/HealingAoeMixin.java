@@ -13,7 +13,7 @@ import sfiomn.legendarysurvivaloverhaul.api.bodydamage.BodyPartEnum;
 
 @Mixin(HealingAoe.class)
 public class HealingAoeMixin {
-    @Inject(method = "applyEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V"), remap = false)
+    @Inject(method = "applyEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V"))
     private void bodyPartScaling(LivingEntity target, CallbackInfo ci, @Local float healAmount) {
         if (target instanceof Player player) {
             BodyPartEnum lowestHp = null;

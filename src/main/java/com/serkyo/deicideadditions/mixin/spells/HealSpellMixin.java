@@ -19,7 +19,7 @@ import java.util.Map;
 
 @Mixin(HealSpell.class)
 public class HealSpellMixin {
-    @Inject(method = "onCast", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V"), remap = false)
+    @Inject(method = "onCast", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V"))
     private void bodyPartScaling(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci, @Local float healAmount) {
         if (entity instanceof Player player) {
             Map<BodyPartEnum, Float> healthPercentages = Map.of(
