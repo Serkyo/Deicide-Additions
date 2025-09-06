@@ -34,7 +34,6 @@ public class HealSpellMixin {
             );
             for(BodyPartEnum part : BodyPartEnum.values()) {
                 BodyDamageUtil.healBodyPart(player, part, healAmount / 2 * healthPercentages.get(part));
-                System.out.println("Healed " + part.name() + " for " + healAmount / 2 * healthPercentages.get(part));
             }
         }
     }
