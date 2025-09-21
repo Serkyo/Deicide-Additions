@@ -1,5 +1,7 @@
 package com.serkyo.deicideadditions.event;
 
+import com.github.sculkhorde.core.ModSavedData;
+import com.lion.graveyard.entities.LichEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.world.damagesource.DamageSource;
@@ -11,6 +13,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import sfiomn.legendarysurvivaloverhaul.api.ModDamageTypes;
@@ -35,6 +38,14 @@ public class ServerEvents {
                     source.is(ModDamageTypes.HYPOTHERMIA)) {;
                 event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * entity.getMaxHealth() / 3)));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (entity instanceof LichEntity) {
+            ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
         }
     }
 

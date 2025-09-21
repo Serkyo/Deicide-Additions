@@ -68,175 +68,181 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="create"
     mandatory=true
-    versionRange="[6.0.6,6.1)"
+    versionRange="[6.0.6-150]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="diet"
     mandatory=false
-    versionRange="[2.1.1,2.2)"
+    versionRange="[2.1.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="skillsmod"
     mandatory=false
-    versionRange="[0.16.5,1)"
+    versionRange="[0.16.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="epicfight"
     mandatory=false
-    versionRange="[20.9,20.13)"
+    versionRange="[20.9]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="quark"
     mandatory=false
-    versionRange="[4.0-462,4.1)"
+    versionRange="[4.0-462]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="alexcaves"
     mandatory=false
-    versionRange="[2.0.2,2.1)"
+    versionRange="[2.0.2]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="apotheotic_additions"
     mandatory=false
-    versionRange="[2.2.2,2.3)"
+    versionRange="[2.2.2]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="aquaculture"
     mandatory=false
-    versionRange="[2.5.5,2.6)"
+    versionRange="[2.5.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="cataclysm"
     mandatory=false
-    versionRange="[3.16,3.17)"
+    versionRange="[3.16]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="delightful"
     mandatory=false
-    versionRange="[3.7.4,3.8)"
+    versionRange="[3.7.4]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="enigmaticlegacy"
     mandatory=false
-    versionRange="[2.30.1,2.31)"
+    versionRange="[2.30.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="epic_knights_ores_and_alloys"
     mandatory=false
-    versionRange="[1.1,1.2)"
+    versionRange="[1.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="farmersdelight"
     mandatory=true
-    versionRange="[1.20.1-1.2.8,1.20.1-1.3)"
+    versionRange="[1.20.1-1.2.9]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="galosphere"
     mandatory=false
-    versionRange="[1.20.1-1.4.1,1.20.1-1.5)"
+    versionRange="[1.20.1-1.4.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="iceandfire"
     mandatory=false
-    versionRange="[2.1.13,2.2)"
+    versionRange="[2.1.13]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="immersive_weathering"
     mandatory=false
-    versionRange="[1.20.1-2.0.5,1.20.1-2.1)"
+    versionRange="[1.20.1-2.0.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="mofus_better_end_"
     mandatory=false
-    versionRange="[1.0,1.1)"
+    versionRange="[1.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="mowziesmobs"
     mandatory=false
-    versionRange="[1.7.3,1.8)"
+    versionRange="[1.7.3]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="netherexp"
     mandatory=false
-    versionRange="[2.3.5,2.4)"
+    versionRange="[2.3.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="nethersdelight"
     mandatory=false
-    versionRange="[1.20.1-4.0,1.20.1-4.1)"
+    versionRange="[1.20.1-4.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="royalvariations"
     mandatory=false
-    versionRange="[1.0,1.1)"
+    versionRange="[1.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="seadwellers"
     mandatory=false
-    versionRange="[2.9.9,2.10)"
+    versionRange="[2.9.9]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="stalwart_dungeons"
     mandatory=false
-    versionRange="[1.2.8,1.3)"
+    versionRange="[1.2.8]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="create_enchantment_industry"
     mandatory=true
-    versionRange="[1.3.3,1.4)"
+    versionRange="[1.3.3-for-create-6.0.6]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="sculkhorde"
     mandatory=true
-    versionRange="[1.20.1-0.10.5,1.20.1-0.11)"
+    versionRange="[1.20.1-0.10.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="questlog"
     mandatory=true
-    versionRange="[1.0.2,1.1)"
+    versionRange="[1.0.2]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="legendarytabs"
     mandatory=true
-    versionRange="[1.20.1-1.1.3.1,1.20.1-1.2)"
+    versionRange="[1.20.1-1.1.3.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="irons_spellbooks"
     mandatory=true
-    versionRange="[1.20.1-3.4.0.10,1.20.1-3.5)"
+    versionRange="[1.20.1-3.4.0.10]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="legendarysurvivaloverhaul"
     mandatory=true
-    versionRange="[1.20.1-2.3.22,1.20.1-2.4)"
+    versionRange="[1.20.1-2.3.22]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="graveyard"
+    mandatory=true
+    versionRange="[3.1]"
     ordering="AFTER"
     side="BOTH"
 
