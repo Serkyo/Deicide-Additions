@@ -44,6 +44,9 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
+        if (entity.getType().is(Tags.EntityTypes.BOSSES)) {
+
+        }
         if (entity instanceof LichEntity) {
             ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
         }

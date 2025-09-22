@@ -1,5 +1,7 @@
-// 1.20.1	2025-09-03T01:47:03.268402681	Recipes
+// 1.20.1	2025-09-22T14:53:18.432220424	Recipes
 aba044f277f869174203db2b62a408f163e70139 data/deicideadditions/advancements/recipes/misc/leather_scrap.json
 993abb3d66b3889b98788563bb0366d859c2417a data/deicideadditions/advancements/recipes/misc/putrid_hide.json
 4af5e218be9b87a50c1ab892979acc09cdeb75fd data/deicideadditions/recipes/leather_scrap.json
 4090b4581cf54c2d5cf8a20bab85fe35f8ae788b data/deicideadditions/recipes/putrid_hide.json
+60674236c7c285a6b89c21ea4386ae2761546be2 data/minecraft/advancements/recipes/misc/sculk.json
+d70bef35e24482983ffa085d23a300b9143afe13 data/minecraft/recipes/sculk.json
