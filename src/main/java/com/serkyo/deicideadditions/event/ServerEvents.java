@@ -4,6 +4,9 @@ import com.github.sculkhorde.core.ModSavedData;
 import com.lion.graveyard.entities.LichEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
+import com.serkyo.deicideadditions.core.DeicideSavedData;
+import daripher.autoleveling.saveddata.GlobalLevelingData;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -44,11 +47,21 @@ public class ServerEvents {
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.getType().is(Tags.EntityTypes.BOSSES)) {
-
-        }
-        if (entity instanceof LichEntity) {
-            ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
+        if (!event.getEntity().level().isClientSide) {
+            if (entity.getType().is(Tags.EntityTypes.BOSSES)) {
+                String boss = entity.getType().toShortString();
+                MinecraftServer server = entity.getServer();
+                DeicideSavedData deicideSavedData = DeicideSavedData.get(server);
+                GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
+                if (!deicideSavedData.isBossDefeated(boss)) {
+                    deicideSavedData.markBossDefeated(boss);
+                    int oldLevelBonus = globalLevelingData.getLevelBonus();
+                    globalLevelingData.setLevel(oldLevelBonus + 5);
+                }
+            }
+            if (entity instanceof LichEntity) {
+                ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
+            }
         }
     }
 
