@@ -6,5 +6,7 @@
   "item.deicideadditions.putrid_hide": "Peau Putride",
   "item.deicideadditions.leather_scrap": "Chute de Cuir",
   "effect.deicideadditions.corrupting_presence": "Présence Corruptrice",
-  "effect.deicideadditions.corrupting_presence.description": "Une aura oppressante étouffe votre vitalité, empéchant l'application de l'effet confort."
+  "effect.deicideadditions.corrupting_presence.description": "Une aura oppressante étouffe votre vitalité, empéchant l'application de l'effet confort.",
+  "effect.deicideadditions.despair": "Désespoir",
+  "effect.deicideadditions.despair.description": "Une présence écrasante étouffe votre volonté. Les forces autour de vous vous dépassent."
 }

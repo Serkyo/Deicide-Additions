@@ -6,5 +6,7 @@
   "item.deicideadditions.putrid_hide": "Putrid Hide",
   "item.deicideadditions.leather_scrap": "Leather Scrap",
   "effect.deicideadditions.corrupting_presence": "Corrupting Presence",
-  "effect.deicideadditions.corrupting_presence.description": "An oppressive aura smothers your vitality, preventing the comfort effect from being applied."
+  "effect.deicideadditions.corrupting_presence.description": "An oppressive aura smothers your vitality, preventing the comfort effect from being applied.",
+  "effect.deicideadditions.despair": "Despair",
+  "effect.deicideadditions.despair.description": "A crushing presence suffocates your will. You are outmatched by the forces surrounding youc."
 }
