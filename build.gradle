@@ -113,10 +113,9 @@ dependencies {
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
     implementation("com.eliotlash.mclib:mclib:20")
     // Caelus
-    compileOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
     // Player Animator
-    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
+    runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
     // Curios
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
@@ -128,6 +127,14 @@ dependencies {
     implementation fg.deobf("curse.maven:the-graveyard-forge-531188:5114579")
     // Autoleveling
     implementation fg.deobf("curse.maven:auto-leveling-${autoleveling_version}")
+    // Projectile Damage Attribute
+    implementation fg.deobf("curse.maven:projectile-damage-attribute-${projectile_damage_version}")
+    // FTB Teams
+    implementation fg.deobf("curse.maven:ftb-teams-forge-${ftbteams_version}")
+    // Architectury API
+    runtimeOnly fg.deobf("curse.maven:architectury-api-${architectury_version}")
+    // FTB Library
+    runtimeOnly fg.deobf("curse.maven:ftb-library-forge-${ftblibrary_version}")
 }
 
 mixin {

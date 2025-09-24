@@ -9,37 +9,37 @@ import java.util.ArrayList;
 
 public class DeicideSavedData extends SavedData {
     private static final String DATA_NAME = "deicide_data";
-    private final ArrayList<String> BOSSES_KILLED = new ArrayList<String>();
+    private final ArrayList<String> bossesKilledServerWide = new ArrayList<String>();
 
     public void markBossDefeated(String bossId) {
         if (!isBossDefeated(bossId)) {
-            BOSSES_KILLED.add(bossId);
+            bossesKilledServerWide.add(bossId);
             setDirty();
         }
     }
 
     public boolean isBossDefeated(String bossId) {
-        return BOSSES_KILLED.contains(bossId);
+        return bossesKilledServerWide.contains(bossId);
     }
 
     @Override
     public CompoundTag save(CompoundTag tag) {
         ListTag list = new ListTag();
-        for (String boss : BOSSES_KILLED) {
+        for (String boss : bossesKilledServerWide) {
             CompoundTag bossTag = new CompoundTag();
             bossTag.putString("id", boss);
             list.add(bossTag);
         }
-        tag.put("BOSSES_KILLED", list);
+        tag.put("BOSSES_KILLED_SERVER_WIDE", list);
         return tag;
     }
 
     public static DeicideSavedData load(CompoundTag tag) {
         DeicideSavedData data = new DeicideSavedData();
-        ListTag list = tag.getList("BOSSES_KILLED", 10);
+        ListTag list = tag.getList("BOSSES_KILLED_SERVER_WIDE", 10);
         for (int i = 0; i < list.size(); i++) {
             CompoundTag bossTag = list.getCompound(i);
-            data.BOSSES_KILLED.add(bossTag.getString("id"));
+            data.bossesKilledServerWide.add(bossTag.getString("id"));
         }
         return data;
     }

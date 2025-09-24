@@ -68,7 +68,7 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="create"
     mandatory=true
-    versionRange="[6.0.6-150]"
+    versionRange="[6.0.6,6.0.7)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -249,6 +249,30 @@ description='''${mod_description}'''
     modId="autoleveling"
     mandatory=true
     versionRange="[1.19b]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="projectile_damage"
+    mandatory=true
+    versionRange="[3.2.2+1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="ftbteams"
+    mandatory=true
+    versionRange="[2001.3.1]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="architectury"
+    mandatory=false
+    versionRange="[9.2.14]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="ftblibrary"
+    mandatory=false
+    versionRange="[2001.2.10]"
     ordering="AFTER"
     side="BOTH"
 
