@@ -1,0 +1,89 @@
+package com.serkyo.deicideadditions.capability.progression;
+
+import com.serkyo.deicideadditions.utils.Chapter;
+import com.serkyo.deicideadditions.utils.ChapterRegistry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ChapterProgress {
+    private Set<String> defeatedBosses = new HashSet<>();
+    private Set<String> completedChaptersId = new HashSet<>();
+
+    public Set<String> getCompletedChaptersId() {
+        return completedChaptersId;
+    }
+
+    public Set<String> getDefeatedBosses() { return defeatedBosses; }
+
+    public void addDefeatedBoss(String bossId) {
+        defeatedBosses.add(bossId);
+
+        Chapter currentChapter = getCurrentChapter();
+
+        if (currentChapter != null) {
+            Set<String> bossList = new HashSet<>(currentChapter.getIntermediaryBosses());
+            bossList.add(currentChapter.getFinalBossId());
+            boolean chapterComplete = bossList.stream().allMatch(this::hasDefeatedBoss);
+
+            if (chapterComplete) {
+                addCompletedChapterId(currentChapter.getId());
+            }
+        }
+
+    }
+
+    private void addCompletedChapterId(String chapterId) {
+        completedChaptersId.add(chapterId);
+    }
+
+    public Boolean hasDefeatedBoss(String bossId) {
+        return defeatedBosses.contains(bossId);
+    }
+
+    public Chapter getCurrentChapter() {
+        for (Chapter chapter : ChapterRegistry.CHAPTERS) {
+            if (!completedChaptersId.contains(chapter.getId())) {
+                return chapter;
+            }
+        }
+        return null;
+    }
+
+    public void copyFrom(ChapterProgress source) {
+        this.defeatedBosses = source.defeatedBosses;
+        this.completedChaptersId = source.completedChaptersId;
+    }
+
+    public void saveNBTDate(CompoundTag nbt) {
+        ListTag defeatedBossesList = new ListTag();
+        for (String boss : defeatedBosses) {
+            defeatedBossesList.add(StringTag.valueOf(boss));
+        }
+        nbt.put("DefeatedBosses", defeatedBossesList);
+
+        ListTag completedChaptersList = new ListTag();
+        for (String chapterId : completedChaptersId) {
+            completedChaptersList.add(StringTag.valueOf(chapterId));
+        }
+        nbt.put("CompletedChapters", completedChaptersList);
+    }
+
+    public void loadNBTData(CompoundTag nbt) {
+        defeatedBosses.clear();
+        completedChaptersId.clear();
+
+        ListTag defeatedBossesList = nbt.getList("DefeatedBosses", 8);
+        for (int i = 0; i < defeatedBossesList.size(); i++) {
+            defeatedBosses.add(defeatedBossesList.getString(i));
+        }
+
+        ListTag completedChaptersList = nbt.getList("CompletedChapters", 8);
+        for (int i = 0; i < completedChaptersList.size(); i++) {
+            completedChaptersId.add(completedChaptersList.getString(i));
+        }
+    }
+}
