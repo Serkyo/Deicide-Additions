@@ -20,7 +20,7 @@ public class GraceEffect extends MobEffect {
         this.addAttributeModifier(
                 Attributes.MOVEMENT_SPEED,
                 "7ba71a7c-d0a8-42de-92f2-ed95ca89f7f5",
-                0.25D,
+                0.5D,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         );
         this.addAttributeModifier(
