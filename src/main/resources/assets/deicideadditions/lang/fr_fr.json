@@ -8,5 +8,7 @@
   "effect.deicideadditions.corrupting_presence": "Présence Corruptrice",
   "effect.deicideadditions.corrupting_presence.description": "Une aura oppressante étouffe votre vitalité, empéchant l'application de l'effet confort.",
   "effect.deicideadditions.despair": "Désespoir",
-  "effect.deicideadditions.despair.description": "Une présence écrasante étouffe votre volonté. Les forces autour de vous vous dépassent."
+  "effect.deicideadditions.despair.description": "Une présence écrasante étouffe votre volonté. Les forces autour de vous vous dépassent.",
+  "effect.deicideadditions.grace": "Grâce",
+  "effect.deicideadditions.grace.description": "Le monde vous épargne un instant. Agissez, et cette bénédiction éphémère disparaîtra."
 }
