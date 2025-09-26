@@ -40,17 +40,5 @@ public class DespairEffect extends MobEffect {
             -0.9D,
             AttributeModifier.Operation.MULTIPLY_TOTAL
         );
-        this.addAttributeModifier(
-            Attributes.MOVEMENT_SPEED,
-            "79c1da3f-836a-4c08-a277-c521960bcb31",
-            0.25D,
-            AttributeModifier.Operation.MULTIPLY_TOTAL
-        );
-        this.addAttributeModifier(
-            Attributes.LUCK,
-            "224586cf-c4a9-486a-bb45-a4b8e0a7f014",
-            0.5D,
-            AttributeModifier.Operation.MULTIPLY_TOTAL
-        );
     }
 }

@@ -3,6 +3,7 @@ package com.serkyo.deicideadditions.core;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.effect.CorruptingPresenceEffect;
 import com.serkyo.deicideadditions.effect.DespairEffect;
+import com.serkyo.deicideadditions.effect.GraceEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,6 +18,8 @@ public class DeicideEffects {
             () -> new CorruptingPresenceEffect(MobEffectCategory.HARMFUL, 0));
     public static final RegistryObject<MobEffect> DESPAIR_EFFECT = MOB_EFFECTS.register("despair",
             () -> new DespairEffect(MobEffectCategory.HARMFUL, 0));
+    public static final RegistryObject<MobEffect> GRACE_EFFECT = MOB_EFFECTS.register("grace",
+            () -> new GraceEffect(MobEffectCategory.BENEFICIAL, 0));
 
     public static void register(IEventBus eventBus) { MOB_EFFECTS.register(eventBus); }
 }
