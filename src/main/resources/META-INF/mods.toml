@@ -223,7 +223,7 @@ description='''${mod_description}'''
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="legendarytabs"
-    mandatory=false
+    mandatory=true
     versionRange="[1.20.1-1.1.3.1]"
     ordering="AFTER"
     side="BOTH"
@@ -236,7 +236,7 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="legendarysurvivaloverhaul"
     mandatory=true
-    versionRange="[1.20.1-2.3.23]"
+    versionRange="[1.20.1-2.3.23.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -278,139 +278,139 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="alexsmobs"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.22.9]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="alexscavesdelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.0.27-final]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="alexsdelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="aquaculturedelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.1.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="aquamirae"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[6.API15]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="aquamirae_delight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.5.2]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="artifacts"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[9.5.16]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="biomeswevegone"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.6.5]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="burnt"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.9.0.4]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="dungeonsdelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.2.10]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="ecologics"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[2.2.2]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="ends_delight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[2.5.1+forge.1.20.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="ice_and_fire_delight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[0.2.4]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="jadensnetherexpansiondelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.20.1-1.0.4-forge]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="lenderdelight"
+    modId="lendersdelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.20.1-1.0.10]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="miners_delight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.20.1-1.2.3]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="neapolitan"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[5.1.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="oceansdelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.0.2-1.20]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="outer_end"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.0.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="rpg_better_elder_guardian_1201"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.0.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="thalassophobia"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.0.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="untameddelight"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[1.20.1-1.0.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="untamedwilds"
     mandatory=false
-    versionRange="[2.0.2]"
+    versionRange="[4.0.4]"
     ordering="AFTER"
     side="BOTH"
 
