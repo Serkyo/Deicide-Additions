@@ -117,8 +117,7 @@ dependencies {
     // Player Animator
     runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
     // Curios
-    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
     // Questlog
     implementation fg.deobf("curse.maven:questlog-${questlog_version}")
     // Legendary tabs
@@ -135,6 +134,10 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:architectury-api-${architectury_version}")
     // FTB Library
     runtimeOnly fg.deobf("curse.maven:ftb-library-forge-${ftblibrary_version}")
+    // Diet
+    compileOnly fg.deobf("curse.maven:diet-${diet_version}")
+    // Cosmetic Armors Reworked
+    compileOnly fg.deobf("curse.maven:cosmetic-armor-reworked-${car_version}")
 }
 
 mixin {
