@@ -17,9 +17,9 @@ public class DeicideEffects {
     public static final RegistryObject<MobEffect> CORRUPTING_PRESENCE_EFFECT = MOB_EFFECTS.register("corrupting_presence",
             () -> new CorruptingPresenceEffect(MobEffectCategory.HARMFUL, 0));
     public static final RegistryObject<MobEffect> DESPAIR_EFFECT = MOB_EFFECTS.register("despair",
-            () -> new DespairEffect(MobEffectCategory.HARMFUL, 0));
+            () -> new DespairEffect(MobEffectCategory.HARMFUL, 2894932));
     public static final RegistryObject<MobEffect> GRACE_EFFECT = MOB_EFFECTS.register("grace",
-            () -> new GraceEffect(MobEffectCategory.BENEFICIAL, 0));
+            () -> new GraceEffect(MobEffectCategory.BENEFICIAL, 16773257));
 
     public static void register(IEventBus eventBus) { MOB_EFFECTS.register(eventBus); }
 }
