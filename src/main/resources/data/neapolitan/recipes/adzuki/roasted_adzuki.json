@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "neapolitan:adzuki_beans"
+  },
+  "result": "minecraft:air",
+  "experience": 0.35,
+  "cookingtime": 200
+}

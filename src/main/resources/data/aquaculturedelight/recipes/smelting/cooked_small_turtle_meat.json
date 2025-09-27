@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+	{
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aquaculturedelight:small_turtle_meat"
+  },
+  "result": "minecraft:air",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -96,7 +96,7 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="alexcaves"
+    modId="alexscaves"
     mandatory=false
     versionRange="[2.0.2]"
     ordering="AFTER"
@@ -273,6 +273,144 @@ description='''${mod_description}'''
     modId="ftblibrary"
     mandatory=false
     versionRange="[2001.2.10]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="alexsmobs"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="alexscavesdelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="alexsdelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="aquaculturedelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="aquamirae"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="aquamirae_delight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="artifacts"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="biomeswevegone"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="burnt"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="dungeonsdelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="ecologics"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="ends_delight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="ice_and_fire_delight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="jadensnetherexpansiondelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="lenderdelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="miners_delight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="neapolitan"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="oceansdelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="outer_end"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="rpg_better_elder_guardian_1201"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="thalassophobia"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="untameddelight"
+    mandatory=false
+    versionRange="[2.0.2]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="untamedwilds"
+    mandatory=false
+    versionRange="[2.0.2]"
     ordering="AFTER"
     side="BOTH"
 

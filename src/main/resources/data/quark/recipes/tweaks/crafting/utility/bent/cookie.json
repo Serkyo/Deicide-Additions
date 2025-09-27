@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "cookie",
+  "pattern": [
+    "X#",
+    "# "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "X": {
+      "item": "minecraft:cocoa_beans"
+    }
+  },
+  "result": {
+    "item": "minecraft:air"
+  },
+  "conditions": [
+    {
+      "type": "quark:flag",
+      "flag": "bent_recipes"
+    }
+  ]
+}
