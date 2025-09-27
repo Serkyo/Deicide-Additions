@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ends_delight:raw_dragon_meat_cuts"
+  },
+  "result": "minecraft:air",
+  "cookingtime": 200,
+  "experience": 0.35
+}
