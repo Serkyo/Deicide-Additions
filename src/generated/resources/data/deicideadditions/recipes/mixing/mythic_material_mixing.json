@@ -1,0 +1,25 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "item": "apotheosis:epic_material"
+    },
+    {
+      "item": "apotheosis:epic_material"
+    },
+    {
+      "item": "apotheosis:epic_material"
+    },
+    {
+      "amount": 100,
+      "fluid": "create_enchantment_industry:experience",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "apotheosis:mythic_material"
+    }
+  ]
+}
