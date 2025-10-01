@@ -5,6 +5,7 @@ import com.serkyo.deicideadditions.core.DeicideItems;
 import com.serkyo.deicideadditions.core.DeicideTags;
 import com.simibubi.create.api.data.recipe.MixingRecipeGen;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
+import dev.shadowsoffire.apotheosis.adventure.Adventure;
 import net.mcreator.borninchaosv.init.BornInChaosV1ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
@@ -48,4 +49,39 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(DeicideTags.Items.SCULK_INFESTED)
             .output(CeiFluids.EXPERIENCE.get(), 20)
             .requiresHeat(HeatCondition.HEATED));
+    GeneratedRecipe UNCOMMON_MATERIAL = create("uncommon_material_mixing", b -> b
+            .require(Adventure.Items.COMMON_MATERIAL.get())
+            .require(Adventure.Items.COMMON_MATERIAL.get())
+            .require(Adventure.Items.COMMON_MATERIAL.get())
+            .require(CeiFluids.EXPERIENCE.get(), 25)
+            .output(Adventure.Items.UNCOMMON_MATERIAL.get())
+            .requiresHeat(HeatCondition.HEATED));
+    GeneratedRecipe RARE_MATERIAL = create("rare_material_mixing", b -> b
+            .require(Adventure.Items.UNCOMMON_MATERIAL.get())
+            .require(Adventure.Items.UNCOMMON_MATERIAL.get())
+            .require(Adventure.Items.UNCOMMON_MATERIAL.get())
+            .require(CeiFluids.EXPERIENCE.get(), 50)
+            .output(Adventure.Items.RARE_MATERIAL.get())
+            .requiresHeat(HeatCondition.HEATED));
+    GeneratedRecipe EPIC_MATERIAL = create("epic_material_mixing", b -> b
+            .require(Adventure.Items.RARE_MATERIAL.get())
+            .require(Adventure.Items.RARE_MATERIAL.get())
+            .require(Adventure.Items.RARE_MATERIAL.get())
+            .require(CeiFluids.EXPERIENCE.get(), 75)
+            .output(Adventure.Items.EPIC_MATERIAL.get())
+            .requiresHeat(HeatCondition.SUPERHEATED));
+    GeneratedRecipe MYTHIC_MATERIAL = create("mythic_material_mixing", b -> b
+            .require(Adventure.Items.EPIC_MATERIAL.get())
+            .require(Adventure.Items.EPIC_MATERIAL.get())
+            .require(Adventure.Items.EPIC_MATERIAL.get())
+            .require(CeiFluids.EXPERIENCE.get(), 100)
+            .output(Adventure.Items.MYTHIC_MATERIAL.get())
+            .requiresHeat(HeatCondition.SUPERHEATED));
+    GeneratedRecipe ANCIENT_MATERIAL = create("ancient_material_mixing", b -> b
+            .require(Adventure.Items.MYTHIC_MATERIAL.get())
+            .require(Adventure.Items.MYTHIC_MATERIAL.get())
+            .require(Adventure.Items.MYTHIC_MATERIAL.get())
+            .require(CeiFluids.HYPER_EXPERIENCE.get(), 25)
+            .output(Adventure.Items.ANCIENT_MATERIAL.get())
+            .requiresHeat(HeatCondition.SUPERHEATED));
 }
