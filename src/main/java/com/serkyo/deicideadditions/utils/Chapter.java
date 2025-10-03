@@ -5,24 +5,34 @@ import java.util.Set;
 
 public class Chapter {
     private final String id;
-    private final Set<String> intermediaryBosses;
-    private final String finalBossId;
+    private final Set<Boss> intermediaryBosses;
+    private final Boss finalBoss;
+    private final Boss secondaryFinalBoss;
 
-    public Chapter(String id, Set<String> intermediaryBosses, String finalBossId) {
+    public Chapter(String id, Set<Boss> intermediaryBosses, Boss finalBoss, Boss secondaryFinalBoss) {
         this.id = id;
         this.intermediaryBosses = new HashSet<>(intermediaryBosses);
-        this.finalBossId = finalBossId;
+        this.finalBoss = finalBoss;
+        this.secondaryFinalBoss = secondaryFinalBoss;
+    }
+
+    public Chapter(String id, Set<Boss> intermediaryBosses, Boss finalBoss) {
+        this(id, intermediaryBosses, finalBoss, null);
     }
 
     public String getId() {
         return id;
     }
 
-    public Set<String> getIntermediaryBosses() {
+    public Set<Boss> getIntermediaryBosses() {
         return intermediaryBosses;
     }
 
-    public String getFinalBossId() {
-        return finalBossId;
+    public Boss getFinalBoss() {
+        return finalBoss;
+    }
+
+    public Boss getSecondaryFinalBoss() {
+        return secondaryFinalBoss;
     }
 }
