@@ -1,13 +1,13 @@
 package com.serkyo.deicideadditions.effect;
 
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraftforge.event.TickEvent;
 import net.projectile_damage.api.EntityAttributes_ProjectileDamage;
 
-public class DespairEffect extends MobEffect {
+public class DespairEffect extends DeicideMobEffect {
     public DespairEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
         this.addAttributeModifier(
