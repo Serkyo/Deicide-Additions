@@ -27,16 +27,16 @@ public class DeicideRegistry {
                         new Boss("legendary_monsters:ancient_guardian", 24),
                         new Boss("minecraft:elder_guardian", 16),
                         new Boss("legendary_monsters:posessed_paladin", 24),
-                        new Boss("bosses_of_mass_destruction:void_blossom", 32),
-                        new Boss("irons_spellbooks:dead_king", 24)
+                        new Boss("mowziesmobs:ferrous_wroughtnaut", 8),
+                        new Boss("dungeonnowloading:chaos_spawner", 24)
                 ),
                 new Boss("soulsweapons:draugr_boss", 24),
                 new Boss("soulsweapons:night_shade", 32)));
         CHAPTERS.add(new Chapter(
                 "chapter2",
                 Set.of(
-                        new Boss("mowziesmobs:ferrous_wroughtnaut", 8),
-                        new Boss("dungeonnowloading:chaos_spawner", 24),
+                        new Boss("bosses_of_mass_destruction:void_blossom", 32),
+                        new Boss("irons_spellbooks:dead_king", 24),
                         new Boss("block_factorys_bosses:yeti", 32),
                         new Boss("legendary_monsters:frostbitten_golem", 24),
                         new Boss("legendary_monsters:overgrown_colossus", 24),
@@ -44,7 +44,8 @@ public class DeicideRegistry {
                         new Boss("mowziesmobs:umvuthi", 32),
                         new Boss("bosses_of_mass_destruction:lich", 64),
                         new Boss("born_in_chaos_v1:lord_pumpkinhead", 32),
-                        new Boss("soulsweapons:accursed_lord_boss", 24)
+                        new Boss("soulsweapons:accursed_lord_boss", 24),
+                        new Boss("hadean_breathe:hadean_enforcer", 24)
                 ),
                 new Boss("graveyard:lich", 24)));
         CHAPTERS.add(new Chapter(
