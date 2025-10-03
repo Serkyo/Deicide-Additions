@@ -2,7 +2,6 @@ package com.serkyo.deicideadditions.effect;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -14,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class GraceEffect extends MobEffect {
+public class GraceEffect extends DeicideMobEffect {
     public GraceEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
         this.addAttributeModifier(
