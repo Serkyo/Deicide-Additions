@@ -3,30 +3,28 @@ package com.serkyo.deicideadditions.event;
 import com.github.sculkhorde.core.ModSavedData;
 import com.lion.graveyard.entities.LichEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
+import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
-import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.core.DeicideSavedData;
 import com.serkyo.deicideadditions.utils.Chapter;
-import com.serkyo.deicideadditions.utils.ChapterRegistry;
 import daripher.autoleveling.saveddata.GlobalLevelingData;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import sfiomn.legendarysurvivaloverhaul.api.ModDamageTypes;
 
@@ -61,105 +59,83 @@ public class ServerEvents {
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (!event.getEntity().level().isClientSide) {
-            if (entity.getType().is(Tags.EntityTypes.BOSSES)) {
-                String bossId = entity.getType().toString();
-                MinecraftServer server = entity.getServer();
-                DeicideSavedData deicideSavedData = DeicideSavedData.get(server);
-                GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
+        if (!event.getEntity().level().isClientSide && entity.getType().is(Tags.EntityTypes.BOSSES)) {
+            handleBossDeath(entity, event.getSource().getEntity());
+        }
+    }
 
-                if (!deicideSavedData.isBossDefeated(bossId)) {
-                    deicideSavedData.markBossDefeated(bossId);
-                    globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 5);
-                }
+    private static void handleBossDeath(LivingEntity boss, Entity killer) {
+        ResourceLocation bossId = EntityType.getKey(boss.getType());
 
-                Entity source = event.getSource().getEntity();
+        handleGlobalBossProgression(bossId, boss.getServer());
+        handlePlayerBossProgression(boss, bossId, killer);
+        handleSpecialBossCases(boss);
+    }
 
-                if (source instanceof ServerPlayer player) {
-                    FTBTeamsAPI.API FTBTeamsAPI = dev.ftb.mods.ftbteams.api.FTBTeamsAPI.api();
-                    TeamManager FTBTeamsManager = FTBTeamsAPI.getManager();
-                    Optional<Team> optionalTeam = FTBTeamsManager.getTeamForPlayer(player);
+    private static void handleGlobalBossProgression(ResourceLocation bossId, MinecraftServer server) {
+        DeicideSavedData deicideSavedData = DeicideSavedData.get(server);
+        GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
 
-                    if (optionalTeam.isPresent()) {
-                        Team team = optionalTeam.get();
-                        Set<UUID> teamMembers = team.getMembers();
-                        AABB boundingBox = entity.getBoundingBox().inflate(64);
-                        List<Player> nearbyPlayers = entity.level().getEntitiesOfClass(Player.class, boundingBox);
+        if (!deicideSavedData.isBossDefeated(bossId)) {
+            deicideSavedData.markBossDefeated(bossId);
+            globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 5);
+        }
+    }
 
-                        for (Player playerNearby : nearbyPlayers) {
-                            playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-                                if (teamMembers.contains(playerNearby.getUUID())) {
-                                    Chapter currentChapter = chapterProgress.getCurrentChapter();
-                                    if (currentChapter != null) {
-                                        if (currentChapter.getIntermediaryBosses().contains(bossId) || currentChapter.getFinalBossId().equals(bossId)) {
-                                            chapterProgress.addDefeatedBoss(bossId);
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                    }
-                    else {
-                        player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-                            Chapter currentChapter = chapterProgress.getCurrentChapter();
-                            if (currentChapter != null) {
-                                if (currentChapter.getIntermediaryBosses().contains(bossId) || currentChapter.getFinalBossId().equals(bossId)) {
-                                    chapterProgress.addDefeatedBoss(bossId);
-                                }
-                            }
-                        });
-                    }
-                }
+    private static void handlePlayerBossProgression(LivingEntity boss, ResourceLocation bossId, Entity killer) {
+        if (killer instanceof ServerPlayer player) {
+            FTBTeamsAPI.API ftbTeamsAPI = dev.ftb.mods.ftbteams.api.FTBTeamsAPI.api();
+            TeamManager teamManager = ftbTeamsAPI.getManager();
+            Optional<Team> optionalTeam = teamManager.getTeamForPlayer(player);
 
-                if (entity instanceof LichEntity) {
-                    ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
-                }
+            if (optionalTeam.isPresent()) {
+                handleTeamBossDefeat(boss, bossId, optionalTeam.get());
+            } else {
+                handleSoloBossDefeat(bossId, player);
             }
         }
     }
 
-    @SubscribeEvent
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && event.side == LogicalSide.SERVER) {
-            Player player = event.player;
+    private static void handleTeamBossDefeat(LivingEntity boss, ResourceLocation bossId, Team team) {
+        Set<UUID> teamMembers = team.getMembers();
+        AABB boundingBox = boss.getBoundingBox().inflate(64);
+        List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
 
-            if (player.tickCount % 80 == 0) {
-                player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-                    Chapter currentChapter = chapterProgress.getCurrentChapter();
-                    AABB boundingBox = player.getBoundingBox().inflate(64);
-                    List<LivingEntity> nearbyBosses = player.level().getEntitiesOfClass(LivingEntity.class, boundingBox, e -> e.getType().is(Tags.EntityTypes.BOSSES));
-
-                    if (!nearbyBosses.isEmpty()) {
-                        player.addEffect(new MobEffectInstance(DeicideEffects.CORRUPTING_PRESENCE_EFFECT.get(), 200, 0, true, true));
-                    }
-
-                    if (currentChapter != null) {
-                        for (LivingEntity boss : nearbyBosses) {
-                            boolean shouldApplyDespair = false;
-
-                            if (boss.getType().toString().equals(currentChapter.getFinalBossId())) {
-                                boolean allIntermediaryDefeated = chapterProgress.getDefeatedBosses().containsAll(currentChapter.getIntermediaryBosses());
-                                if (!allIntermediaryDefeated){
-                                    shouldApplyDespair = true;
-                                }
-                            }
-                            else {
-                                for(Chapter chapter : ChapterRegistry.CHAPTERS) {
-                                    if (!chapter.getId().equals(currentChapter.getId()) && !chapterProgress.getCompletedChaptersId().contains(chapter.getId())) {
-                                        if (chapter.getIntermediaryBosses().contains(boss.getType().toString()) || chapter.getFinalBossId().equals(boss.getType().toString())) {
-                                            shouldApplyDespair = true;
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (shouldApplyDespair) {
-                                player.addEffect(new MobEffectInstance(DeicideEffects.DESPAIR_EFFECT.get(), 200, 0, true, true));
-                            }
-                        }
-                    }
-                });
-            }
+        for (Player playerNearby : nearbyPlayers) {
+            playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+                if (teamMembers.contains(playerNearby.getUUID())) {
+                    updateChapterProgressForBoss(chapterProgress, bossId);
+                }
+            });
         }
     }
-}
+
+    private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
+        player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+            updateChapterProgressForBoss(chapterProgress, bossId);
+        });
+    }
+
+    private static void updateChapterProgressForBoss(ChapterProgress chapterProgress, ResourceLocation bossId) {
+        Chapter currentChapter = chapterProgress.getCurrentChapter();
+        if (currentChapter != null && isBossInChapter(currentChapter, bossId)) {
+            chapterProgress.addDefeatedBoss(bossId);
+        }
+    }
+
+    private static boolean isBossInChapter(Chapter chapter, ResourceLocation bossId) {
+        boolean isIntermediaryBoss = chapter.getIntermediaryBosses().stream()
+                .anyMatch(boss -> boss.getId().equals(bossId));
+        boolean isFinalBoss = chapter.getFinalBoss() != null &&
+                chapter.getFinalBoss().getId().equals(bossId);
+        boolean isSecondaryFinalBoss = chapter.getSecondaryFinalBoss() != null &&
+                chapter.getSecondaryFinalBoss().getId().equals(bossId);
+
+        return isIntermediaryBoss || isFinalBoss || isSecondaryFinalBoss;
+    }
+
+    private static void handleSpecialBossCases(LivingEntity boss) {
+        if (boss instanceof LichEntity) {
+            ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
+        }
+    }}
