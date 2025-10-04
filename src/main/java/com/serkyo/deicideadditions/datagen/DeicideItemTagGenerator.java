@@ -1,8 +1,10 @@
 package com.serkyo.deicideadditions.datagen;
 
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.sculkhorde.core.ModBlocks;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideTags;
+import net.acetheeldritchking.ice_and_fire_spellbooks.registries.ItemRegistries;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -141,7 +143,51 @@ public class DeicideItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.INFESTED_STURDY_WALL.get().asItem())
                 .add(ModBlocks.INFESTED_STURDY_FENCE.get().asItem())
                 .add(ModBlocks.INFESTED_WOOD_FENCE_GATE.get().asItem())
-                .add(ModBlocks.INFESTED_STURDY_FENCE_GATE.get().asItem())
-        ;
+                .add(ModBlocks.INFESTED_STURDY_FENCE_GATE.get().asItem());
+
+        this.tag(DeicideTags.Items.DRAGONSTEEL_HELMET)
+                .add(IafItemRegistry.DRAGONSTEEL_FIRE_HELMET.get())
+                .add(IafItemRegistry.DRAGONSTEEL_ICE_HELMET.get())
+                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_HELMET.get());
+
+        this.tag(DeicideTags.Items.DRAGONSTEEL_CHESTPLATE)
+                .add(IafItemRegistry.DRAGONSTEEL_FIRE_CHESTPLATE.get())
+                .add(IafItemRegistry.DRAGONSTEEL_ICE_CHESTPLATE.get())
+                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_CHESTPLATE.get());
+
+        this.tag(DeicideTags.Items.DRAGONSTEEL_LEGGINGS)
+                .add(IafItemRegistry.DRAGONSTEEL_FIRE_LEGGINGS.get())
+                .add(IafItemRegistry.DRAGONSTEEL_ICE_LEGGINGS.get())
+                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_LEGGINGS.get());
+
+        this.tag(DeicideTags.Items.DRAGONSTEEL_BOOTS)
+                .add(IafItemRegistry.DRAGONSTEEL_FIRE_BOOTS.get())
+                .add(IafItemRegistry.DRAGONSTEEL_ICE_BOOTS.get())
+                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_BOOTS.get());
+
+        this.tag(DeicideTags.Items.DRAGON_PRIEST_HELMET)
+                .add(ItemRegistries.FIRE_DRAGON_PRIEST_HELMET.get())
+                .add(ItemRegistries.ICE_DRAGON_PRIEST_HELMET.get())
+                .add(ItemRegistries.LIGHTNING_DRAGON_PRIEST_HELMET.get());
+
+        this.tag(DeicideTags.Items.DRAGON_PRIEST_CHESTPLATE)
+                .add(ItemRegistries.FIRE_DRAGON_PRIEST_CHESTPLATE.get())
+                .add(ItemRegistries.ICE_DRAGON_PRIEST_CHESTPLATE.get())
+                .add(ItemRegistries.LIGHTNING_DRAGON_PRIEST_CHESTPLATE.get());
+
+        this.tag(DeicideTags.Items.DRAGON_PRIEST_LEGGINGS)
+                .add(ItemRegistries.FIRE_DRAGON_PRIEST_LEGGINGS.get())
+                .add(ItemRegistries.ICE_DRAGON_PRIEST_LEGGINGS.get())
+                .add(ItemRegistries.LIGHTNING_DRAGON_PRIEST_LEGGINGS.get());
+
+        this.tag(DeicideTags.Items.DRAGON_PRIEST_BOOTS)
+                .add(ItemRegistries.FIRE_DRAGON_PRIEST_BOOTS.get())
+                .add(ItemRegistries.ICE_DRAGON_PRIEST_BOOTS.get())
+                .add(ItemRegistries.LIGHTNING_DRAGON_PRIEST_BOOTS.get());
+
+        this.tag(DeicideTags.Items.DRAGON_BLOOD)
+                .add(IafItemRegistry.FIRE_DRAGON_BLOOD.get())
+                .add(IafItemRegistry.ICE_DRAGON_BLOOD.get())
+                .add(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get());
     }
 }

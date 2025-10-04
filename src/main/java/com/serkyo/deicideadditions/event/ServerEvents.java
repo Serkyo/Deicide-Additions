@@ -136,6 +136,7 @@ public class ServerEvents {
 
     private static void handleSpecialBossCases(LivingEntity boss) {
         if (boss instanceof LichEntity) {
+            // Needs refactoring to use the method SculkAncientNodeBlockEntity.tryInitializeHorde()
             ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
         }
     }}

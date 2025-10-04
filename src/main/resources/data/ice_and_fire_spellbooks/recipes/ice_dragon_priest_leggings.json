@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "voidscape:astral_legs"
+  },
+  "addition": {
+    "item": "deicideadditions:ice_draconic_sigil"
+  },
+  "result": {
+    "item": "ice_and_fire_spellbooks:ice_dragon_priest_leggings"
+  },
+  "template": {
+    "item": "deicideadditions:ice_dragonsteel_smithing_template"
+  }
+}

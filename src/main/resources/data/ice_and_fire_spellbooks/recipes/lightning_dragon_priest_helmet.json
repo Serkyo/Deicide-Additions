@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "voidscape:astral_helmet"
+  },
+  "addition": {
+    "item": "deicideadditions:lightning_draconic_sigil"
+  },
+  "result": {
+    "item": "ice_and_fire_spellbooks:lightning_dragon_priest_helmet"
+  },
+  "template": {
+    "item": "deicideadditions:lightning_dragonsteel_smithing_template"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "iceandfire:scales/dragon/ice"
+    },
+    "X": {
+      "item": "irons_spellbooks:ice_rune"
+    },
+    "Y": {
+      "item": "iceandfire:dragonsteel_ice_ingot"
+    }
+  },
+  "pattern": [
+    "#Y#",
+    "YXY",
+    "#Y#"
+  ],
+  "result": {
+    "item": "deicideadditions:ice_draconic_sigil"
+  },
+  "show_notification": true
+}

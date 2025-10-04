@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "tag": "deicideadditions:dragonsteel_chestplate"
+  },
+  "addition": {
+    "item": "dreadsteel:dreadsteel_ingot"
+  },
+  "result": {
+    "item": "dreadsteel:dreadsteel_chestplate"
+  },
+  "template": {
+    "item": "deicideadditions:dreadsteel_smithing_template"
+  }
+}

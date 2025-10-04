@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "soulsweapons:lord_soul"
+  },
+  "base": {
+    "item": "voidscape:astral_chest"
+  },
+  "result": {
+    "item": "epicpaladins:arclight_chestplate"
+  },
+  "template": {
+    "item": "epicpaladins:arclight_template"
+  }
+}
