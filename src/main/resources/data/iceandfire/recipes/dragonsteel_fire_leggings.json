@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "voidscape:astral_legs"
+  },
+  "addition": {
+    "item": "iceandfire:dragonsteel_fire_block"
+  },
+  "result": {
+    "item": "iceandfire:dragonsteel_fire_leggings"
+  },
+  "template": {
+    "item": "deicideadditions:fire_dragonsteel_smithing_template"
+  }
+}

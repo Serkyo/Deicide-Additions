@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "iceandfire:scales/dragon/lightning"
+    },
+    "X": {
+      "item": "irons_spellbooks:lightning_rune"
+    },
+    "Y": {
+      "item": "iceandfire:dragonsteel_lightning_ingot"
+    }
+  },
+  "pattern": [
+    "#Y#",
+    "YXY",
+    "#Y#"
+  ],
+  "result": {
+    "item": "deicideadditions:lightning_draconic_sigil"
+  },
+  "show_notification": true
+}

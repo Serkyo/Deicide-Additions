@@ -18,5 +18,15 @@ public class DeicideItemModelProvider extends ItemModelProvider {
         basicItem(DeicideItems.ROUGH_DIAMOND.get());
         basicItem(DeicideItems.PUTRID_HIDE.get());
         basicItem(DeicideItems.LEATHER_SCRAP.get());
+        basicItem(DeicideItems.END_WARRIOR_SMITHING_TEMPLATE.get());
+        basicItem(DeicideItems.ENDERMITE_CORE.get());
+        basicItem(DeicideItems.STABILIZED_ENERGY_CONDUIT.get());
+        basicItem(DeicideItems.FIRE_DRAGONSTEEL_SMITHING_TEMPLATE.get());
+        basicItem(DeicideItems.ICE_DRAGONSTEEL_SMITHING_TEMPLATE.get());
+        basicItem(DeicideItems.LIGHTNING_DRAGONSTEEL_SMITHING_TEMPLATE.get());
+        basicItem(DeicideItems.DREADSTEEL_SMITHING_TEMPLATE.get());
+        basicItem(DeicideItems.FIRE_DRACONIC_SIGIL.get());
+        basicItem(DeicideItems.ICE_DRACONIC_SIGIL.get());
+        basicItem(DeicideItems.LIGHTNING_DRACONIC_SIGIL.get());
     }
 }

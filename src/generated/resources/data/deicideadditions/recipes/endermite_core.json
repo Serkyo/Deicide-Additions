@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "mofus_better_end_:endermite_guardian_horn"
+    },
+    "O": {
+      "item": "mofus_better_end_:endermite_queen_scale"
+    },
+    "X": {
+      "item": "mofus_better_end_:endermite_swarmer_wing"
+    },
+    "Y": {
+      "item": "mofus_better_end_:endermite_horned_eye"
+    },
+    "Z": {
+      "item": "mofus_better_end_:endermite_queen_claw"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "ZYZ",
+    "OOO"
+  ],
+  "result": {
+    "item": "deicideadditions:endermite_core"
+  },
+  "show_notification": true
+}

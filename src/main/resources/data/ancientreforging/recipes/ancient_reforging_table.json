@@ -1,0 +1,35 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "N": {
+      "item": "apotheosis:ancient_material"
+    },
+    "G": {
+      "item": "apotheosis:mythic_material"
+    },
+    "E": {
+      "item": "apotheosis:simple_reforging_table"
+    },
+    "B": {
+      "item": "minecraft:nether_bricks"
+    },
+    "D": {
+      "item": "irons_spellbooks:dragonskin"
+    },
+    "S": {
+      "item": "apotheosis:sigil_of_enhancement"
+    }
+  },
+  "pattern": [
+    "SSSSS",
+    "DNNND",
+    "DGEGD",
+    "DGGGD",
+    "BBBBB"
+  ],
+  "result": {
+    "count": 1,
+    "item": "ancientreforging:ancient_reforging_table"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "N": {
+      "tag": "forge:ingots/netherite"
+    },
+    "G": {
+      "item": "apotheosis:epic_material"
+    },
+    "E": {
+      "item": "apotheosis:simple_reforging_table"
+    },
+    "B": {
+      "item": "minecraft:nether_bricks"
+    },
+    "H": {
+      "item": "stalwart_dungeons:netherite_hammer"
+    },
+    "S": {
+      "item": "apotheosis:sigil_of_enhancement"
+    }
+  },
+  "pattern": [
+    "  H  ",
+    " NNN ",
+    "SGEGS",
+    "SGGGS",
+    "BBBBB"
+  ],
+  "result": {
+    "count": 1,
+    "item": "apotheosis:reforging_table"
+  }
+}

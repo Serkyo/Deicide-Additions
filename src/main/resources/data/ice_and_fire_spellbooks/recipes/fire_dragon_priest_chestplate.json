@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "voidscape:astral_chest"
+  },
+  "addition": {
+    "item": "deicideadditions:fire_draconic_sigil"
+  },
+  "result": {
+    "item": "ice_and_fire_spellbooks:fire_dragon_priest_chestplate"
+  },
+  "template": {
+    "item": "deicideadditions:fire_dragonsteel_smithing_template"
+  }
+}

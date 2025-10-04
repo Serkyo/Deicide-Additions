@@ -21,6 +21,16 @@ public class DeicideCreativeTab {
                         pOutput.accept(DeicideItems.ROUGH_DIAMOND.get());
                         pOutput.accept(DeicideItems.PUTRID_HIDE.get());
                         pOutput.accept(DeicideItems.LEATHER_SCRAP.get());
+                        pOutput.accept(DeicideItems.END_WARRIOR_SMITHING_TEMPLATE.get());
+                        pOutput.accept(DeicideItems.ENDERMITE_CORE.get());
+                        pOutput.accept(DeicideItems.STABILIZED_ENERGY_CONDUIT.get());
+                        pOutput.accept(DeicideItems.FIRE_DRAGONSTEEL_SMITHING_TEMPLATE.get());
+                        pOutput.accept(DeicideItems.ICE_DRAGONSTEEL_SMITHING_TEMPLATE.get());
+                        pOutput.accept(DeicideItems.LIGHTNING_DRAGONSTEEL_SMITHING_TEMPLATE.get());
+                        pOutput.accept(DeicideItems.DREADSTEEL_SMITHING_TEMPLATE.get());
+                        pOutput.accept(DeicideItems.FIRE_DRACONIC_SIGIL.get());
+                        pOutput.accept(DeicideItems.ICE_DRACONIC_SIGIL.get());
+                        pOutput.accept(DeicideItems.LIGHTNING_DRACONIC_SIGIL.get());
                     })
                     .build());
 

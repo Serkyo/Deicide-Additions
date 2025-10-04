@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_endermite_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mofus_better_end_:endermite_horned_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deicideadditions:endermite_core"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_endermite_heart",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deicideadditions:endermite_core"
+    ]
+  },
+  "sends_telemetry_event": false
+}

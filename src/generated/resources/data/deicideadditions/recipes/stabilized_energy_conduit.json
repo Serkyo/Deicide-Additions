@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "mofus_better_end_:guardian_fragment"
+    },
+    "X": {
+      "item": "mofus_better_end_:end_energy_cube"
+    },
+    "Y": {
+      "item": "mofus_better_end_:engine_core"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "#Y#",
+    "X#X"
+  ],
+  "result": {
+    "item": "deicideadditions:stabilized_energy_conduit"
+  },
+  "show_notification": true
+}
