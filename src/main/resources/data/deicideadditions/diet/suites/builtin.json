@@ -77,45 +77,8 @@
         {
           "groups": ["proteins", "fruits", "vegetables", "grains"],
           "match": "every",
-          "above": 0.75,
+          "above": 0.5,
           "below": 1.0
-        }
-      ]
-    },
-    {
-      "attributes": [
-        {
-          "name": "minecraft:generic.armor_toughness",
-          "operation": "multiply_total",
-          "amount": -0.05
-        },
-        {
-          "name": "minecraft:generic.armor",
-          "operation": "multiply_total",
-          "amount": -0.1
-        },
-        {
-          "name": "minecraft:generic.attack_speed",
-          "operation": "multiply_total",
-          "amount": -0.1
-        },
-        {
-          "name": "attributeslib:draw_speed",
-          "operation": "multiply_total",
-          "amount": -0.05
-        },
-        {
-          "name": "irons_spellbooks:cast_time_reduction",
-          "operation": "multiply_total",
-          "amount": -0.05
-        }
-      ],
-      "conditions": [
-        {
-          "groups": ["proteins", "fruits", "vegetables", "grains"],
-          "match": "every",
-          "above": 0,
-          "below": 0.25
         }
       ]
     },
@@ -151,7 +114,7 @@
         {
           "groups": ["sugars"],
           "match": "all",
-          "above": 0.75,
+          "above": 0.5,
           "below": 1.0
         }
       ]
