@@ -131,7 +131,7 @@ dependencies {
     // FTB Teams
     implementation fg.deobf("curse.maven:ftb-teams-forge-${ftbteams_version}")
     // Architectury API
-    runtimeOnly fg.deobf("curse.maven:architectury-api-${architectury_version}")
+    implementation fg.deobf("curse.maven:architectury-api-${architectury_version}")
     // FTB Library
     runtimeOnly fg.deobf("curse.maven:ftb-library-forge-${ftblibrary_version}")
     // Diet
