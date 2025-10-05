@@ -1,8 +1,9 @@
 {
+    "level_limit": 26,
 	"experience_per_level": {
 		"type": "expression",
 		"data": {
-			"expression": "min(level ^ 1.432 + 10, 200)"
+			"expression": "min(level ^ 2 + 10, 500)"
 		}
 	},
 	"sources": [
@@ -35,7 +36,7 @@
 						]
 					}
 				},
-				"experience": "share * (dropped_xp + max_health / 20)",
+				"experience": "(share * (dropped_xp + max_health / 20)) / 2",
 				"anti_farming": {
 					"limit_per_chunk": 15,
 					"reset_after_seconds": 300

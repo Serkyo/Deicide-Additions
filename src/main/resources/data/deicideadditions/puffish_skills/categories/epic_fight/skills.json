@@ -1,0 +1,344 @@
+{
+	"5gxx4lcm7jqliz2m": {
+		"definition": "stamina",
+		"x": 0,
+		"y": 0,
+		"root": true
+	},
+	"7k1e3neri6yo982t": {
+		"definition": "stamina_regen",
+		"x": -40,
+		"y": -40,
+		"root": false
+	},
+	"6w8ik488qrardsh5": {
+		"definition": "stamina_regen",
+		"x": 40,
+		"y": -40,
+		"root": false
+	},
+	"byifv7s995cqphaw": {
+		"definition": "stamina_regen",
+		"x": 0,
+		"y": 80,
+		"root": false
+	},
+	"kk3gvrd8k1tdxgsn": {
+		"definition": "stamina",
+		"x": -40,
+		"y": 40,
+		"root": false
+	},
+	"523qmzulg0bpgyso": {
+		"definition": "stamina",
+		"x": 40,
+		"y": 40,
+		"root": false
+	},
+	"p5dirq1j8x8ox4v9": {
+		"definition": "stamina",
+		"x": -120,
+		"y": -120,
+		"root": false
+	},
+	"mc7ioxnot5qaa76k": {
+		"definition": "stamina",
+		"x": -80,
+		"y": -80,
+		"root": false
+	},
+	"u04k0gl6dzd3wee2": {
+		"definition": "stamina",
+		"x": 80,
+		"y": -80,
+		"root": false
+	},
+	"21bw0rnl8qtmq18j": {
+		"definition": "stamina",
+		"x": 120,
+		"y": -120,
+		"root": false
+	},
+	"dot6ob32xtf3esi3": {
+		"definition": "stamina_regen",
+		"x": -80,
+		"y": 80,
+		"root": false
+	},
+	"wr5kiigqb4mftrcj": {
+		"definition": "stamina_regen",
+		"x": -120,
+		"y": 120,
+		"root": false
+	},
+	"72z05m2p9676cz0j": {
+		"definition": "stamina",
+		"x": 0,
+		"y": 120,
+		"root": false
+	},
+	"qky8rkr1e862bqr3": {
+		"definition": "stamina",
+		"x": 0,
+		"y": 160,
+		"root": false
+	},
+	"lx70fhsidiheo79m": {
+		"definition": "stamina_regen",
+		"x": 80,
+		"y": 80,
+		"root": false
+	},
+	"xp4xz22lj0hju2mn": {
+		"definition": "stamina_regen",
+		"x": 120,
+		"y": 120,
+		"root": false
+	},
+	"jnlmii2o7ourdhd5": {
+		"definition": "ef_phantom",
+		"x": -80,
+		"y": -20,
+		"root": false
+	},
+	"sevmfrcf3feivob6": {
+		"definition": "ef_ender_step",
+		"x": -120,
+		"y": -40,
+		"root": false
+	},
+	"f5g6cxtfa6s34e0m": {
+		"definition": "ef_wolf_god_leap",
+		"x": -180,
+		"y": -100,
+		"root": false
+	},
+	"8l1xdxj5pyeoea32": {
+		"definition": "ef_dodge_master",
+		"x": -220,
+		"y": -180,
+		"root": false
+	},
+	"9jvmjtyvud68dkgn": {
+		"definition": "ef_stellar_restoration",
+		"x": -180,
+		"y": -220,
+		"root": false
+	},
+	"3h504raljvera7jr": {
+		"definition": "ef_precise_roll",
+		"x": -60,
+		"y": -160,
+		"root": false
+	},
+	"7uazpgv71bnb47ks": {
+		"definition": "ef_better_step",
+		"x": -160,
+		"y": -60,
+		"root": false
+	},
+	"7x1ndo4urqhykw12": {
+		"definition": "ef_ravager_force",
+		"x": -20,
+		"y": -80,
+		"root": false
+	},
+	"4zt5mznqox9jm1ep": {
+		"definition": "ef_punishment_kick",
+		"x": -40,
+		"y": -120,
+		"root": false
+	},
+	"xpxtk4wpuaiw74b2": {
+		"definition": "ef_ender_obscuris",
+		"x": -200,
+		"y": -140,
+		"root": false
+	},
+	"fup47qvw1m7y0q1m": {
+		"definition": "ef_shadow_step",
+		"x": -140,
+		"y": -200,
+		"root": false
+	},
+	"e4wlpyo9xkuaymh9": {
+		"definition": "ef_time_travel",
+		"x": -100,
+		"y": -180,
+		"root": false
+	},
+	"8yqh3ngfgf9vzxld": {
+		"definition": "stamina_regen",
+		"x": 0,
+		"y": 200,
+		"root": false
+	},
+	"cgs82jpnzuawsshi": {
+		"definition": "stamina",
+		"x": -160,
+		"y": 160,
+		"root": false
+	},
+	"58emhth956hlgyv1": {
+		"definition": "stamina",
+		"x": 160,
+		"y": 160,
+		"root": false
+	},
+	"bwse5hk1donpn7ux": {
+		"definition": "stamina_regen",
+		"x": 160,
+		"y": -160,
+		"root": false
+	},
+	"kwxuon9csjusyrjc": {
+		"definition": "stamina_regen",
+		"x": -160,
+		"y": -160,
+		"root": false
+	},
+	"r9ivmlfzsa0yshkv": {
+		"definition": "ef_parrying",
+		"x": 80,
+		"y": -20,
+		"root": false
+	},
+	"2g901re510owsaup": {
+		"definition": "ef_vengeful_parry",
+		"x": 120,
+		"y": -60,
+		"root": false
+	},
+	"raez8ckx363kkuij": {
+		"definition": "ef_counter_attack",
+		"x": 20,
+		"y": -80,
+		"root": false
+	},
+	"71qox4eymo1rwshz": {
+		"definition": "ef_rain_screen",
+		"x": 60,
+		"y": -120,
+		"root": false
+	},
+	"eedmqckp8xdp5bm3": {
+		"definition": "ef_impact_guard",
+		"x": 100,
+		"y": -160,
+		"root": false
+	},
+	"7gpy2q9bxzuboyhp": {
+		"definition": "ef_perfect_bulwark",
+		"x": 160,
+		"y": -100,
+		"root": false
+	},
+	"jnnn585n87u65wb1": {
+		"definition": "ef_shulker_cloak",
+		"x": 200,
+		"y": -140,
+		"root": false
+	},
+	"o5o85txuuxwcftla": {
+		"definition": "ef_soul_protection",
+		"x": 140,
+		"y": -200,
+		"root": false
+	},
+	"n3ru25ri2gkvp0kx": {
+		"definition": "ef_berserker",
+		"x": -80,
+		"y": 20,
+		"root": false
+	},
+	"7q7wyuhexs9cmh1h": {
+		"definition": "ef_mindset",
+		"x": -120,
+		"y": 60,
+		"root": false
+	},
+	"6ri6j7msllu9wt3a": {
+		"definition": "ef_adrenaline",
+		"x": -200,
+		"y": 140,
+		"root": false
+	},
+	"meadu7qt2idfxbc3": {
+		"definition": "ef_arrow_tenacity",
+		"x": -100,
+		"y": 160,
+		"root": false
+	},
+	"cbclcnliue5d9bfe": {
+		"definition": "ef_dancing_blade",
+		"x": -160,
+		"y": 100,
+		"root": false
+	},
+	"srgfgjer425ijolt": {
+		"definition": "ef_death_harvest",
+		"x": -40,
+		"y": 100,
+		"root": false
+	},
+	"lmmc71slzvkc7g2j": {
+		"definition": "ef_technician",
+		"x": -40,
+		"y": 180,
+		"root": false
+	},
+	"c1zxbcl7vde1q352": {
+		"definition": "ef_stamina_pillager",
+		"x": 40,
+		"y": 100,
+		"root": false
+	},
+	"0l344x5nix3v8svk": {
+		"definition": "ef_heart_shield",
+		"x": 40,
+		"y": 140,
+		"root": false
+	},
+	"oa932ytygdgr4p9n": {
+		"definition": "ef_hyper_vitality",
+		"x": 40,
+		"y": 180,
+		"root": false
+	},
+	"1xm0rl3p60j2j4i5": {
+		"definition": "ef_forbidden_strength",
+		"x": -40,
+		"y": 140,
+		"root": false
+	},
+	"snq5r7ssfpwzrpak": {
+		"definition": "ef_critical_knowledge",
+		"x": 160,
+		"y": 100,
+		"root": false
+	},
+	"y1hn7nf1ymiyrwew": {
+		"definition": "ef_latent_retribution",
+		"x": 200,
+		"y": 140,
+		"root": false
+	},
+	"azyn3zi9c8mb01k5": {
+		"definition": "ef_emergency_escape",
+		"x": 80,
+		"y": 20,
+		"root": false
+	},
+	"lvfxaiuj1ei7v5hs": {
+		"definition": "ef_pain_anticipation",
+		"x": 100,
+		"y": 160,
+		"root": false
+	},
+	"by69v068a23u7zxb": {
+		"definition": "ef_meditation",
+		"x": 120,
+		"y": 60,
+		"root": false
+	}
+}
