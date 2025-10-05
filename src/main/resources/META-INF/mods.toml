@@ -426,9 +426,9 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="sophisticated_backpack"
+    modId="sophisticatedbackpacks"
     mandatory=false
-    versionRange="[1.20.1-1.5.389]"
+    versionRange="[3.24.9.1391]"
     ordering="AFTER"
     side="BOTH"
 
