@@ -4,13 +4,19 @@ import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class GraceEffect extends DeicideMobEffect {
@@ -31,9 +37,11 @@ public class GraceEffect extends DeicideMobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        if (pLivingEntity.swinging || pLivingEntity.isUsingItem()) {
-            pLivingEntity.removeEffect(this);
+    public void applyEffectTick(LivingEntity entity, int pAmplifier) {
+        if (entity instanceof Player) {
+            if (entity.swinging || entity.isUsingItem()) {
+                entity.removeEffect(this);
+            }
         }
     }
 
@@ -43,11 +51,29 @@ public class GraceEffect extends DeicideMobEffect {
     }
 
     @SubscribeEvent
+    public static void onEffectApplied(MobEffectEvent.Added event) {
+        LivingEntity entity = event.getEntity();
+
+        if (entity instanceof Player) {
+            if (event.getEffectInstance().getEffect().equals(DeicideEffects.GRACE_EFFECT.get())) {
+                List<Mob> mobsAround = entity.level().getEntitiesOfClass(Mob.class, entity.getBoundingBox().inflate(64));
+                for (Mob mob : mobsAround) {
+                    if (mob.getTarget() == entity) {
+                        mob.setTarget(null);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void onLivingAttacked(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
-            event.setCanceled(true);
+        if (entity instanceof Player) {
+            if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
+                event.setCanceled(true);
+            }
         }
     }
 
@@ -55,8 +81,21 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingHealed(LivingHealEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
-            event.setCanceled(true);
+        if (entity instanceof Player) {
+            if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
+                event.setCanceled(true);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingChangeTarget(LivingChangeTargetEvent event) {
+        LivingEntity targetedEntity = event.getNewTarget();
+
+        if (targetedEntity instanceof Player) {
+            if (targetedEntity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
+                event.setCanceled(true);
+            }
         }
     }
 }
