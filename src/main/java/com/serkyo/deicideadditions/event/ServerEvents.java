@@ -5,6 +5,7 @@ import com.lion.graveyard.entities.LichEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
+import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.core.DeicideSavedData;
 import com.serkyo.deicideadditions.utils.Chapter;
 import daripher.autoleveling.saveddata.GlobalLevelingData;
@@ -21,7 +22,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.scores.PlayerTeam;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,12 +36,28 @@ import java.util.*;
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ServerEvents {
     @SubscribeEvent
+    public static void onLivingAttacked(LivingAttackEvent event) {
+        LivingEntity entity = event.getEntity();
+        Entity entitySource = event.getSource().getEntity();
+
+        if (entitySource instanceof Player && entity instanceof Player) {
+            TeamManager teamManager = FTBTeamsAPI.api().getManager();
+            MinecraftServer server = teamManager.getServer();
+
+            String vanillaTeamId = "ftb_" + teamManager.getTeamForPlayer((ServerPlayer) entitySource);
+            PlayerTeam vanillaTeam = server.getScoreboard().getPlayerTeam(vanillaTeamId);
+            if (vanillaTeam != null && teamManager.arePlayersInSameTeam(entity.getUUID(), entitySource.getUUID()) && !vanillaTeam.isAllowFriendlyFire()) {
+                event.setCanceled(true);
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
         DamageSource source = event.getSource();
         LivingEntity entity = event.getEntity();
 
         if (entity instanceof Player) {
-
             if (source.is(DamageTypes.STARVE) ||
                     source.is(DamageTypes.IN_WALL) ||
                     source.is(DamageTypes.DROWN) ||
