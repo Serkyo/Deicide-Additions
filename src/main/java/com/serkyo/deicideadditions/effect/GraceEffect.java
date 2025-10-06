@@ -43,7 +43,7 @@ public class GraceEffect extends DeicideMobEffect {
     }
 
     @SubscribeEvent
-    public static void onEntityHurt(LivingAttackEvent event) {
+    public static void onLivingAttacked(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
 
         if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
@@ -52,7 +52,7 @@ public class GraceEffect extends DeicideMobEffect {
     }
 
     @SubscribeEvent
-    public static void onEntityHeal(LivingHealEvent event) {
+    public static void onLivingHealed(LivingHealEvent event) {
         LivingEntity entity = event.getEntity();
 
         if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
