@@ -40,14 +40,20 @@ public class ServerEvents {
         LivingEntity entity = event.getEntity();
         Entity entitySource = event.getSource().getEntity();
 
-        if (entitySource instanceof Player && entity instanceof Player) {
-            TeamManager teamManager = FTBTeamsAPI.api().getManager();
-            MinecraftServer server = teamManager.getServer();
+        if (!entity.level().isClientSide) {
+            if (entitySource instanceof Player && entity instanceof Player) {
+                TeamManager teamManager = FTBTeamsAPI.api().getManager();
+                MinecraftServer server = teamManager.getServer();
 
-            String vanillaTeamId = "ftb_" + teamManager.getTeamForPlayer((ServerPlayer) entitySource);
-            PlayerTeam vanillaTeam = server.getScoreboard().getPlayerTeam(vanillaTeamId);
-            if (vanillaTeam != null && teamManager.arePlayersInSameTeam(entity.getUUID(), entitySource.getUUID()) && !vanillaTeam.isAllowFriendlyFire()) {
-                event.setCanceled(true);
+                Optional<Team> team = teamManager.getTeamForPlayer((ServerPlayer) entitySource);
+
+                if (team.isPresent()) {
+                    String vanillaTeamId = "ftb_" + team.get().getId();
+                    PlayerTeam vanillaTeam = server.getScoreboard().getPlayerTeam(vanillaTeamId);
+                    if (vanillaTeam != null && teamManager.arePlayersInSameTeam(entity.getUUID(), entitySource.getUUID()) && !vanillaTeam.isAllowFriendlyFire()) {
+                        event.setCanceled(true);
+                    }
+                }
             }
         }
     }
@@ -57,19 +63,21 @@ public class ServerEvents {
         DamageSource source = event.getSource();
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player) {
-            if (source.is(DamageTypes.STARVE) ||
-                    source.is(DamageTypes.IN_WALL) ||
-                    source.is(DamageTypes.DROWN) ||
-                    source.is(DamageTypes.ON_FIRE) ||
-                    source.is(DamageTypes.FREEZE) ||
-                    source.is(DamageTypes.HOT_FLOOR) ||
-                    source.is(DamageTypes.LAVA) ||
-                    source.is(DamageTypes.IN_FIRE) ||
-                    source.is(ModDamageTypes.DEHYDRATION) || 
-                    source.is(ModDamageTypes.HYPERTHERMIA) ||
-                    source.is(ModDamageTypes.HYPOTHERMIA)) {
-                event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * entity.getMaxHealth() / 3)));
+        if (!entity.level().isClientSide) {
+            if (entity instanceof Player) {
+                if (source.is(DamageTypes.STARVE) ||
+                        source.is(DamageTypes.IN_WALL) ||
+                        source.is(DamageTypes.DROWN) ||
+                        source.is(DamageTypes.ON_FIRE) ||
+                        source.is(DamageTypes.FREEZE) ||
+                        source.is(DamageTypes.HOT_FLOOR) ||
+                        source.is(DamageTypes.LAVA) ||
+                        source.is(DamageTypes.IN_FIRE) ||
+                        source.is(ModDamageTypes.DEHYDRATION) ||
+                        source.is(ModDamageTypes.HYPERTHERMIA) ||
+                        source.is(ModDamageTypes.HYPOTHERMIA)) {
+                    event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * entity.getMaxHealth() / 3)));
+                }
             }
         }
     }
