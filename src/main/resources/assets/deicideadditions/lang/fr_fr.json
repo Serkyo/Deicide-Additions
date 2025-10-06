@@ -35,5 +35,10 @@
   "deicideadditions.smithing.lightning_dragonsteel.ingredients": "",
   "deicideadditions.smithing.lightning_dragonsteel.upgrade": "",
   "deicideadditions.smithing.lightning_dragonsteel.base_slot": "",
-  "deicideadditions.smithing.lightning_dragonsteel.additions_slot": ""
+  "deicideadditions.smithing.lightning_dragonsteel.additions_slot": "",
+  "deicideadditions.smithing.dreadsteel.applies_to": "",
+  "deicideadditions.smithing.dreadsteel.ingredients": "",
+  "deicideadditions.smithing.dreadsteel.upgrade": "",
+  "deicideadditions.smithing.dreadsteel.base_slot": "",
+  "deicideadditions.smithing.dreadsteel.additions_slot": ""
 }
