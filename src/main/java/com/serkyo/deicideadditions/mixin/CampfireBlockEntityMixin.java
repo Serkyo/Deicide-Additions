@@ -21,7 +21,7 @@ public class CampfireBlockEntityMixin {
     @Inject(method = "cookTick", at = @At(value = "HEAD"))
     private static void campfireEffect(Level level, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, CallbackInfo ci) {
         if (level.getGameTime() % 40 == 0) {
-            AABB bounding_box = new AABB(pos).inflate(3);
+            AABB bounding_box = new AABB(pos).inflate(4);
             List<Player> nearby_players = level.getEntitiesOfClass(Player.class, bounding_box);
 
             for (Player player : nearby_players) {
