@@ -41,6 +41,8 @@ public class DeicideItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> LIGHTNING_DRACONIC_SIGIL = ITEMS.register("lightning_draconic_sigil",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> OBLIVION_EFFIGY = ITEMS.register("oblivion_effigy",
+            () -> new OblivionEffigy(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
