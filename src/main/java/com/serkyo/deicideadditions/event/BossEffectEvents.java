@@ -4,6 +4,7 @@ import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
 import com.serkyo.deicideadditions.core.DeicideEffects;
+import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
 import com.serkyo.deicideadditions.utils.DeicideRegistry;
 import net.minecraft.resources.ResourceLocation;
@@ -40,7 +41,8 @@ public class BossEffectEvents {
 
     private static void applyBossEffectToNearbyPlayers(LivingEntity boss) {
         ResourceLocation bossId = EntityType.getKey(boss.getType());
-        AABB boundingBox = boss.getBoundingBox().inflate(DeicideRegistry.getBoss(bossId).getCheckRange());
+        Boss bossObject = DeicideRegistry.getBoss(bossId);
+        AABB boundingBox = boss.getBoundingBox().inflate(bossObject.getCheckLength(), bossObject.getCheckHeight(), bossObject.getCheckLength());
         List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
 
         for (Player player : nearbyPlayers) {
