@@ -28,5 +28,6 @@ public class DeicideItemModelProvider extends ItemModelProvider {
         basicItem(DeicideItems.FIRE_DRACONIC_SIGIL.get());
         basicItem(DeicideItems.ICE_DRACONIC_SIGIL.get());
         basicItem(DeicideItems.LIGHTNING_DRACONIC_SIGIL.get());
+        basicItem(DeicideItems.OBLIVION_EFFIGY.get());
     }
 }

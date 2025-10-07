@@ -31,6 +31,7 @@ public class DeicideCreativeTab {
                         pOutput.accept(DeicideItems.FIRE_DRACONIC_SIGIL.get());
                         pOutput.accept(DeicideItems.ICE_DRACONIC_SIGIL.get());
                         pOutput.accept(DeicideItems.LIGHTNING_DRACONIC_SIGIL.get());
+                        pOutput.accept(DeicideItems.OBLIVION_EFFIGY.get());
                     })
                     .build());
 
