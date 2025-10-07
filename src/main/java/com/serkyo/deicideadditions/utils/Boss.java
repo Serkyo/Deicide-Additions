@@ -4,22 +4,28 @@ import net.minecraft.resources.ResourceLocation;
 
 public class Boss {
     private final ResourceLocation id;
-    private final Integer checkRange;
+    private final Integer checkLength;
+    private final Integer checkHeight;
 
-    public Boss(String id, Integer checkRange) {
+    public Boss(String id, Integer checkLength, Integer checkHeight) {
         this.id = ResourceLocation.parse(id);
-        this.checkRange = checkRange;
+        this.checkLength = checkLength;
+        this.checkHeight = checkHeight;
     }
 
     public Boss(String id) {
-        this(id, 64);
+        this(id, 64, 64);
     }
 
     public ResourceLocation getId() {
         return id;
     }
 
-    public Integer getCheckRange() {
-        return checkRange;
+    public Integer getCheckLength() {
+        return checkLength;
+    }
+
+    public Integer getCheckHeight() {
+        return checkHeight;
     }
 }
