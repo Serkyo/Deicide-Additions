@@ -82,7 +82,7 @@ public class ServerEvents {
 
         if (!deicideSavedData.isBossDefeated(bossId)) {
             deicideSavedData.markBossDefeated(bossId);
-            globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 5);
+            globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
         }
     }
 
