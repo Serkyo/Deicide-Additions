@@ -36,29 +36,6 @@ import java.util.*;
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ServerEvents {
     @SubscribeEvent
-    public static void onLivingAttacked(LivingAttackEvent event) {
-        LivingEntity entity = event.getEntity();
-        Entity entitySource = event.getSource().getEntity();
-
-        if (!entity.level().isClientSide) {
-            if (entitySource instanceof Player && entity instanceof Player) {
-                TeamManager teamManager = FTBTeamsAPI.api().getManager();
-                MinecraftServer server = teamManager.getServer();
-
-                Optional<Team> team = teamManager.getTeamForPlayer((ServerPlayer) entitySource);
-
-                if (team.isPresent()) {
-                    String vanillaTeamId = "ftb_" + team.get().getId();
-                    PlayerTeam vanillaTeam = server.getScoreboard().getPlayerTeam(vanillaTeamId);
-                    if (vanillaTeam != null && teamManager.arePlayersInSameTeam(entity.getUUID(), entitySource.getUUID()) && !vanillaTeam.isAllowFriendlyFire()) {
-                        event.setCanceled(true);
-                    }
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
         DamageSource source = event.getSource();
         LivingEntity entity = event.getEntity();

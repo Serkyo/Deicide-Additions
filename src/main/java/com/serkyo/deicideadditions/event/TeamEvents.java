@@ -8,6 +8,7 @@ import dev.ftb.mods.ftbteams.api.event.PlayerLeftPartyTeamEvent;
 import dev.ftb.mods.ftbteams.api.event.TeamCreatedEvent;
 import dev.ftb.mods.ftbteams.api.event.TeamEvent;
 import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ServerScoreboard;
@@ -31,7 +32,7 @@ public class TeamEvents {
 
         Player player = event.getPlayer();
         String teamId = "ftb_" + event.getTeam().getId();
-        PlayerTeam vanillaTeam = scoreboard.getPlayersTeam(teamId);
+        PlayerTeam vanillaTeam = scoreboard.getPlayerTeam(teamId);
 
         if (vanillaTeam != null) {
             scoreboard.addPlayerToTeam(player.getName().getString(), vanillaTeam);
@@ -46,7 +47,7 @@ public class TeamEvents {
 
         Player player = event.getPlayer();
         String teamId = "ftb_" + event.getTeam().getId();
-        PlayerTeam vanillaTeam = scoreboard.getPlayersTeam(teamId);
+        PlayerTeam vanillaTeam = scoreboard.getPlayerTeam(teamId);
 
         if (vanillaTeam != null) {
             scoreboard.removePlayerFromTeam(player.getName().getString(), vanillaTeam);
@@ -93,7 +94,7 @@ public class TeamEvents {
     }
 
     private static void configureVanillaTeam(PlayerTeam vanillaTeam, Team ftbTeam) {
-        vanillaTeam.setDisplayName(ftbTeam.getName());
+        vanillaTeam.setDisplayName(Component.literal(ftbTeam.getShortName()));
         vanillaTeam.setAllowFriendlyFire(false);
         vanillaTeam.setCollisionRule(CollisionRule.PUSH_OTHER_TEAMS);
         vanillaTeam.setSeeFriendlyInvisibles(true);
