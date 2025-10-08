@@ -154,6 +154,8 @@ dependencies {
     implementation fg.deobf("curse.maven:ice-and-fire-spellbooks-${iaf_spellbooks_version}")
     // Puffish
     implementation fg.deobf("curse.maven:puffish-skills-${puffish_skills_version}")
+    // Goety
+    implementation fg.deobf("curse.maven:goety-${goety_version}")
 }
 
 mixin {

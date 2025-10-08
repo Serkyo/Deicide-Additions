@@ -10,6 +10,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -34,6 +36,9 @@ public class OblivionEffigy extends Item {
             if (skillTree.isPresent()) {
                 stack.shrink(1);
                 skillTree.get().resetSkills((ServerPlayer) pPlayer);
+                pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 5, 0, false, true));
+                pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 5, 0, false, true));
+                pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 10, 0, false, true));
                 if (pLevel instanceof ServerLevel serverLevel) {
                     serverLevel.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, pPlayer.getX(), pPlayer.getY() + 1, pPlayer.getZ(), 50, 0.5, 1, 0.5, 0.1);
                 }
