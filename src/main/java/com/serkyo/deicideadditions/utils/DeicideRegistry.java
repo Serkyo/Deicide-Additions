@@ -44,6 +44,10 @@ public class DeicideRegistry {
                         new Boss("mowziesmobs:umvuthi", 32, 8),
                         new Boss("bosses_of_mass_destruction:lich", 64, 32),
                         new Boss("born_in_chaos_v1:lord_pumpkinhead", 32, 8),
+                        new Boss("born_in_chaos_v1:lord_pumpkinhead_head", 32, 8),
+                        new Boss("born_in_chaos_v1:lord_pumpkinhead_withouta_horse", 32, 8),
+                        new Boss("born_in_chaos_v1:lord_the_headless", 32, 8),
+                        new Boss("born_in_chaos_v1:lords_felsteed", 32, 8),
                         new Boss("soulsweapons:accursed_lord_boss", 24, 16),
                         new Boss("hadean_breathe:hadean_enforcer", 24, 8)
                 ),
