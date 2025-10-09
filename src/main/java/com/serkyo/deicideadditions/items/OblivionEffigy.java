@@ -36,9 +36,9 @@ public class OblivionEffigy extends Item {
             if (skillTree.isPresent()) {
                 stack.shrink(1);
                 skillTree.get().resetSkills((ServerPlayer) pPlayer);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 5, 0, false, true));
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 5, 0, false, true));
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 10, 0, false, true));
+                pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 100, 0, false, true));
+                pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 0, false, true));
+                pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0, false, true));
                 if (pLevel instanceof ServerLevel serverLevel) {
                     serverLevel.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, pPlayer.getX(), pPlayer.getY() + 1, pPlayer.getZ(), 50, 0.5, 1, 0.5, 0.1);
                 }
