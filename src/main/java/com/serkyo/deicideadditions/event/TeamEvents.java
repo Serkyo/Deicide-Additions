@@ -3,10 +3,7 @@ package com.serkyo.deicideadditions.event;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
-import dev.ftb.mods.ftbteams.api.event.PlayerJoinedPartyTeamEvent;
-import dev.ftb.mods.ftbteams.api.event.PlayerLeftPartyTeamEvent;
-import dev.ftb.mods.ftbteams.api.event.TeamCreatedEvent;
-import dev.ftb.mods.ftbteams.api.event.TeamEvent;
+import dev.ftb.mods.ftbteams.api.event.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -25,6 +22,7 @@ public class TeamEvents {
         TeamEvent.PLAYER_LEFT_PARTY.register(TeamEvents::onPlayerLeftParty);
         TeamEvent.CREATED.register(TeamEvents::onTeamCreated);
         TeamEvent.DELETED.register(TeamEvents::onTeamDeleted);
+        TeamEvent.PROPERTIES_CHANGED.register(TeamEvents::onTeamPropertiesChanged);
     }
 
     private static void onPlayerJoinedParty(PlayerJoinedPartyTeamEvent event) {
@@ -80,6 +78,21 @@ public class TeamEvents {
         }
         else {
             System.out.println("Couldn't find vanilla team with the following name : " + deletedTeamId);
+        }
+    }
+
+    private static void onTeamPropertiesChanged(TeamPropertiesChangedEvent event) {
+        ServerScoreboard scoreboard = getScoreboard();
+        Team ftbTeam = event.getTeam();
+
+        String teamId = "ftb_" + event.getTeam().getId();
+        PlayerTeam vanillaTeam = scoreboard.getPlayerTeam(teamId);
+
+        if (vanillaTeam != null) {
+            configureVanillaTeam(vanillaTeam, ftbTeam);
+        }
+        else {
+            System.out.println("Couldn't find vanilla team with the following name : " + teamId);
         }
     }
 
