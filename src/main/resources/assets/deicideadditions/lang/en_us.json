@@ -1,5 +1,6 @@
 {
   "creativetab.deicide_tab": "Deicide Additions",
+  "item.deicideadditions.showlore": "Hold shift to show item lore",
   "item.deicideadditions.divinity_fragment": "Divinity Fragment",
   "item.deicideadditions.diamond_sheet": "Diamond Sheet",
   "item.deicideadditions.rough_diamond": "Rough Diamond",
@@ -11,6 +12,8 @@
   "item.deicideadditions.ice_draconic_sigil": "Ice Draconic Sigil",
   "item.deicideadditions.lightning_draconic_sigil": "Lightning Draconic Sigil",
   "item.deicideadditions.oblivion_effigy": "Oblivion Effigy",
+  "item.deicideadditions.oblivion_effigy.description": "Use to reset your skilltree, at the cost of half of your skill points.",
+  "item.deicideadditions.oblivion_effigy.lore": "A hollow idol carved in the image of lost gods. Its touch unravels memory, stripping the soul bare so it may be forged anew.",
   "effect.deicideadditions.corrupting_presence": "Corrupting Presence",
   "effect.deicideadditions.corrupting_presence.description": "An oppressive aura smothers your vitality, preventing the comfort effect from being applied.",
   "effect.deicideadditions.despair": "Despair",
