@@ -18,12 +18,12 @@ public class CorruptingPresenceEffect extends DeicideMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(ModEffects.COMFORT.get())) {
                 player.removeEffect(ModEffects.COMFORT.get());
             }
 
-            if (player.tickCount % 200 == 0 && Math.random() < 0.5) {
+            if (player.tickCount % 400 == 0 && Math.random() < 0.5) {
                 double reversalChance = player.getLuck() * 0.02;
                 boolean isReversed = Math.random() < reversalChance;
 
