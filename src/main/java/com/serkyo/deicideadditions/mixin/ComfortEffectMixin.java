@@ -17,8 +17,8 @@ public class ComfortEffectMixin {
     public void applyEffectTick(LivingEntity entity, int amplifier) {
         if (!entity.hasEffect(MobEffects.REGENERATION)) {
             if (entity.getHealth() < entity.getMaxHealth()) {
-                if (entity instanceof Player) {
-                    entity.heal((float) Math.max(1.0, Math.ceil(0.05 * entity.getMaxHealth() / 2)));
+                if (entity instanceof Player player) {
+                    player.heal((float) Math.max(1.0, Math.ceil(0.05 * player.getMaxHealth() / 2)));
                 } else {
                     entity.heal(1.0F);
                 }

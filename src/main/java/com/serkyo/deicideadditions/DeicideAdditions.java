@@ -5,6 +5,7 @@ import com.serkyo.deicideadditions.client.tabs_menu.QuestlogTab;
 import com.serkyo.deicideadditions.core.DeicideCreativeTab;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.core.DeicideItems;
+import com.serkyo.deicideadditions.core.DeicideRegistry;
 import com.serkyo.deicideadditions.event.TeamEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +33,8 @@ public class DeicideAdditions {
         DeicideCreativeTab.register(modEventBus);
         DeicideItems.register(modEventBus);
         DeicideEffects.register(modEventBus);
+
+        DeicideRegistry.register();
 
         modEventBus.addListener(this::commonSetup);
 

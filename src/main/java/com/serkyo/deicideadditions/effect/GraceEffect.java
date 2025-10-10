@@ -38,9 +38,9 @@ public class GraceEffect extends DeicideMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
-        if (entity instanceof Player) {
-            if (entity.swinging || entity.isUsingItem()) {
-                entity.removeEffect(this);
+        if (entity instanceof Player player) {
+            if (player.swinging || player.isUsingItem()) {
+                player.removeEffect(this);
             }
         }
     }
@@ -54,11 +54,11 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onEffectApplied(MobEffectEvent.Added event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player) {
+        if (entity instanceof Player player) {
             if (event.getEffectInstance().getEffect().equals(DeicideEffects.GRACE_EFFECT.get())) {
-                List<Mob> mobsAround = entity.level().getEntitiesOfClass(Mob.class, entity.getBoundingBox().inflate(64));
+                List<Mob> mobsAround = player.level().getEntitiesOfClass(Mob.class, entity.getBoundingBox().inflate(64));
                 for (Mob mob : mobsAround) {
-                    if (mob.getTarget() == entity) {
+                    if (mob.getTarget() == player) {
                         mob.setTarget(null);
                     }
                 }
@@ -70,8 +70,8 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingAttacked(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player) {
-            if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
+        if (entity instanceof Player player) {
+            if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
             }
         }
@@ -81,8 +81,8 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingHealed(LivingHealEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player) {
-            if (entity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
+        if (entity instanceof Player player) {
+            if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
             }
         }
@@ -92,8 +92,8 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingChangeTarget(LivingChangeTargetEvent event) {
         LivingEntity targetedEntity = event.getNewTarget();
 
-        if (targetedEntity instanceof Player) {
-            if (targetedEntity.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
+        if (targetedEntity instanceof Player player) {
+            if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
             }
         }

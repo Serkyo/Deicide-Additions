@@ -6,7 +6,7 @@ import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvide
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
-import com.serkyo.deicideadditions.utils.DeicideRegistry;
+import com.serkyo.deicideadditions.core.DeicideRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
