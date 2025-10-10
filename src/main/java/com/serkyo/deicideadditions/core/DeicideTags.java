@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 public class DeicideTags {
     public static class Items {
         public static final TagKey<Item> SCULK_INFESTED = tag("sculk_infested");
+        public static final TagKey<Item> DRAGONSTEEL_INGOTS = tag("dragonsteel_ingots");
         public static final TagKey<Item> DRAGONSTEEL_HELMET = tag("dragonsteel_helmet");
         public static final TagKey<Item> DRAGONSTEEL_CHESTPLATE = tag("dragonsteel_chestplate");
         public static final TagKey<Item> DRAGONSTEEL_LEGGINGS = tag("dragonsteel_leggings");

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "deicideadditions:end_warrior_smithing_template"
+    },
+    "X": {
+      "item": "mofus_better_end_:fosend_energy_block"
+    },
+    "Y": {
+      "item": "majruszsdifficulty:enderium_ingot"
+    }
+  },
+  "pattern": [
+    "Y#Y",
+    "YXY",
+    "YYY"
+  ],
+  "result": {
+    "count": 2,
+    "item": "deicideadditions:end_warrior_smithing_template"
+  },
+  "show_notification": true
+}

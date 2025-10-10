@@ -4,6 +4,7 @@ import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.sculkhorde.core.ModItems;
 import com.serkyo.deicideadditions.core.DeicideItems;
+import com.serkyo.deicideadditions.core.DeicideTags;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.mcreator.mofusbetterend.init.MofusBetterEndModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -76,6 +77,42 @@ public class DeicideRecipeProvider extends RecipeProvider implements IConditionB
                 .pattern("YXY")
                 .pattern("#Y#")
                 .unlockedBy("has_fire_dragonsteel_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(IafItemRegistry.DRAGONSTEEL_LIGHTNING_INGOT.get()).build()))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DeicideItems.FIRE_DRAGONSTEEL_SMITHING_TEMPLATE.get(), 2)
+                .define('#', DeicideItems.FIRE_DRAGONSTEEL_SMITHING_TEMPLATE.get())
+                .define('X', IafItemRegistry.DRAGON_SKULL_FIRE.get())
+                .define('Y', IafItemRegistry.FIRE_DRAGON_BLOOD.get())
+                .pattern("Y#Y")
+                .pattern("YXY")
+                .pattern("YYY")
+                .unlockedBy("has_fire_dragon_skull", inventoryTrigger(ItemPredicate.Builder.item().of(IafItemRegistry.DRAGON_SKULL_FIRE.get()).build()))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DeicideItems.ICE_DRAGONSTEEL_SMITHING_TEMPLATE.get(), 2)
+                .define('#', DeicideItems.ICE_DRAGONSTEEL_SMITHING_TEMPLATE.get())
+                .define('X', IafItemRegistry.DRAGON_SKULL_ICE.get())
+                .define('Y', IafItemRegistry.ICE_DRAGON_BLOOD.get())
+                .pattern("Y#Y")
+                .pattern("YXY")
+                .pattern("YYY")
+                .unlockedBy("has_ice_dragon_skull", inventoryTrigger(ItemPredicate.Builder.item().of(IafItemRegistry.DRAGON_SKULL_ICE.get()).build()))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DeicideItems.LIGHTNING_DRAGONSTEEL_SMITHING_TEMPLATE.get(), 2)
+                .define('#', DeicideItems.LIGHTNING_DRAGONSTEEL_SMITHING_TEMPLATE.get())
+                .define('X', IafItemRegistry.DRAGON_SKULL_LIGHTNING.get())
+                .define('Y', IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get())
+                .pattern("Y#Y")
+                .pattern("YXY")
+                .pattern("YYY")
+                .unlockedBy("has_lightning_dragon_skull", inventoryTrigger(ItemPredicate.Builder.item().of(IafItemRegistry.DRAGON_SKULL_LIGHTNING.get()).build()))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DeicideItems.DREADSTEEL_SMITHING_TEMPLATE.get(), 2)
+                .define('#', DeicideItems.DREADSTEEL_SMITHING_TEMPLATE.get())
+                .define('X', IafItemTags.DRAGON_HEARTS)
+                .define('Y', DeicideTags.Items.DRAGONSTEEL_INGOTS)
+                .pattern("Y#Y")
+                .pattern("YXY")
+                .pattern("YYY")
+                .unlockedBy("has_dragon_heart", inventoryTrigger(ItemPredicate.Builder.item().of(IafItemTags.DRAGON_HEARTS).build()))
                 .save(pWriter);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, DeicideItems.LEATHER_SCRAP.get(), 3)
                 .requires(Items.LEATHER)

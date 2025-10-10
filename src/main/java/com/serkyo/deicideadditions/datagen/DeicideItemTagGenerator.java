@@ -145,6 +145,11 @@ public class DeicideItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.INFESTED_WOOD_FENCE_GATE.get().asItem())
                 .add(ModBlocks.INFESTED_STURDY_FENCE_GATE.get().asItem());
 
+        this.tag(DeicideTags.Items.DRAGONSTEEL_INGOTS)
+                .add(IafItemRegistry.DRAGONSTEEL_FIRE_INGOT.get())
+                .add(IafItemRegistry.DRAGONSTEEL_ICE_INGOT.get())
+                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_INGOT.get());
+
         this.tag(DeicideTags.Items.DRAGONSTEEL_HELMET)
                 .add(IafItemRegistry.DRAGONSTEEL_FIRE_HELMET.get())
                 .add(IafItemRegistry.DRAGONSTEEL_ICE_HELMET.get())
