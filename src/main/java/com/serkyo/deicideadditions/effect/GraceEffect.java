@@ -38,7 +38,7 @@ public class GraceEffect extends DeicideMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.swinging || player.isUsingItem()) {
                 player.removeEffect(this);
             }
@@ -54,7 +54,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onEffectApplied(MobEffectEvent.Added event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && !player.level().isClientSide) {
             if (event.getEffectInstance().getEffect().equals(DeicideEffects.GRACE_EFFECT.get())) {
                 List<Mob> mobsAround = player.level().getEntitiesOfClass(Mob.class, entity.getBoundingBox().inflate(64));
                 for (Mob mob : mobsAround) {
@@ -70,7 +70,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingAttacked(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
             }
@@ -81,7 +81,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingHealed(LivingHealEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
             }
@@ -92,7 +92,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingChangeTarget(LivingChangeTargetEvent event) {
         LivingEntity targetedEntity = event.getNewTarget();
 
-        if (targetedEntity instanceof Player player) {
+        if (targetedEntity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
             }
