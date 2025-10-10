@@ -13,10 +13,6 @@ public class Boss {
         this.checkHeight = checkHeight;
     }
 
-    public Boss(String id) {
-        this(id, 64, 64);
-    }
-
     public ResourceLocation getId() {
         return id;
     }

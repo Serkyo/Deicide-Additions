@@ -47,7 +47,7 @@ public class OblivionEffigy extends Item {
                 Category skilltree = skillTreeOptional.get();
                 stack.shrink(1);
                 skilltree.resetSkills((ServerPlayer) player);
-                skilltree.setPoints((ServerPlayer) player, skillTreeResourceLocation, skilltree.getPoints((ServerPlayer) player, skillTreeResourceLocation) / 2);
+                skilltree.setPoints((ServerPlayer) player, skillTreeResourceLocation, skilltree.getPoints((ServerPlayer) player, skillTreeResourceLocation) / 8);
                 player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 100, 0, false, true));
                 player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 0, false, true));
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0, false, true));

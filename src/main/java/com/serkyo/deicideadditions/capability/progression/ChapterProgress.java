@@ -2,7 +2,7 @@ package com.serkyo.deicideadditions.capability.progression;
 
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
-import com.serkyo.deicideadditions.utils.DeicideRegistry;
+import com.serkyo.deicideadditions.core.DeicideRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;

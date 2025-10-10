@@ -1,5 +1,7 @@
-package com.serkyo.deicideadditions.utils;
+package com.serkyo.deicideadditions.core;
 
+import com.serkyo.deicideadditions.utils.Boss;
+import com.serkyo.deicideadditions.utils.Chapter;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ public class DeicideRegistry {
     public static final List<Chapter> CHAPTERS = new ArrayList<>();
     public static final List<Boss> BOSSES = new ArrayList<>();
 
-    static {
+    public static void register() {
         DeicideRegistry.initialiseChapters();
         DeicideRegistry.buildBossRegistry();
     }

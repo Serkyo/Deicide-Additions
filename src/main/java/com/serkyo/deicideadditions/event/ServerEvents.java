@@ -41,7 +41,7 @@ public class ServerEvents {
         LivingEntity entity = event.getEntity();
 
         if (!entity.level().isClientSide) {
-            if (entity instanceof Player) {
+            if (entity instanceof Player player) {
                 if (source.is(DamageTypes.STARVE) ||
                         source.is(DamageTypes.IN_WALL) ||
                         source.is(DamageTypes.DROWN) ||
@@ -53,7 +53,7 @@ public class ServerEvents {
                         source.is(ModDamageTypes.DEHYDRATION) ||
                         source.is(ModDamageTypes.HYPERTHERMIA) ||
                         source.is(ModDamageTypes.HYPOTHERMIA)) {
-                    event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * entity.getMaxHealth() / 3)));
+                    event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * player.getMaxHealth() / 3)));
                 }
             }
         }

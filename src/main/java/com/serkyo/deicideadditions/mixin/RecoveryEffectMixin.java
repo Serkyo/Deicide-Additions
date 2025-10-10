@@ -12,8 +12,8 @@ import sfiomn.legendarysurvivaloverhaul.common.effects.RecoveryEffect;
 public class RecoveryEffectMixin {
     @ModifyArg(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;heal(F)V"))
     public float modifyRecovery(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
-        if (entity instanceof Player){
-            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * entity.getMaxHealth() / 3));
+        if (entity instanceof Player player){
+            return (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * player.getMaxHealth() / 3));
         }
         return defaultValue;
     }
