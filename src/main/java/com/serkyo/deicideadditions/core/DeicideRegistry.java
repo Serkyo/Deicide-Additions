@@ -89,6 +89,7 @@ public class DeicideRegistry {
         CHAPTERS.add(new Chapter(
                 "chapter5",
                 Set.of(
+                        new Boss("minecraft:warden", 24, 16),
                         new Boss("cataclysm:the_harbinger", 32, 16),
                         new Boss("cataclysm:ancient_remnant", 48, 16),
                         new Boss("soulsweapons:moonknight", 32, 8),

@@ -42,11 +42,13 @@ public class BossEffectEvents {
     private static void applyBossEffectToNearbyPlayers(LivingEntity boss) {
         ResourceLocation bossId = EntityType.getKey(boss.getType());
         Boss bossObject = DeicideRegistry.getBoss(bossId);
-        AABB boundingBox = boss.getBoundingBox().inflate(bossObject.getCheckLength(), bossObject.getCheckHeight(), bossObject.getCheckLength());
-        List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
+        if (bossObject != null) {
+            AABB boundingBox = boss.getBoundingBox().inflate(bossObject.getCheckLength(), bossObject.getCheckHeight(), bossObject.getCheckLength());
+            List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
 
-        for (Player player : nearbyPlayers) {
-            applyEffectsToPlayer(player, bossId);
+            for (Player player : nearbyPlayers) {
+                applyEffectsToPlayer(player, bossId);
+            }
         }
     }
 
