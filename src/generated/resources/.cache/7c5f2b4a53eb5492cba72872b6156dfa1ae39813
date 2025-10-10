@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-04T03:13:01.080444299	Tags for minecraft:item mod id deicideadditions
+// 1.20.1	2025-10-10T14:55:41.001494706	Tags for minecraft:item mod id deicideadditions
 d39612fb42f6ad3933863d2a08a31637f1b32428 data/deicideadditions/tags/items/dragon_blood.json
 62bdcabcf1477715c6381317de434cf5ab519a38 data/deicideadditions/tags/items/dragon_priest_boots.json
 9b8173cb842fb689d72e384076b15fbe964e36c1 data/deicideadditions/tags/items/dragon_priest_chestplate.json
@@ -7,5 +7,6 @@ d39612fb42f6ad3933863d2a08a31637f1b32428 data/deicideadditions/tags/items/dragon
 bc78cd620e63f947a9839e37ffbe096ebef625dc data/deicideadditions/tags/items/dragonsteel_boots.json
 402486079c1b01fd37c8ddfb01ce21d3492c39b1 data/deicideadditions/tags/items/dragonsteel_chestplate.json
 8087c939be3d820c8be0c8868aa06cedea960eaa data/deicideadditions/tags/items/dragonsteel_helmet.json
+d123852b41d18d554a80fab4360192b9e2e7a56f data/deicideadditions/tags/items/dragonsteel_ingots.json
 9005fe92f5ae5cbdfbd1f41790e21c9ff54e864a data/deicideadditions/tags/items/dragonsteel_leggings.json
 e15f7b9b21d0d1f2150925b0860dd1d32841b596 data/deicideadditions/tags/items/sculk_infested.json

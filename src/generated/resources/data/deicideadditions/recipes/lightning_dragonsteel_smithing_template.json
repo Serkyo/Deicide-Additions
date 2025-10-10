@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "deicideadditions:lightning_dragonsteel_smithing_template"
+    },
+    "X": {
+      "item": "iceandfire:dragon_skull_lightning"
+    },
+    "Y": {
+      "item": "iceandfire:lightning_dragon_blood"
+    }
+  },
+  "pattern": [
+    "Y#Y",
+    "YXY",
+    "YYY"
+  ],
+  "result": {
+    "count": 2,
+    "item": "deicideadditions:lightning_dragonsteel_smithing_template"
+  },
+  "show_notification": true
+}

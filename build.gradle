@@ -152,6 +152,10 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:citadel-${citadel_version}")
     // Ice and fire Spellbooks
     implementation fg.deobf("curse.maven:ice-and-fire-spellbooks-${iaf_spellbooks_version}")
+    // Sophisticated Backpacks
+    implementation fg.deobf("curse.maven:sophisticated-backpacks-${soph_backpacks_version}")
+    // Sophisticated Core
+    runtimeOnly fg.deobf("curse.maven:sophisticated-core-${soph_core_version}")
     // Puffish
     implementation fg.deobf("curse.maven:puffish-skills-${puffish_skills_version}")
     // Goety

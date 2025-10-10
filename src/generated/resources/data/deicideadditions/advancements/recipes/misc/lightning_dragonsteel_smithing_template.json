@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lightning_dragon_skull": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "iceandfire:dragon_skull_lightning"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deicideadditions:lightning_dragonsteel_smithing_template"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_lightning_dragon_skull",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deicideadditions:lightning_dragonsteel_smithing_template"
+    ]
+  },
+  "sends_telemetry_event": false
+}
