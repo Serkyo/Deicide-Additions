@@ -44,5 +44,7 @@
   "deicideadditions.smithing.dreadsteel.ingredients": "Dreadsteel Ingot",
   "deicideadditions.smithing.dreadsteel.upgrade": "Dreadsteel Upgrade",
   "deicideadditions.smithing.dreadsteel.base_slot": "Add dragonsteel armor",
-  "deicideadditions.smithing.dreadsteel.additions_slot": "Add dreadsteel ingot"
+  "deicideadditions.smithing.dreadsteel.additions_slot": "Add dreadsteel ingot",
+  "event.deicideadditons.difficulty_increase": "A unique boss has been slain, the difficulty of the world around you has increased",
+  "event.deicideadditons.powerful_foe": "This foe is beyond your reach ..."
 }
