@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.core;
 
+import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
 import net.minecraft.resources.ResourceLocation;
@@ -11,6 +12,7 @@ import java.util.Set;
 public class DeicideRegistry {
     public static final List<Chapter> CHAPTERS = new ArrayList<>();
     public static final List<Boss> BOSSES = new ArrayList<>();
+    public static final List<SculkAncientNodeBlockEntity> REGISTERED_NODES = new ArrayList<>();
 
     public static void register() {
         DeicideRegistry.initialiseChapters();
@@ -133,5 +135,21 @@ public class DeicideRegistry {
                 .filter(boss -> boss.getId().equals(bossId))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public static void registerAncientNode(SculkAncientNodeBlockEntity node) {
+        REGISTERED_NODES.add(node);
+    }
+
+    public static void unregisterAncientNode(SculkAncientNodeBlockEntity node) {
+        REGISTERED_NODES.remove(node);
+    }
+
+    public static List<SculkAncientNodeBlockEntity> getRegisteredNodes() {
+        return REGISTERED_NODES;
+    }
+
+    public static void clearRegisteredNodes() {
+        REGISTERED_NODES.clear();
     }
 }

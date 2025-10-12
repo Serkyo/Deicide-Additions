@@ -1,11 +1,12 @@
-package com.serkyo.deicideadditions.event;
+package com.serkyo.deicideadditions.handler;
 
-import com.github.sculkhorde.core.ModSavedData;
+import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
 import com.lion.graveyard.entities.LichEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
 import com.serkyo.deicideadditions.core.DeicideEffects;
+import com.serkyo.deicideadditions.core.DeicideRegistry;
 import com.serkyo.deicideadditions.core.DeicideSavedData;
 import com.serkyo.deicideadditions.utils.Chapter;
 import daripher.autoleveling.saveddata.GlobalLevelingData;
@@ -23,9 +24,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.scores.PlayerTeam;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,7 +34,7 @@ import sfiomn.legendarysurvivaloverhaul.api.ModDamageTypes;
 import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ServerEvents {
+public class ServerEventHandler {
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
         DamageSource source = event.getSource();
@@ -80,7 +79,7 @@ public class ServerEvents {
 
         handleGlobalBossProgression(bossId, boss.getServer());
         handlePlayerBossProgression(boss, bossId, killer);
-        handleSpecialBossCases(boss);
+        handleSpecialBossCases(boss, killer);
     }
 
     private static void handleGlobalBossProgression(ResourceLocation bossId, MinecraftServer server) {
@@ -147,9 +146,12 @@ public class ServerEvents {
         return isIntermediaryBoss || isFinalBoss || isSecondaryFinalBoss;
     }
 
-    private static void handleSpecialBossCases(LivingEntity boss) {
-        if (boss instanceof LichEntity) {
-            // Needs refactoring to use the method SculkAncientNodeBlockEntity.tryInitializeHorde()
-            ModSavedData.getSaveData().setHordeState(ModSavedData.HordeState.ACTIVE);
+    private static void handleSpecialBossCases(LivingEntity boss, Entity killer) {
+        if (boss instanceof LichEntity && killer instanceof Player) {
+            List<SculkAncientNodeBlockEntity> nodes = DeicideRegistry.getRegisteredNodes();
+            for (SculkAncientNodeBlockEntity node : nodes) {
+                SculkAncientNodeBlockEntity.tryInitializeHorde(boss.level(), node.getBlockPos(), node.getBlockState(), node);
+            }
         }
-    }}
+    }
+}

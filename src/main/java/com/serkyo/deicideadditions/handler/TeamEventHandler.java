@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.event;
+package com.serkyo.deicideadditions.handler;
 
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
@@ -16,13 +16,13 @@ import java.util.Map;
 
 import static net.minecraft.world.scores.Team.CollisionRule;
 
-public class TeamEvents {
+public class TeamEventHandler {
     public static void init() {
-        TeamEvent.PLAYER_JOINED_PARTY.register(TeamEvents::onPlayerJoinedParty);
-        TeamEvent.PLAYER_LEFT_PARTY.register(TeamEvents::onPlayerLeftParty);
-        TeamEvent.CREATED.register(TeamEvents::onTeamCreated);
-        TeamEvent.DELETED.register(TeamEvents::onTeamDeleted);
-        TeamEvent.PROPERTIES_CHANGED.register(TeamEvents::onTeamPropertiesChanged);
+        TeamEvent.PLAYER_JOINED_PARTY.register(TeamEventHandler::onPlayerJoinedParty);
+        TeamEvent.PLAYER_LEFT_PARTY.register(TeamEventHandler::onPlayerLeftParty);
+        TeamEvent.CREATED.register(TeamEventHandler::onTeamCreated);
+        TeamEvent.DELETED.register(TeamEventHandler::onTeamDeleted);
+        TeamEvent.PROPERTIES_CHANGED.register(TeamEventHandler::onTeamPropertiesChanged);
     }
 
     private static void onPlayerJoinedParty(PlayerJoinedPartyTeamEvent event) {
