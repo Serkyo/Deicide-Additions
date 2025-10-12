@@ -12,6 +12,7 @@ import daripher.autoleveling.saveddata.GlobalLevelingData;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -56,6 +57,12 @@ public class ServerEvents {
                     event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * player.getMaxHealth() / 3)));
                 }
             }
+            else if (entity.getType().is(Tags.EntityTypes.BOSSES) && source.getEntity() instanceof Player player) {
+                if (player.hasEffect(DeicideEffects.DESPAIR_EFFECT.get())) {
+                    event.setAmount(event.getAmount() * 0.05F);
+                    player.displayClientMessage(Component.translatable("event.deicideadditons.powerful_foe"), true);
+                }
+            }
         }
     }
 
@@ -81,6 +88,7 @@ public class ServerEvents {
         GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
 
         if (!deicideSavedData.isBossDefeated(bossId)) {
+            server.sendSystemMessage(Component.translatable("event.deicideadditons.difficulty_increase"));
             deicideSavedData.markBossDefeated(bossId);
             globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
         }
@@ -108,6 +116,7 @@ public class ServerEvents {
         for (Player playerNearby : nearbyPlayers) {
             playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
                 if (teamMembers.contains(playerNearby.getUUID())) {
+                    System.out.println("Updating boss progression for " + playerNearby.getName() + " who killed " + bossId);
                     updateChapterProgressForBoss(chapterProgress, bossId);
                 }
             });
