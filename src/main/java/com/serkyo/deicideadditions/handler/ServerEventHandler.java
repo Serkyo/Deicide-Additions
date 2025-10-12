@@ -124,6 +124,7 @@ public class ServerEventHandler {
 
     private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
         player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+            System.out.println("Updating boss progression for " + player.getName() + " who killed " + bossId);
             updateChapterProgressForBoss(chapterProgress, bossId);
         });
     }
