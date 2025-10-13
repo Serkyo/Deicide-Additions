@@ -19,7 +19,7 @@ public class DeicideItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PUTRID_HIDE = ITEMS.register("putrid_hide",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LEATHER_SCRAP = ITEMS.register("leather_scrap",
+    public static final RegistryObject<Item> LEATHER_STRAP = ITEMS.register("leather_strap",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> END_WARRIOR_SMITHING_TEMPLATE = ITEMS.register("end_warrior_smithing_template",
             EndWarriorSmithingTemplate::new);
