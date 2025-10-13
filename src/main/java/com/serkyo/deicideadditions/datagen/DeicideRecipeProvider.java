@@ -12,7 +12,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import java.util.function.Consumer;
 
@@ -114,10 +117,12 @@ public class DeicideRecipeProvider extends RecipeProvider implements IConditionB
                 .pattern("YYY")
                 .unlockedBy("has_dragon_heart", inventoryTrigger(ItemPredicate.Builder.item().of(IafItemTags.DRAGON_HEARTS).build()))
                 .save(pWriter);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, DeicideItems.LEATHER_SCRAP.get(), 3)
-                .requires(Items.LEATHER)
-                .unlockedBy("has_leather", inventoryTrigger(ItemPredicate.Builder.item().of(Items.LEATHER).build()))
-                .save(pWriter);
+        CuttingBoardRecipeBuilder.cuttingRecipe(
+                Ingredient.of(new ItemLike[]{Items.LEATHER}),
+                Ingredient.of(ForgeTags.TOOLS_KNIVES),
+                (ItemLike) DeicideItems.LEATHER_STRAP.get(),
+                3)
+                .build(pWriter);
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Items.ROTTEN_FLESH), RecipeCategory.MISC, DeicideItems.PUTRID_HIDE.get(), 0.1F, 200)
                 .unlockedBy("has_rotten_flesh", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(Items.ROTTEN_FLESH).build()))
