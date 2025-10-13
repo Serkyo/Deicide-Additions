@@ -17,7 +17,7 @@ public class DeicideItemModelProvider extends ItemModelProvider {
         basicItem(DeicideItems.DIAMOND_SHEET.get());
         basicItem(DeicideItems.ROUGH_DIAMOND.get());
         basicItem(DeicideItems.PUTRID_HIDE.get());
-        basicItem(DeicideItems.LEATHER_SCRAP.get());
+        basicItem(DeicideItems.LEATHER_STRAP.get());
         basicItem(DeicideItems.END_WARRIOR_SMITHING_TEMPLATE.get());
         basicItem(DeicideItems.ENDERMITE_CORE.get());
         basicItem(DeicideItems.STABILIZED_ENERGY_CONDUIT.get());

@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-10T14:55:41.0011169	Item Models: deicideadditions
+// 1.20.1	2025-10-13T16:07:41.251301368	Item Models: deicideadditions
 118d50e4e25f962892a6d0615b80ffc60cf7bac5 assets/deicideadditions/models/item/diamond_sheet.json
 8ddc2750feb6469f23a4b439298dd75abb7047e6 assets/deicideadditions/models/item/divinity_fragment.json
 03aa6bd50ab1e3947f63994f71bdcf48a39840bc assets/deicideadditions/models/item/dreadsteel_smithing_template.json
@@ -8,7 +8,7 @@ babba529510003fb51ff42b4c5564a49b5534a07 assets/deicideadditions/models/item/end
 61a656f676ae90a0d21dc5f9c3a146136f363db2 assets/deicideadditions/models/item/fire_dragonsteel_smithing_template.json
 18642b0ea844734e37a4a7c611a762d62e003041 assets/deicideadditions/models/item/ice_draconic_sigil.json
 c2098021dd13efe63beefec9e612ac0bbc057a4b assets/deicideadditions/models/item/ice_dragonsteel_smithing_template.json
-3b00d4866b524a831799ed83b5e431f7dd6715be assets/deicideadditions/models/item/leather_scrap.json
+751b3c14800113da0fd77046e2b6ac7d29d65763 assets/deicideadditions/models/item/leather_strap.json
 cd5163adce968ed61b0002082b20acb9d5cb0bec assets/deicideadditions/models/item/lightning_draconic_sigil.json
 399f49a797742c57cc38f82ed0a484545de4b9e8 assets/deicideadditions/models/item/lightning_dragonsteel_smithing_template.json
 7ef7f847741677d7983d885b78e9710a7c9b3120 assets/deicideadditions/models/item/oblivion_effigy.json

@@ -20,7 +20,7 @@ public class DeicideCreativeTab {
                         pOutput.accept(DeicideItems.DIAMOND_SHEET.get());
                         pOutput.accept(DeicideItems.ROUGH_DIAMOND.get());
                         pOutput.accept(DeicideItems.PUTRID_HIDE.get());
-                        pOutput.accept(DeicideItems.LEATHER_SCRAP.get());
+                        pOutput.accept(DeicideItems.LEATHER_STRAP.get());
                         pOutput.accept(DeicideItems.END_WARRIOR_SMITHING_TEMPLATE.get());
                         pOutput.accept(DeicideItems.ENDERMITE_CORE.get());
                         pOutput.accept(DeicideItems.STABILIZED_ENERGY_CONDUIT.get());
