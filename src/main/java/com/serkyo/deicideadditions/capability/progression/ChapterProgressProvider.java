@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ChapterProgressProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<ChapterProgress> CHAPTER_PROGRESS = CapabilityManager.get(new CapabilityToken<ChapterProgress>() { });
+    public static Capability<ChapterProgress> CHAPTER_PROGRESS = CapabilityManager.get(new CapabilityToken<>() {});
 
     private ChapterProgress chapterProgress = null;
     private final LazyOptional<ChapterProgress> optional = LazyOptional.of(this::createChapterProgress);

@@ -1,7 +1,6 @@
 package com.serkyo.deicideadditions.handler;
 
 import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
-import com.lion.graveyard.entities.LichEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
@@ -22,6 +21,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.Tags;
@@ -148,7 +148,7 @@ public class ServerEventHandler {
     }
 
     private static void handleSpecialBossCases(LivingEntity boss, Entity killer) {
-        if (boss instanceof LichEntity && killer instanceof Player) {
+        if (boss instanceof WitherBoss && killer instanceof Player) {
             List<SculkAncientNodeBlockEntity> nodes = DeicideRegistry.getRegisteredNodes();
             for (SculkAncientNodeBlockEntity node : nodes) {
                 SculkAncientNodeBlockEntity.tryInitializeHorde(boss.level(), node.getBlockPos(), node.getBlockState(), node);

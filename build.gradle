@@ -122,8 +122,6 @@ dependencies {
     implementation fg.deobf("curse.maven:questlog-${questlog_version}")
     // Legendary tabs
     implementation fg.deobf("curse.maven:legendary-tabs-${legendarytabs_version}")
-    // Graveyard
-    implementation fg.deobf("curse.maven:the-graveyard-forge-531188:5114579")
     // Autoleveling
     implementation fg.deobf("curse.maven:auto-leveling-${autoleveling_version}")
     // Projectile Damage Attribute
