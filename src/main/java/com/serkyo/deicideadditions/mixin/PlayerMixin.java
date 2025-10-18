@@ -2,14 +2,14 @@ package com.serkyo.deicideadditions.mixin;
 
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Player.class)
+@Mixin(value = Player.class, priority = 1100)
 public class PlayerMixin {
-    /**
-     * @author Serkyo
-     * @reason Allow players to eat regardless of their saturation
-     */
-    @Overwrite(remap = false)
-    public boolean canEat(boolean pCanAlwaysEat) { return true; }
+    @Inject(method = "canEat", at = @At("RETURN"), cancellable = true)
+    private void canEat(boolean pCanAlwaysEat, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(true);
+    }
 }
