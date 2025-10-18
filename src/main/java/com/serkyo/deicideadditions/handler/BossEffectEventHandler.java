@@ -55,7 +55,7 @@ public class BossEffectEventHandler {
     private static void applyEffectsToPlayer(Player player, ResourceLocation bossId) {
         player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
             Chapter currentChapter = chapterProgress.getCurrentChapter();
-            player.addEffect(new MobEffectInstance(DeicideEffects.CORRUPTING_PRESENCE_EFFECT.get(), 200, 0, true, true));
+            player.addEffect(new MobEffectInstance(DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get(), 200, 0, true, true));
 
             if (currentChapter != null) {
                 boolean shouldApplyDespair = checkDespairCondition(chapterProgress, currentChapter, bossId);

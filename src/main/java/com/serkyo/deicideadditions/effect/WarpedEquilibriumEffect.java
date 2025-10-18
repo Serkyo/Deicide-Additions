@@ -11,8 +11,8 @@ import vectorwing.farmersdelight.common.registry.ModEffects;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CorruptingPresenceEffect extends DeicideMobEffect {
-    public CorruptingPresenceEffect(MobEffectCategory pCategory, int pColor) {
+public class WarpedEquilibriumEffect extends DeicideMobEffect {
+    public WarpedEquilibriumEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
 
@@ -32,7 +32,7 @@ public class CorruptingPresenceEffect extends DeicideMobEffect {
                 int debuffsChanged = 0;
 
                 for (MobEffectInstance effect : effects) {
-                    if (effect.getEffect() != DeicideEffects.DESPAIR_EFFECT.get() && effect.getEffect() != DeicideEffects.CORRUPTING_PRESENCE_EFFECT.get()) {
+                    if (effect.getEffect() != DeicideEffects.DESPAIR_EFFECT.get() && effect.getEffect() != DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get()) {
                         player.removeEffect(effect.getEffect());
                         boolean isHarmful = effect.getEffect().getCategory() == MobEffectCategory.HARMFUL;
                         int durationChange;
