@@ -25,7 +25,7 @@ public class CampfireBlockEntityMixin {
             List<Player> nearby_players = level.getEntitiesOfClass(Player.class, bounding_box);
 
             for (Player player : nearby_players) {
-                if (!player.hasEffect(DeicideEffects.CORRUPTING_PRESENCE_EFFECT.get())) {
+                if (!player.hasEffect(DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get())) {
                     player.addEffect(new MobEffectInstance(ModEffects.COMFORT.get(), 100, 0, true, true));
                 }
             }
