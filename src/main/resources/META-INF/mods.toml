@@ -90,45 +90,9 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="quark"
-    mandatory=false
-    versionRange="[4.0-462]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="alexscaves"
-    mandatory=false
-    versionRange="[2.0.2]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="apotheotic_additions"
-    mandatory=false
-    versionRange="[2.2.2]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
     modId="aquaculture"
     mandatory=false
     versionRange="[2.5.5]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="cataclysm"
-    mandatory=false
-    versionRange="[3.16]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="delightful"
-    mandatory=false
-    versionRange="[3.7.6]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="enigmaticlegacy"
-    mandatory=false
-    versionRange="[2.30.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -138,57 +102,15 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="galosphere"
-    mandatory=false
-    versionRange="[1.20.1-1.4.1]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
     modId="iceandfire"
     mandatory=true
     versionRange="[2.1.13-1.20.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="immersive_weathering"
-    mandatory=false
-    versionRange="[1.20.1-2.0.5]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
     modId="mofus_better_end_"
     mandatory=true
     versionRange="[1.0]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="mowziesmobs"
-    mandatory=false
-    versionRange="[1.7.3]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="netherexp"
-    mandatory=false
-    versionRange="[2.3.5]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="nethersdelight"
-    mandatory=false
-    versionRange="[1.20.1-4.0]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="seadwellers"
-    mandatory=false
-    versionRange="[2.9.9]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="stalwart_dungeons"
-    mandatory=false
-    versionRange="[1.2.8]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -246,183 +168,15 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="ftblibrary"
-    mandatory=false
-    versionRange="[2001.2.10]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="alexsmobs"
-    mandatory=false
-    versionRange="[1.22.9]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="alexscavesdelight"
-    mandatory=false
-    versionRange="[1.0.27-final]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="alexsdelight"
-    mandatory=false
-    versionRange="[1.5]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="aquaculturedelight"
-    mandatory=false
-    versionRange="[1.1.1]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="aquamirae"
-    mandatory=false
-    versionRange="[6.1.0]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="aquamirae_delight"
-    mandatory=false
-    versionRange="[1.5.2]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="artifacts"
-    mandatory=false
-    versionRange="[9.5.16]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="biomeswevegone"
-    mandatory=false
-    versionRange="[1.6.6]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="burnt"
-    mandatory=false
-    versionRange="[1.9.1.2]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="dungeonsdelight"
-    mandatory=false
-    versionRange="[1.2.10]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="ecologics"
-    mandatory=false
-    versionRange="[2.2.2]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="ends_delight"
-    mandatory=false
-    versionRange="[2.5.1+forge.1.20.1]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="ice_and_fire_delight"
-    mandatory=false
-    versionRange="[0.2.4]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="jadensnetherexpansiondelight"
-    mandatory=false
-    versionRange="[1.20.1-1.0.4-forge]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="lendersdelight"
-    mandatory=false
-    versionRange="[1.20.1-1.0.10]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="miners_delight"
-    mandatory=false
-    versionRange="[1.20.1-1.2.3]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="oceansdelight"
-    mandatory=false
-    versionRange="[1.0.2-1.20]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="outer_end"
-    mandatory=false
-    versionRange="[1.0.0]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="thalassophobia"
-    mandatory=false
-    versionRange="[1.0.0]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="champions"
-    mandatory=false
-    versionRange="[1.20.1-2.1.12.6]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
     modId="apotheosis"
     mandatory=true
     versionRange="[7.4.8]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="ancientreforging"
+    modId="caravans"
     mandatory=false
-    versionRange="[1.3]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="dreadsteel"
-    mandatory=false
-    versionRange="[1.20.1-1.1.9-Patched]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="epicpaladins"
-    mandatory=false
-    versionRange="[1.0.2-1.20.1-forge]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="ice_and_fire_spellbooks"
-    mandatory=true
-    versionRange="[2.3.1-1.20.1]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="traveloptics"
-    mandatory=false
-    versionRange="[5.5.0-1.20.1]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="voidscape"
-    mandatory=false
-    versionRange="[1.20.1-1.5.389]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="sophisticatedbackpacks"
-    mandatory=false
-    versionRange="[3.24.9.1391]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="majruszsdifficulty"
-    mandatory=false
-    versionRange="[1.9.10]"
+    versionRange="[1.1.3]"
     ordering="AFTER"
     side="BOTH"
 
