@@ -1,0 +1,46 @@
+{
+  "cooldown": 72000,
+  "leader": {
+    "type": "goety:envioker"
+  },
+  "members": [
+    {
+      "type": "illageandspillage:absorber",
+      "count": 1
+    },
+    {
+      "type": "illageandspillage:crocofang",
+      "count": 2
+    },
+    {
+      "type": "minecraft:ravager",
+      "count": 1
+    },
+    {
+      "type": "goety:preacher",
+      "count": 1
+    },
+    {
+      "type": "illageandspillage:engineer",
+      "count": 1
+    },
+    {
+      "type": "minecraft:evoker",
+      "count": 1
+    },
+    {
+      "type": "minecraft:vindicator",
+      "count": 3
+    },
+    {
+      "type": "minecraft:pillager",
+      "count": 3
+    },
+    {
+      "type": "minecraft:llama",
+      "armor": "minecraft:brown_carpet",
+      "cargo": "caravans:caravans/cargo/cocoa",
+      "count": 6
+    }
+  ]
+}
