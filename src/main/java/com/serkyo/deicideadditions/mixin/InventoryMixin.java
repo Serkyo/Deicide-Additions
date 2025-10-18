@@ -12,7 +12,6 @@ public class InventoryMixin {
     @ModifyArg(method = "hurtArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Ljava/util/function/Consumer;)V"))
     public int armorDamageCap(int pAmount, @Local ItemStack itemStack) {
         int maxDurabilityDamage = (int) Math.ceil(itemStack.getMaxDamage() * 0.005F);
-        System.out.println("Lowered damage amount from " + pAmount + " to " + maxDurabilityDamage);
         return Math.min(pAmount, maxDurabilityDamage);
     }
 }
