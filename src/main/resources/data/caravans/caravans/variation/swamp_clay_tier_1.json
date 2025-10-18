@@ -1,0 +1,37 @@
+{
+  "cooldown": 36000,
+  "leader": {
+    "type": "goety:envioker"
+  },
+  "members": [
+    {
+      "type": "illageandspillage:absorber",
+      "count": 1
+    },
+    {
+      "type": "illageandspillage:crocofang",
+      "count": 2
+    },
+    {
+      "type": "minecraft:vindicator",
+      "count": 2
+    },
+    {
+      "type": "minecraft:pillager",
+      "count": 2
+    },
+    {
+      "type": "minecraft:witch",
+      "count": 1
+    },
+    {
+      "type": "goety:maverick",
+      "count": 1
+    },
+    {
+      "type": "minecraft:donkey",
+      "cargo": "caravans:caravans/cargo/clay",
+      "count": 4
+    }
+  ]
+}

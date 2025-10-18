@@ -1,0 +1,30 @@
+{
+  "cooldown": 36000,
+  "leader": {
+    "type": "goety:envioker"
+  },
+  "members": [
+    {
+      "type": "illageandspillage:absorber",
+      "count": 1
+    },
+    {
+      "type": "illageandspillage:crocofang",
+      "count": 2
+    },
+    {
+      "type": "minecraft:vindicator",
+      "count": 2
+    },
+    {
+      "type": "minecraft:pillager",
+      "count": 2
+    },
+    {
+      "type": "minecraft:llama",
+      "armor": "minecraft:red_carpet",
+      "cargo": "caravans:caravans/cargo/exotics",
+      "count": 4
+    }
+  ]
+}
