@@ -87,7 +87,10 @@ public class ServerEventHandler {
         GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
 
         if (!deicideSavedData.isBossDefeated(bossId)) {
-            server.sendSystemMessage(Component.translatable("event.deicideadditons.difficulty_increase"));
+            List<ServerPlayer> players = server.getPlayerList().getPlayers();
+            for (ServerPlayer player : players) {
+                player.sendSystemMessage(Component.translatable("event.deicideadditons.difficulty_increase"));
+            }
             deicideSavedData.markBossDefeated(bossId);
             globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
         }
