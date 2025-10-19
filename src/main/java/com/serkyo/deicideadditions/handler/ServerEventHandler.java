@@ -118,7 +118,7 @@ public class ServerEventHandler {
         for (Player playerNearby : nearbyPlayers) {
             playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
                 if (teamMembers.contains(playerNearby.getUUID())) {
-                    System.out.println("Updating boss progression for " + playerNearby.getName() + " who killed " + bossId);
+                    DeicideAdditions.LOGGER.debug("Updating boss progression for " + playerNearby.getName() + " who killed " + bossId);
                     updateChapterProgressForBoss(chapterProgress, bossId);
                 }
             });
@@ -127,7 +127,7 @@ public class ServerEventHandler {
 
     private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
         player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-            System.out.println("Updating boss progression for " + player.getName() + " who killed " + bossId);
+            DeicideAdditions.LOGGER.debug("Updating boss progression for " + player.getName() + " who killed " + bossId);
             updateChapterProgressForBoss(chapterProgress, bossId);
         });
     }

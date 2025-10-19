@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.handler;
 
+import com.serkyo.deicideadditions.DeicideAdditions;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
@@ -36,7 +37,7 @@ public class TeamEventHandler {
             scoreboard.addPlayerToTeam(player.getName().getString(), vanillaTeam);
         }
         else {
-            System.out.println("Couldn't find vanilla team with the following name : " + teamId);
+            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name  : " + teamId);
         }
     }
 
@@ -51,7 +52,7 @@ public class TeamEventHandler {
             scoreboard.removePlayerFromTeam(player.getName().getString(), vanillaTeam);
         }
         else {
-            System.out.println("Couldn't find vanilla team with the following name : " + teamId);
+            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name : " + teamId);
         }
     }
 
@@ -77,7 +78,7 @@ public class TeamEventHandler {
             scoreboard.removePlayerTeam(vanillaTeam);
         }
         else {
-            System.out.println("Couldn't find vanilla team with the following name : " + deletedTeamId);
+            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name : " + deletedTeamId);
         }
     }
 
@@ -92,7 +93,7 @@ public class TeamEventHandler {
             configureVanillaTeam(vanillaTeam, ftbTeam);
         }
         else {
-            System.out.println("Couldn't find vanilla team with the following name : " + teamId);
+            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name : " + teamId);
         }
     }
 
