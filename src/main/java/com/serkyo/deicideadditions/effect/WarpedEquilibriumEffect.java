@@ -54,25 +54,27 @@ public class WarpedEquilibriumEffect extends DeicideMobEffect {
                         }
                     }
                 }
-                StringBuilder msg = new StringBuilder();
-                msg.append("Acranaxios's powers twist your essence !");
-                if (!isReversed) {
-                    if (buffsChanged > 0) {
-                        msg.append(" ").append(buffsChanged).append(" blessing(s) falter.");
-                    }
-                    if (debuffsChanged > 0) {
-                        msg.append(" ").append(debuffsChanged).append(" curse(s) intensify");
-                    }
-                }
-                else {
-                    if (buffsChanged > 0) {
-                        msg.append(" ").append(buffsChanged).append(" blessing(s) intensify.");
-                    }
-                    if (debuffsChanged > 0) {
-                        msg.append(" ").append(debuffsChanged).append(" curse(s) falter");
-                    }
-                }
-                player.sendSystemMessage(Component.literal(msg.toString()));
+//                StringBuilder msg = new StringBuilder();
+//                msg.append("Acranaxios's powers twist your essence !");
+//                if (!isReversed) {
+//                    if (buffsChanged > 0) {
+//                        msg.append(" ").append(buffsChanged).append(" blessing(s) falter.");
+//                    }
+//                    if (debuffsChanged > 0) {
+//                        msg.append(" ").append(debuffsChanged).append(" curse(s) intensify");
+//                    }
+//                }
+//                else {
+//                    if (buffsChanged > 0) {
+//                        msg.append(" ").append(buffsChanged).append(" blessing(s) intensify.");
+//                    }
+//                    if (debuffsChanged > 0) {
+//                        msg.append(" ").append(debuffsChanged).append(" curse(s) falter");
+//                    }
+//                }
+//                player.sendSystemMessage(Component.literal(msg.toString()));
+                System.out.println("CHANGEMENT DEZS BINUS");
+                player.sendSystemMessage(Component.translatable("effect.deicideadditions.warped_equilibrium.effect_changed", buffsChanged, debuffsChanged));
             }
         }
     }
