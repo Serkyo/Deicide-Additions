@@ -56,12 +56,6 @@ public class ServerEventHandler {
                     event.setAmount((float) Math.max(event.getAmount(), Math.ceil(event.getAmount() / 20 * player.getMaxHealth() / 3)));
                 }
             }
-            else if (entity.getType().is(Tags.EntityTypes.BOSSES) && source.getEntity() instanceof Player player) {
-                if (player.hasEffect(DeicideEffects.DESPAIR_EFFECT.get())) {
-                    event.setAmount(event.getAmount() * 0.05F);
-                    player.displayClientMessage(Component.translatable("event.deicideadditons.powerful_foe"), true);
-                }
-            }
         }
     }
 
