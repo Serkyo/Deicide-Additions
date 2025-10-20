@@ -16,6 +16,7 @@
   "item.deicideadditions.oblivion_effigy.lore": "An idol carved in the image of the bringer of balance. Its touch strips the soul bare so it may be forged anew.",
   "effect.deicideadditions.warped_equilibrium": "Warped Equilibrium",
   "effect.deicideadditions.warped_equilibrium.description": "The world’s balanced shatters under divine influence. You feel uncomfortable, and every twenty heartbeats, fate itself wavers, weakening blessings while strengthening afflictions. Only fortune can shield you from this influence.",
+  "effect.deicideadditions.warped_equilibrium.effect_changed": "Acranaxios's powers twist your essence ! %d blessing(s) falter and %d curse(s) intensify",
   "effect.deicideadditions.despair": "Despair",
   "effect.deicideadditions.despair.description": "A crushing presence suffocates your will. You are outmatched by the forces surrounding you.",
   "effect.deicideadditions.grace": "Grace",
