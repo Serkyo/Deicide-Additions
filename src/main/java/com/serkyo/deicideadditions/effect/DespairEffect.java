@@ -33,7 +33,7 @@ public class DespairEffect extends DeicideMobEffect {
     }
 
     @SubscribeEvent
-    public void onBossDamage(LivingDamageEvent event) {
+    public static void onBossDamage(LivingDamageEvent event) {
         DamageSource source = event.getSource();
         LivingEntity entity = event.getEntity();
 
