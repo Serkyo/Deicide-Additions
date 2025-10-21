@@ -1,6 +1,7 @@
 package com.serkyo.deicideadditions.core;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
+import com.serkyo.deicideadditions.effect.SinOfGluttonyEffect;
 import com.serkyo.deicideadditions.effect.WarpedEquilibriumEffect;
 import com.serkyo.deicideadditions.effect.DespairEffect;
 import com.serkyo.deicideadditions.effect.GraceEffect;
@@ -20,6 +21,8 @@ public class DeicideEffects {
             () -> new DespairEffect(MobEffectCategory.HARMFUL, 2894932));
     public static final RegistryObject<MobEffect> GRACE_EFFECT = MOB_EFFECTS.register("grace",
             () -> new GraceEffect(MobEffectCategory.BENEFICIAL, 16773257));
+    public static final RegistryObject<MobEffect> SIN_OF_GLUTTONY_EFFECT = MOB_EFFECTS.register("sin_of_gluttony",
+            () -> new SinOfGluttonyEffect(MobEffectCategory.HARMFUL, 0));
 
     public static void register(IEventBus eventBus) { MOB_EFFECTS.register(eventBus); }
 }
