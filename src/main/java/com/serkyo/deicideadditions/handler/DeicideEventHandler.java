@@ -1,6 +1,8 @@
 package com.serkyo.deicideadditions.handler;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
+import com.serkyo.deicideadditions.capability.misc.Gluttony;
+import com.serkyo.deicideadditions.capability.misc.GluttonyProvider;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
@@ -16,31 +18,6 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID)
 public class DeicideEventHandler {
-    @SubscribeEvent
-    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof Player) {
-            if (!event.getObject().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).isPresent()) {
-                event.addCapability(ResourceLocation.fromNamespaceAndPath(DeicideAdditions.MOD_ID, "properties"), new ChapterProgressProvider());
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onPlayerCloned(PlayerEvent.Clone event) {
-        if (event.isWasDeath()) {
-            event.getOriginal().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(oldStore -> {
-                event.getOriginal().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                });
-            });
-        }
-    }
-
-    @SubscribeEvent
-    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        event.register(ChapterProgress.class);
-    }
-
     @SubscribeEvent
     public static void onServerStopped(ServerStoppedEvent event) {
         DeicideRegistry.clearRegisteredNodes();
