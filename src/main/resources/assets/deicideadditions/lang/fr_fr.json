@@ -16,10 +16,13 @@
   "item.deicideadditions.oblivion_effigy.lore": "Une idole taillée à l’image du porteur d’équilibre. Son contact dépouille l’âme pour qu’elle puisse être reforgée.",
   "effect.deicideadditions.warped_equilibrium": "Équilibre Déformé",
   "effect.deicideadditions.warped_equilibrium.description": "L’équilibre du monde se brise sous une influence divine. Vous ressentez un malaise, et à chaque vingtième battement de cœur, le destin vacille, affaiblissant les bénédictions tout en renforçant les afflictions. Seule la fortune peut vous protéger de cette influence.",
+  "effect.deicideadditions.warped_equilibrium.effect_changed": "Les pouvoirs d'Acranaxios tordent votre essence ! %d bénédiction(s) vacillent et %d malédiction(s) s'intensifient",
   "effect.deicideadditions.despair": "Désespoir",
   "effect.deicideadditions.despair.description": "Une présence écrasante étouffe votre volonté. Les forces autour de vous vous dépassent.",
   "effect.deicideadditions.grace": "Grâce",
   "effect.deicideadditions.grace.description": "Le monde vous épargne un instant. Agissez, et cette bénédiction éphémère disparaîtra.",
+  "effect.deicideadditions.sin_of_gluttony": "Péché de Gourmandise",
+  "effect.deicideadditions.sin_of_gluttony.description": "L'excès vous consume. Votre rapidité faiblit, vos membres se fatiguent, et le fardeau de la gourmandise vous écrase.",
   "deicideadditions.smithing.endwarrior.applies_to": "Armure en Enderium",
   "deicideadditions.smithing.endwarrior.ingredients": "Noyau d’Endermite ou Conduit d’Énergie Stabilisé",
   "deicideadditions.smithing.endwarrior.upgrade": "Amélioration du Guerrier de l’End",
@@ -45,6 +48,7 @@
   "deicideadditions.smithing.dreadsteel.upgrade": "Amélioration de Dreadacier",
   "deicideadditions.smithing.dreadsteel.base_slot": "Ajoutez une armure en dragonacier",
   "deicideadditions.smithing.dreadsteel.additions_slot": "Ajoutez un lingot de dreadacier",
-  "event.deicideadditons.difficulty_increase": "Un boss unique a été vaincu, la difficulté du monde qui vous entoure s’est accrue.",
-  "event.deicideadditons.powerful_foe": "Cet ennemi dépasse votre compréhension..."
+  "event.deicideadditions.difficulty_increase": "Un boss unique a été vaincu, la difficulté du monde qui vous entoure s’est accrue.",
+  "event.deicideadditions.powerful_foe": "Cet ennemi dépasse votre compréhension...",
+  "event.deicideadditions.overeating": "La gourmandise vous dévore... Méfiez-vous de votre appétit sans fin"
 }
