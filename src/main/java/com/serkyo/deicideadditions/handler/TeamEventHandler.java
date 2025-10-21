@@ -13,11 +13,15 @@ import net.minecraft.server.ServerScoreboard;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.scores.PlayerTeam;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import static net.minecraft.world.scores.Team.CollisionRule;
 
 public class TeamEventHandler {
+    private static final Set<String> WARNED_MISSING_TEAMS = new HashSet<>();
+
     public static void init() {
         TeamEvent.PLAYER_JOINED_PARTY.register(TeamEventHandler::onPlayerJoinedParty);
         TeamEvent.PLAYER_LEFT_PARTY.register(TeamEventHandler::onPlayerLeftParty);
@@ -35,9 +39,10 @@ public class TeamEventHandler {
 
         if (vanillaTeam != null) {
             scoreboard.addPlayerToTeam(player.getName().getString(), vanillaTeam);
+            DeicideAdditions.LOGGER.debug("Added {} to vanilla team {}", player.getName().getString(), teamId);
         }
         else {
-            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name  : " + teamId);
+            logMissingTeam("TeamJoin", teamId);
         }
     }
 
@@ -50,9 +55,10 @@ public class TeamEventHandler {
 
         if (vanillaTeam != null) {
             scoreboard.removePlayerFromTeam(player.getName().getString(), vanillaTeam);
+            DeicideAdditions.LOGGER.debug("Removed {} from vanilla team {}", player.getName().getString(), teamId);
         }
         else {
-            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name : " + teamId);
+            logMissingTeam("TeamLeft", teamId);
         }
     }
 
@@ -65,6 +71,7 @@ public class TeamEventHandler {
 
             PlayerTeam vanillaTeam = scoreboard.addPlayerTeam(teamName);
             configureVanillaTeam(vanillaTeam, ftbTeam);
+            DeicideAdditions.LOGGER.info("Created new vanilla team : {}", teamName);
         }
     }
 
@@ -76,9 +83,10 @@ public class TeamEventHandler {
 
         if (vanillaTeam != null) {
             scoreboard.removePlayerTeam(vanillaTeam);
+            DeicideAdditions.LOGGER.info("Deleted vanilla team {}", deletedTeamId);
         }
         else {
-            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name : " + deletedTeamId);
+            logMissingTeam("TeamDeleted", deletedTeamId);
         }
     }
 
@@ -91,9 +99,10 @@ public class TeamEventHandler {
 
         if (vanillaTeam != null) {
             configureVanillaTeam(vanillaTeam, ftbTeam);
+            DeicideAdditions.LOGGER.debug("Updated vanilla team {} properties", teamId);
         }
         else {
-            DeicideAdditions.LOGGER.debug("Couldn't find vanilla team with the following name : " + teamId);
+            logMissingTeam("TeamUpdate", teamId);
         }
     }
 
@@ -166,5 +175,13 @@ public class TeamEventHandler {
             }
         }
         return closestColor;
+    }
+
+    private static void logMissingTeam(String context, String teamId) {
+        if (WARNED_MISSING_TEAMS.add(teamId)) {
+            DeicideAdditions.LOGGER.warn("[{}] Couldn't find vanilla team with name: {}", context, teamId);
+        } else {
+            DeicideAdditions.LOGGER.debug("[{}] Skipping duplicate missing-team warning for {}", context, teamId);
+        }
     }
 }

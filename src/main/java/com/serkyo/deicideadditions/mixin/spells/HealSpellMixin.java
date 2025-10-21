@@ -1,6 +1,7 @@
 package com.serkyo.deicideadditions.mixin.spells;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.serkyo.deicideadditions.DeicideAdditions;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.spells.holy.HealSpell;
@@ -33,7 +34,9 @@ public class HealSpellMixin {
                     BodyPartEnum.RIGHT_FOOT, (float) Config.Baked.feetPartHealth
             );
             for(BodyPartEnum part : BodyPartEnum.values()) {
-                BodyDamageUtil.healBodyPart(player, part, healAmount / 2 * healthPercentages.get(part));
+                float newHealAmount = healAmount / 2 * healthPercentages.get(part);
+                BodyDamageUtil.healBodyPart(player, part, newHealAmount);
+                DeicideAdditions.LOGGER.debug("Healed {} of {} by {} from the Heal spell", part.name(), player.getName().getString(), newHealAmount);
             }
         }
     }

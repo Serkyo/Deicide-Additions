@@ -1,6 +1,7 @@
 package com.serkyo.deicideadditions.mixin;
 
 import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
+import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -18,6 +19,7 @@ public class BlockEntityMixin {
     private void onAddedToWorld(Level pLevel, CallbackInfo ci) {
         if (!registered && (Object) this instanceof SculkAncientNodeBlockEntity node) {
             DeicideRegistry.registerAncientNode(node);
+            DeicideAdditions.LOGGER.debug("Registered a new Ancient Node");
         }
     }
 
@@ -26,6 +28,7 @@ public class BlockEntityMixin {
         if (registered && (Object) this instanceof SculkAncientNodeBlockEntity node) {
             DeicideRegistry.unregisterAncientNode(node);
             registered = false;
+            DeicideAdditions.LOGGER.debug("Unregistered an Ancient Node");
         }
     }
 }

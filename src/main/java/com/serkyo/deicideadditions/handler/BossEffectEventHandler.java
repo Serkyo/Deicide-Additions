@@ -56,12 +56,14 @@ public class BossEffectEventHandler {
         player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
             Chapter currentChapter = chapterProgress.getCurrentChapter();
             player.addEffect(new MobEffectInstance(DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get(), 200, 0, true, true));
+            DeicideAdditions.LOGGER.debug("Applied Warped Equilibrium to {} since they are standing next to {}", player.getName().getString(), bossId);
 
             if (currentChapter != null) {
                 boolean shouldApplyDespair = checkDespairCondition(chapterProgress, currentChapter, bossId);
 
                 if (shouldApplyDespair) {
                     player.addEffect(new MobEffectInstance(DeicideEffects.DESPAIR_EFFECT.get(), 200, 0, true, true));
+                    DeicideAdditions.LOGGER.debug("Applied Despair to {} since they are standing next to {}", player.getName().getString(), bossId);
                 }
             }
         });

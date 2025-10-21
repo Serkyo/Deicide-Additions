@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.mixin.spells;
 
+import com.serkyo.deicideadditions.DeicideAdditions;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.spells.holy.GreaterHealSpell;
@@ -20,6 +21,7 @@ public class GreaterHealSpellMixin {
         if (entity instanceof Player player) {
             for(BodyPartEnum part : BodyPartEnum.values()) {
                 BodyDamageUtil.healBodyPart(player, part, BodyDamageUtil.getMaxHealth(player, part));
+                DeicideAdditions.LOGGER.debug("Fully healed libs of {} from the spell Greater Heal", player.getName().getString());
             }
         }
     }

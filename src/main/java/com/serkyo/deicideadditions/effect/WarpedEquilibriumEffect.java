@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.effect;
 
+import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -21,6 +22,7 @@ public class WarpedEquilibriumEffect extends DeicideMobEffect {
         if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(ModEffects.COMFORT.get())) {
                 player.removeEffect(ModEffects.COMFORT.get());
+                DeicideAdditions.LOGGER.debug("Removed the comfort effect from {} since they have Warped Equilibrium", player.getName().getString());
             }
 
             if (player.tickCount % 400 == 0 && Math.random() < 0.5) {
@@ -55,6 +57,7 @@ public class WarpedEquilibriumEffect extends DeicideMobEffect {
                     }
                 }
                 player.sendSystemMessage(Component.translatable("effect.deicideadditions.warped_equilibrium.effect_changed", buffsChanged, debuffsChanged));
+                DeicideAdditions.LOGGER.debug("Changed the duration of debuffs and buffs on {}", player.getName().getString());
             }
         }
     }

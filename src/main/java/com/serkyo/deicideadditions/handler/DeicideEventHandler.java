@@ -21,5 +21,6 @@ public class DeicideEventHandler {
     @SubscribeEvent
     public static void onServerStopped(ServerStoppedEvent event) {
         DeicideRegistry.clearRegisteredNodes();
+        DeicideAdditions.LOGGER.info("Cleared registered Ancient Nodes");
     }
 }

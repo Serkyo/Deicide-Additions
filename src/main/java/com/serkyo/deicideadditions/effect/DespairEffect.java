@@ -5,6 +5,7 @@ import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -39,8 +40,11 @@ public class DespairEffect extends DeicideMobEffect {
 
         if (entity.getType().is(Tags.EntityTypes.BOSSES) && source.getEntity() instanceof Player player) {
             if (player.hasEffect(DeicideEffects.DESPAIR_EFFECT.get())) {
-                event.setAmount(event.getAmount() * 0.05F);
-                player.displayClientMessage(Component.translatable("event.deicideadditons.powerful_foe"), true);
+                float defaultAmount = event.getAmount();
+                float decreasedAmount = defaultAmount * 0.05F;
+                event.setAmount(decreasedAmount);
+                player.displayClientMessage(Component.translatable("event.deicideadditions.powerful_foe"), true);
+                DeicideAdditions.LOGGER.debug("Reduced damage dealt by {} to {} from {} to {} since they are afflicted by Despair", player.getName().getString(), EntityType.getKey(entity.getType()), defaultAmount, decreasedAmount);
             }
         }
     }

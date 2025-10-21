@@ -1,6 +1,7 @@
 package com.serkyo.deicideadditions.mixin.spells;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.serkyo.deicideadditions.DeicideAdditions;
 import io.redspace.ironsspellbooks.entity.spells.HealingAoe;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +27,9 @@ public class HealingAoeMixin {
                     lowestHp = part;
                 }
             }
-            BodyDamageUtil.healBodyPart(player, lowestHp, healAmount / 2);
+            float newHealAmount = (healAmount / 2);
+            BodyDamageUtil.healBodyPart(player, lowestHp, newHealAmount);
+            DeicideAdditions.LOGGER.debug("Healed {} of {} by {} from the Healing Circle spell", lowestHp.name(), player.getName().getString(), newHealAmount);
         }
     }
 }

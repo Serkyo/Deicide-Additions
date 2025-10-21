@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.mixin.spells;
 
+import com.serkyo.deicideadditions.DeicideAdditions;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.capabilities.magic.TargetEntityCastData;
@@ -21,8 +22,9 @@ public class BlessingOfLifeSpellMixin {
     private void painkillerEffect(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci) {
         if (playerMagicData.getAdditionalCastData() instanceof TargetEntityCastData healTargetingData) {
             var targetEntity = healTargetingData.getTarget((ServerLevel) world);
-            if (targetEntity instanceof Player) {
+            if (targetEntity instanceof Player player) {
                 targetEntity.addEffect(new MobEffectInstance(MobEffectRegistry.PAINKILLER.get(), spellLevel * 20, spellLevel / 3));
+                DeicideAdditions.LOGGER.debug("Added the Painkiller effect to {} because they were targeted by the spell Blessing of Life", player.getName().getString());
             }
         }
     }

@@ -41,6 +41,7 @@ public class GraceEffect extends DeicideMobEffect {
         if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.swinging || player.isUsingItem()) {
                 player.removeEffect(this);
+                DeicideAdditions.LOGGER.debug("Removed Grace from {} since they interacted with something", player.getName().getString());
             }
         }
     }
@@ -62,6 +63,7 @@ public class GraceEffect extends DeicideMobEffect {
                         mob.setTarget(null);
                     }
                 }
+                DeicideAdditions.LOGGER.debug("Prevented all mobs around {} from targeting them since they were applied Grace", player.getName().getString());
             }
         }
     }
@@ -73,6 +75,7 @@ public class GraceEffect extends DeicideMobEffect {
         if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
+                DeicideAdditions.LOGGER.debug("Cancelled attack received by {} since they are afflicted by Grace", player.getName().getString());
             }
         }
     }
@@ -84,6 +87,7 @@ public class GraceEffect extends DeicideMobEffect {
         if (entity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
+                DeicideAdditions.LOGGER.debug("Cancelled healing received by {} since they are afflicted by Grace", player.getName().getString());
             }
         }
     }
@@ -95,6 +99,7 @@ public class GraceEffect extends DeicideMobEffect {
         if (targetedEntity instanceof Player player && !player.level().isClientSide) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
+                DeicideAdditions.LOGGER.debug("Prevented a mob from targeting {} since they are afflicted by Grace", player.getName().getString());
             }
         }
     }
