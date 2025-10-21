@@ -21,6 +21,8 @@
   "effect.deicideadditions.despair.description": "A crushing presence suffocates your will. You are outmatched by the forces surrounding you.",
   "effect.deicideadditions.grace": "Grace",
   "effect.deicideadditions.grace.description": "The world spares you for an instant. Act, and this fleeting benediction will fade.",
+  "effect.deicideadditions.sin_of_gluttony": "Sin of Gluttony",
+  "effect.deicideadditions.sin_of_gluttony.description": "Excess consumes you. Your haste fails, your limbs tire, and the burden of gluttony drags you down.",
   "deicideadditions.smithing.endwarrior.applies_to": "Enderium Armor",
   "deicideadditions.smithing.endwarrior.ingredients": "Endermite Core or Stabilized Energy Conduit",
   "deicideadditions.smithing.endwarrior.upgrade": "End Warrior Upgrade",
@@ -46,6 +48,7 @@
   "deicideadditions.smithing.dreadsteel.upgrade": "Dreadsteel Upgrade",
   "deicideadditions.smithing.dreadsteel.base_slot": "Add dragonsteel armor",
   "deicideadditions.smithing.dreadsteel.additions_slot": "Add dreadsteel ingot",
-  "event.deicideadditons.difficulty_increase": "A unique boss has been slain, the difficulty of the world around you has increased",
-  "event.deicideadditons.powerful_foe": "This foe is beyond your reach ..."
+  "event.deicideadditions.difficulty_increase": "A unique boss has been slain, the difficulty of the world around you has increased.",
+  "event.deicideadditions.powerful_foe": "This foe is beyond your reach ...",
+  "event.deicideadditions.overeating": "Gluttony consumes you... Beware your endless appetite."
 }
