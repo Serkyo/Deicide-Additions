@@ -57,10 +57,11 @@ public class ChapterProgressionHandler {
         if (!deicideSavedData.isBossDefeated(bossId)) {
             List<ServerPlayer> players = server.getPlayerList().getPlayers();
             for (ServerPlayer player : players) {
-                player.sendSystemMessage(Component.translatable("event.deicideadditons.difficulty_increase"));
+                player.sendSystemMessage(Component.translatable("event.deicideadditions.difficulty_increase"));
             }
             deicideSavedData.markBossDefeated(bossId);
             globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
+            DeicideAdditions.LOGGER.info("Increased difficulty of the world after a unique boss has been slain");
         }
     }
 
@@ -86,8 +87,8 @@ public class ChapterProgressionHandler {
         for (Player playerNearby : nearbyPlayers) {
             playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
                 if (teamMembers.contains(playerNearby.getUUID())) {
-                    DeicideAdditions.LOGGER.debug("Updating boss progression for " + playerNearby.getName() + " who killed " + bossId);
                     updateChapterProgressForBoss(chapterProgress, bossId);
+                    logProgressionUpdate(playerNearby, bossId);
                 }
             });
         }
@@ -95,8 +96,8 @@ public class ChapterProgressionHandler {
 
     private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
         player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-            DeicideAdditions.LOGGER.debug("Updating boss progression for " + player.getName() + " who killed " + bossId);
             updateChapterProgressForBoss(chapterProgress, bossId);
+            logProgressionUpdate(player, bossId);
         });
     }
 
@@ -123,8 +124,12 @@ public class ChapterProgressionHandler {
             List<SculkAncientNodeBlockEntity> nodes = DeicideRegistry.getRegisteredNodes();
             for (SculkAncientNodeBlockEntity node : nodes) {
                 SculkAncientNodeBlockEntity.tryInitializeHorde(boss.level(), node.getBlockPos(), node.getBlockState(), node);
+                DeicideAdditions.LOGGER.info("Triggered Sculk Horde after Wither has been slain");
             }
         }
     }
 
+    private static void logProgressionUpdate(Player player, ResourceLocation bossId) {
+        DeicideAdditions.LOGGER.info("Updating boss progression for " + player.getName() + " who killed " + bossId);
+    }
 }

@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.mixin;
 
+import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -27,6 +28,7 @@ public class CampfireBlockEntityMixin {
             for (Player player : nearby_players) {
                 if (!player.hasEffect(DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get())) {
                     player.addEffect(new MobEffectInstance(ModEffects.COMFORT.get(), 100, 0, true, true));
+                    DeicideAdditions.LOGGER.debug("Added Comfort to {} because they are standing next to a campfire", player.getName().getString());
                 }
             }
         }

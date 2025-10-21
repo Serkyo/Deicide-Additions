@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.mixin;
 
+import com.serkyo.deicideadditions.DeicideAdditions;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +19,12 @@ public class ComfortEffectMixin {
         if (!entity.hasEffect(MobEffects.REGENERATION)) {
             if (entity.getHealth() < entity.getMaxHealth()) {
                 if (entity instanceof Player player) {
-                    player.heal((float) Math.max(1.0, Math.ceil(0.05 * player.getMaxHealth() / 2)));
+                    float defaultAmount = 1.0F;
+                    float newAmount = (float) Math.max(defaultAmount, Math.ceil(0.05 * player.getMaxHealth() / 2));
+                    player.heal(newAmount);
+                    if (defaultAmount != newAmount) {
+                        DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Comfort to {}", player.getName().getString(), newAmount);
+                    }
                 } else {
                     entity.heal(1.0F);
                 }
