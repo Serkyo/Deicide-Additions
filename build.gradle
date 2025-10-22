@@ -133,7 +133,7 @@ dependencies {
     // FTB Library
     runtimeOnly fg.deobf("curse.maven:ftb-library-forge-${ftblibrary_version}")
     // Diet
-    compileOnly fg.deobf("curse.maven:diet-${diet_version}")
+    implementation fg.deobf("curse.maven:diet-${diet_version}")
     // Cosmetic Armors Reworked
     compileOnly fg.deobf("curse.maven:cosmetic-armor-reworked-${car_version}")
     // Apotheosis

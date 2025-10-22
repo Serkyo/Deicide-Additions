@@ -15,6 +15,7 @@
     "LivingEntityMixin",
     "MobEffectMixin",
     "MobEffectsMixin",
+    "PlayerDietTrackerMixin",
     "PlayerMixin",
     "RecoveryEffectMixin",
     "ThirstCapabilityMixin",
