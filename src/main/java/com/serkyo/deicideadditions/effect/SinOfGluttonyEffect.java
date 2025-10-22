@@ -20,6 +20,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import sfiomn.legendarysurvivaloverhaul.common.capabilities.thirst.ThirstProvider;
@@ -70,6 +72,11 @@ public class SinOfGluttonyEffect extends DeicideMobEffect {
         if (player != null && player.hasEffect(DeicideEffects.SIN_OF_GLUTTONY_EFFECT.get())) {
             player.setSprinting(false);
         }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onPlayerRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        // Cancel the event if it's water or an eatable block
     }
 
     @SubscribeEvent
