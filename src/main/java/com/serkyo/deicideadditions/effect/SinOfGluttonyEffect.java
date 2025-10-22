@@ -74,12 +74,18 @@ public class SinOfGluttonyEffect extends DeicideMobEffect {
 
     @SubscribeEvent
     public static void onPlayerStartEating(LivingEntityUseItemEvent.Start event) {
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide) {
+        if (event.getEntity() instanceof Player player) {
             ItemStack item = event.getItem();
             boolean edibleItem = item.isEdible();
             boolean drinkableItem = item.getUseAnimation() == UseAnim.DRINK;
 
             if (edibleItem || drinkableItem) {
+                if (player.hasEffect(DeicideEffects.SIN_OF_GLUTTONY_EFFECT.get())) {
+                    event.setCanceled(true);
+                    player.displayClientMessage(Component.translatable("event.deicideadditions.cancel_eat"), true);
+                    DeicideAdditions.LOGGER.debug("Prevented {} from consuming food or drink since they are afflicted by Sin of Gluttony", player.getName().getString());
+                    return;
+                }
                 FoodData foodData = player.getFoodData();
 
                 player.getCapability(ThirstProvider.THIRST_CAPABILITY).ifPresent(thirstCapability -> {
