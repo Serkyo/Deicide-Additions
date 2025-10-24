@@ -3,6 +3,7 @@ package com.serkyo.deicideadditions.effect;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -13,6 +14,7 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -101,6 +103,15 @@ public class GraceEffect extends DeicideMobEffect {
                 event.setCanceled(true);
                 DeicideAdditions.LOGGER.debug("Prevented a mob from targeting {} since they are afflicted by Grace", player.getName().getString());
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        Player player = event.getEntity();
+        if (!player.level().isClientSide && !event.isEndConquered()) {
+            player.addEffect(new MobEffectInstance(DeicideEffects.GRACE_EFFECT.get(), 1200, 0, false, true, true));
+            DeicideAdditions.LOGGER.debug("Added Grace effect to {} since they just respawned", player.getName().getString());
         }
     }
 }
