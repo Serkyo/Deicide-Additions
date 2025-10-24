@@ -36,7 +36,7 @@ public class ServerEventHandler {
                     float newAmount = (float) Math.max(defaultAmount, Math.ceil(defaultAmount / 20 * player.getMaxHealth() / 3));
                     if (newAmount != defaultAmount) {
                         event.setAmount(newAmount);
-                        DeicideAdditions.LOGGER.debug("Increased the damage received by {} from {} to {}", player.getName().getString(), source.type(), newAmount);
+                        DeicideAdditions.LOGGER.debug("Increased the damage received by {} from {} to {}", player.getName().getString(), source.type().msgId(), newAmount);
                     }
                 }
             }

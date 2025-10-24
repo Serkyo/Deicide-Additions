@@ -36,7 +36,6 @@ public class ChapterProgressionHandler {
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-
         if (!event.getEntity().level().isClientSide && entity.getType().is(Tags.EntityTypes.BOSSES)) {
             handleBossDeath(entity, event.getSource().getEntity());
         }
@@ -61,7 +60,7 @@ public class ChapterProgressionHandler {
             }
             deicideSavedData.markBossDefeated(bossId);
             globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
-            DeicideAdditions.LOGGER.info("Increased difficulty of the world after a unique boss has been slain");
+            DeicideAdditions.LOGGER.info("Increased difficulty of the world after {} has been slain for the first time", bossId);
         }
     }
 
@@ -130,6 +129,6 @@ public class ChapterProgressionHandler {
     }
 
     private static void logProgressionUpdate(Player player, ResourceLocation bossId) {
-        DeicideAdditions.LOGGER.info("Updating boss progression for " + player.getName() + " who killed " + bossId);
+        DeicideAdditions.LOGGER.info("Updating boss progression for " + player.getName().getString() + " who killed " + bossId);
     }
 }
