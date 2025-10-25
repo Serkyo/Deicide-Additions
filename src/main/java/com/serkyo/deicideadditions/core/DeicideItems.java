@@ -1,7 +1,7 @@
 package com.serkyo.deicideadditions.core;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.items.*;
+import com.serkyo.deicideadditions.item.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
