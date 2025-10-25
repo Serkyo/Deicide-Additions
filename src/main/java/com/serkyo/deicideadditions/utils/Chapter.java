@@ -1,6 +1,6 @@
 package com.serkyo.deicideadditions.utils;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Chapter {
@@ -11,7 +11,7 @@ public class Chapter {
 
     public Chapter(String id, Set<Boss> intermediaryBosses, Boss finalBoss, Boss secondaryFinalBoss) {
         this.id = id;
-        this.intermediaryBosses = new HashSet<>(intermediaryBosses);
+        this.intermediaryBosses = new LinkedHashSet<>(intermediaryBosses);
         this.finalBoss = finalBoss;
         this.secondaryFinalBoss = secondaryFinalBoss;
     }
