@@ -29,6 +29,7 @@ public class DeicideRegistry {
                         new Boss("legendary_monsters:lava_eater", 32, 8),
                         new Boss("legendary_monsters:withered_abomination", 24, 8),
                         new Boss("legendary_monsters:ancient_guardian", 24, 8),
+                        new Boss("legendary_monsters:dune_sentinel", 24, 8),
                         new Boss("minecraft:elder_guardian", 16, 8),
                         new Boss("legendary_monsters:posessed_paladin", 24, 8),
                         new Boss("mowziesmobs:ferrous_wroughtnaut", 8, 4),
