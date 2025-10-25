@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.items;
+package com.serkyo.deicideadditions.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
