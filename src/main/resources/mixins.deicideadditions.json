@@ -10,6 +10,7 @@
   "mixins": [
     "BlockEntityMixin",
     "CampfireBlockEntityMixin",
+    "ChaosSpawnerEntityMixin",
     "ComfortEffectMixin",
     "InventoryMixin",
     "LivingEntityMixin",
