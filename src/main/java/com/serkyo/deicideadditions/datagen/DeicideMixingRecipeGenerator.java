@@ -1,5 +1,6 @@
 package com.serkyo.deicideadditions.datagen;
 
+import com.Polarice3.Goety.common.items.ModItems;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideItems;
 import com.serkyo.deicideadditions.core.DeicideTags;
@@ -53,35 +54,60 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(Adventure.Items.COMMON_MATERIAL.get())
             .require(Adventure.Items.COMMON_MATERIAL.get())
             .require(Adventure.Items.COMMON_MATERIAL.get())
-            .require(CeiFluids.EXPERIENCE.get(), 25)
+            .require(Adventure.Items.COMMON_MATERIAL.get())
+            .require(Adventure.Items.COMMON_MATERIAL.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(CeiFluids.EXPERIENCE.get(), 100)
             .output(Adventure.Items.UNCOMMON_MATERIAL.get())
             .requiresHeat(HeatCondition.HEATED));
     GeneratedRecipe RARE_MATERIAL = create("rare_material_mixing", b -> b
             .require(Adventure.Items.UNCOMMON_MATERIAL.get())
             .require(Adventure.Items.UNCOMMON_MATERIAL.get())
             .require(Adventure.Items.UNCOMMON_MATERIAL.get())
-            .require(CeiFluids.EXPERIENCE.get(), 50)
+            .require(Adventure.Items.UNCOMMON_MATERIAL.get())
+            .require(Adventure.Items.UNCOMMON_MATERIAL.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(CeiFluids.EXPERIENCE.get(), 200)
             .output(Adventure.Items.RARE_MATERIAL.get())
             .requiresHeat(HeatCondition.HEATED));
     GeneratedRecipe EPIC_MATERIAL = create("epic_material_mixing", b -> b
             .require(Adventure.Items.RARE_MATERIAL.get())
             .require(Adventure.Items.RARE_MATERIAL.get())
             .require(Adventure.Items.RARE_MATERIAL.get())
-            .require(CeiFluids.EXPERIENCE.get(), 75)
+            .require(Adventure.Items.RARE_MATERIAL.get())
+            .require(Adventure.Items.RARE_MATERIAL.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(CeiFluids.EXPERIENCE.get(), 300)
             .output(Adventure.Items.EPIC_MATERIAL.get())
             .requiresHeat(HeatCondition.SUPERHEATED));
     GeneratedRecipe MYTHIC_MATERIAL = create("mythic_material_mixing", b -> b
             .require(Adventure.Items.EPIC_MATERIAL.get())
             .require(Adventure.Items.EPIC_MATERIAL.get())
             .require(Adventure.Items.EPIC_MATERIAL.get())
-            .require(CeiFluids.EXPERIENCE.get(), 100)
+            .require(Adventure.Items.EPIC_MATERIAL.get())
+            .require(Adventure.Items.EPIC_MATERIAL.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(CeiFluids.EXPERIENCE.get(), 400)
             .output(Adventure.Items.MYTHIC_MATERIAL.get())
             .requiresHeat(HeatCondition.SUPERHEATED));
     GeneratedRecipe ANCIENT_MATERIAL = create("ancient_material_mixing", b -> b
             .require(Adventure.Items.MYTHIC_MATERIAL.get())
             .require(Adventure.Items.MYTHIC_MATERIAL.get())
             .require(Adventure.Items.MYTHIC_MATERIAL.get())
-            .require(CeiFluids.HYPER_EXPERIENCE.get(), 25)
+            .require(Adventure.Items.MYTHIC_MATERIAL.get())
+            .require(Adventure.Items.MYTHIC_MATERIAL.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(ModItems.VOIDED_EYE.get())
+            .require(CeiFluids.HYPER_EXPERIENCE.get(), 100)
             .output(Adventure.Items.ANCIENT_MATERIAL.get())
             .requiresHeat(HeatCondition.SUPERHEATED));
 }

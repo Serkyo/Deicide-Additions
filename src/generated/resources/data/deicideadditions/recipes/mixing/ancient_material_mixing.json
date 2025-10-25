@@ -12,7 +12,28 @@
       "item": "apotheosis:mythic_material"
     },
     {
-      "amount": 25,
+      "item": "apotheosis:mythic_material"
+    },
+    {
+      "item": "apotheosis:mythic_material"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "amount": 100,
       "fluid": "create_enchantment_industry:hyper_experience",
       "nbt": {}
     }

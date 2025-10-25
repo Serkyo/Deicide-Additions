@@ -12,7 +12,22 @@
       "item": "apotheosis:rare_material"
     },
     {
-      "amount": 75,
+      "item": "apotheosis:rare_material"
+    },
+    {
+      "item": "apotheosis:rare_material"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "amount": 300,
       "fluid": "create_enchantment_industry:experience",
       "nbt": {}
     }

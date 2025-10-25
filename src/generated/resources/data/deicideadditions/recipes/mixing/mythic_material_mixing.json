@@ -12,7 +12,25 @@
       "item": "apotheosis:epic_material"
     },
     {
-      "amount": 100,
+      "item": "apotheosis:epic_material"
+    },
+    {
+      "item": "apotheosis:epic_material"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "item": "goety:void_eye"
+    },
+    {
+      "amount": 400,
       "fluid": "create_enchantment_industry:experience",
       "nbt": {}
     }
