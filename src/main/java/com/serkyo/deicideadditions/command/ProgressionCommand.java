@@ -34,7 +34,7 @@ public class ProgressionCommand {
                     for (Boss boss : intermediaryBosses) {
                         ResourceLocation bossId = boss.getId();
 
-                        if (defeatedBosses.contains(bossId.toString())) {
+                        if (defeatedBosses.contains(bossId)) {
                             message.append("\n[x] ").append(bossId);
                         }
                         else {
