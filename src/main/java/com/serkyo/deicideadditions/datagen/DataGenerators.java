@@ -21,12 +21,14 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        generator.addProvider(event.includeClient(), new DeicideItemModelProvider(packOutput, existingFileHelper));
+
         generator.addProvider(event.includeServer(), new DeicideRecipeProvider(packOutput));
-        generator.addProvider(event.includeServer(), new DeicideItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new DeicideMixingRecipeGenerator(packOutput));
         generator.addProvider(event.includeServer(), new DeicidePressingRecipeGenerator(packOutput));
         BlockTagsProvider blockTagsProvider = new DeicideBlockTagGenerator(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new DeicideItemTagGenerator(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new DeicideThirstProvider(packOutput, lookupProvider, existingFileHelper));
     }
 }

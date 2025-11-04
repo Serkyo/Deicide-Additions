@@ -43,6 +43,12 @@ public class DeicideItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> OBLIVION_EFFIGY = ITEMS.register("oblivion_effigy",
             () -> new OblivionEffigy(new Item.Properties()));
+    public static final RegistryObject<Item> FIRE_DRAGON_CANTEEN = ITEMS.register("fire_dragon_canteen",
+            () -> new FireDragonCanteen(new Item.Properties()));
+    public static final RegistryObject<Item> ICE_DRAGON_CANTEEN = ITEMS.register("ice_dragon_canteen",
+            () -> new IceDragonCanteen(new Item.Properties()));
+    public static final RegistryObject<Item> LIGHTNING_DRAGON_CANTEEN = ITEMS.register("lightning_dragon_canteen",
+            () -> new LightningDragonCanteen(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

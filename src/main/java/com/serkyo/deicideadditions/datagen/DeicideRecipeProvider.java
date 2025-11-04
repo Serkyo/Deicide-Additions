@@ -127,5 +127,17 @@ public class DeicideRecipeProvider extends RecipeProvider implements IConditionB
                 .unlockedBy("has_rotten_flesh", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(Items.ROTTEN_FLESH).build()))
                 .save(pWriter);
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(DeicideItems.FIRE_DRAGONSTEEL_SMITHING_TEMPLATE.get()), Ingredient.of(sfiomn.legendarysurvivaloverhaul.registry.ItemRegistry.LARGE_CANTEEN.get()) ,Ingredient.of(DeicideItems.FIRE_DRACONIC_SIGIL.get()), RecipeCategory.MISC, DeicideItems.FIRE_DRAGON_CANTEEN.get())
+                .unlocks("has_large_canteen", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(sfiomn.legendarysurvivaloverhaul.registry.ItemRegistry.LARGE_CANTEEN.get()).build()))
+                .save(pWriter, DeicideItems.FIRE_DRAGON_CANTEEN.getId() + "_smithing");
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(DeicideItems.ICE_DRAGONSTEEL_SMITHING_TEMPLATE.get()), Ingredient.of(sfiomn.legendarysurvivaloverhaul.registry.ItemRegistry.LARGE_CANTEEN.get()) ,Ingredient.of(DeicideItems.ICE_DRACONIC_SIGIL.get()), RecipeCategory.MISC, DeicideItems.ICE_DRAGON_CANTEEN.get())
+                .unlocks("has_large_canteen", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(sfiomn.legendarysurvivaloverhaul.registry.ItemRegistry.LARGE_CANTEEN.get()).build()))
+                .save(pWriter, DeicideItems.ICE_DRAGON_CANTEEN.getId() + "_smithing");
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(DeicideItems.LIGHTNING_DRAGONSTEEL_SMITHING_TEMPLATE.get()), Ingredient.of(sfiomn.legendarysurvivaloverhaul.registry.ItemRegistry.LARGE_CANTEEN.get()) ,Ingredient.of(DeicideItems.LIGHTNING_DRACONIC_SIGIL.get()), RecipeCategory.MISC, DeicideItems.LIGHTNING_DRAGON_CANTEEN.get())
+                .unlocks("has_large_canteen", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(sfiomn.legendarysurvivaloverhaul.registry.ItemRegistry.LARGE_CANTEEN.get()).build()))
+                .save(pWriter, DeicideItems.LIGHTNING_DRAGON_CANTEEN.getId() + "_smithing");
     }
 }
