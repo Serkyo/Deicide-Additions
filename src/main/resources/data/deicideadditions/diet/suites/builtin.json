@@ -13,17 +13,17 @@
         {
           "name": "minecraft:generic.attack_damage",
           "operation": "multiply_total",
-          "amount": 0.2
+          "amount": 0.25
         },
         {
           "name": "projectile_damage:generic",
           "operation": "multiply_total",
-          "amount": 0.2
+          "amount": 0.25
         },
         {
           "name": "irons_spellbooks:spell_power",
           "operation": "multiply_total",
-          "amount": 0.2
+          "amount": 0.25
         },
         {
           "name": "minecraft:generic.max_health",
@@ -45,27 +45,27 @@
         {
           "name": "minecraft:generic.armor_toughness",
           "operation": "additions",
-          "amount": 1
+          "amount": 0.5
         },
         {
           "name": "minecraft:generic.armor",
           "operation": "multiply_total",
-          "amount": 0.1
+          "amount": 0.025
         },
         {
           "name": "minecraft:generic.attack_speed",
           "operation": "multiply_total",
-          "amount": 0.1
+          "amount": 0.025
         },
         {
           "name": "attributeslib:draw_speed",
           "operation": "add",
-          "amount": -0.05
+          "amount": -0.025
         },
         {
           "name": "irons_spellbooks:cast_time_reduction",
           "operation": "multiply_total",
-          "amount": 0.05
+          "amount": 0.025
         },
         {
           "name": "minecraft:generic.max_health",
@@ -87,27 +87,27 @@
         {
           "name": "minecraft:generic.armor_toughness",
           "operation": "additions",
-          "amount": 1
+          "amount": 0.5
         },
         {
           "name": "minecraft:generic.armor",
           "operation": "multiply_total",
-          "amount": 0.1
+          "amount": 0.025
         },
         {
           "name": "minecraft:generic.attack_speed",
           "operation": "multiply_total",
-          "amount": 0.1
+          "amount": 0.025
         },
         {
           "name": "attributeslib:draw_speed",
           "operation": "add",
-          "amount": -0.05
+          "amount": -0.025
         },
         {
           "name": "irons_spellbooks:cast_time_reduction",
           "operation": "multiply_total",
-          "amount": 0.05
+          "amount": 0.025
         },
         {
           "name": "minecraft:generic.max_health",
