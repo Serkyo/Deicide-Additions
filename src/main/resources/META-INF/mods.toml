@@ -185,6 +185,12 @@ description='''${mod_description}'''
     versionRange="[2.0]"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="ice_and_fire_delight"
+    mandatory=true
+    versionRange="[0.2.4]"
+    ordering="AFTER"
+    side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't

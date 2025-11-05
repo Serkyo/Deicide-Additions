@@ -30,5 +30,6 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new DeicideItemTagGenerator(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeServer(), new DeicideThirstProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new DeicideTemperatureProvider(packOutput, lookupProvider, existingFileHelper));
     }
 }
