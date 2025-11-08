@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import sfiomn.legendarysurvivaloverhaul.api.bodydamage.BodyDamageUtil;
 import sfiomn.legendarysurvivaloverhaul.api.bodydamage.BodyPartEnum;
+import sfiomn.legendarysurvivaloverhaul.config.Config;
+
+import java.util.Map;
 
 @Mixin(MobEffect.class)
 public class MobEffectMixin {
@@ -65,23 +68,27 @@ public class MobEffectMixin {
     public float modifyInstantHealth1(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player player) {
             float newAmount = (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * player.getMaxHealth()));
-            BodyPartEnum lowestHp = null;
+            Map<BodyPartEnum, Float> healthPercentages = Map.of(
+                    BodyPartEnum.HEAD, (float) Config.Baked.headPartHealth,
+                    BodyPartEnum.CHEST, (float) Config.Baked.chestPartHealth,
+                    BodyPartEnum.LEFT_ARM, (float) Config.Baked.armsPartHealth,
+                    BodyPartEnum.RIGHT_ARM, (float) Config.Baked.armsPartHealth,
+                    BodyPartEnum.LEFT_LEG, (float) Config.Baked.legsPartHealth,
+                    BodyPartEnum.RIGHT_LEG, (float) Config.Baked.legsPartHealth,
+                    BodyPartEnum.LEFT_FOOT, (float) Config.Baked.feetPartHealth,
+                    BodyPartEnum.RIGHT_FOOT, (float) Config.Baked.feetPartHealth
+            );
             for(BodyPartEnum part : BodyPartEnum.values()) {
-                if (lowestHp != null) {
-                    if (BodyDamageUtil.getHealthRatio(player, part) < BodyDamageUtil.getHealthRatio(player, lowestHp)) {
-                        lowestHp = part;
-                    }
-                } else {
-                    lowestHp = part;
-                }
+                float defaultValuePart = defaultValue / healthPercentages.get(part);
+                float baseMaxHealth = 20 / healthPercentages.get(part);
+                float newBodyAmount = (float) Math.max(defaultValuePart, Math.ceil(defaultValuePart / baseMaxHealth * BodyDamageUtil.getMaxHealth(player, part)));
+                BodyDamageUtil.healBodyPart(player, part, newBodyAmount);
             }
-            float bodyHealingAmount = (newAmount / BodyDamageUtil.getMaxHealth(player, lowestHp));
-            BodyDamageUtil.healBodyPart(player, lowestHp, bodyHealingAmount);
             if (defaultValue != newAmount) {
-                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their {} for {}", player.getName().getString(), newAmount, lowestHp.getClass().getName(), bodyHealingAmount);
+                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their limbs", player.getName().getString(), newAmount);
             }
             else {
-                DeicideAdditions.LOGGER.debug("Healed {} of {} by {} since they were affected by Instant Health", lowestHp.toString().toLowerCase(), player.getName().getString(), bodyHealingAmount);
+                DeicideAdditions.LOGGER.debug("Healed the libs of {} since they were affected by Instant Health", player.getName().getString());
             }
             return newAmount;
         }
@@ -116,25 +123,28 @@ public class MobEffectMixin {
     public float modifyInstantHealth2(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player player) {
             float newAmount = (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * player.getMaxHealth()));
-            BodyPartEnum lowestHp = null;
+            Map<BodyPartEnum, Float> healthPercentages = Map.of(
+                    BodyPartEnum.HEAD, (float) Config.Baked.headPartHealth,
+                    BodyPartEnum.CHEST, (float) Config.Baked.chestPartHealth,
+                    BodyPartEnum.LEFT_ARM, (float) Config.Baked.armsPartHealth,
+                    BodyPartEnum.RIGHT_ARM, (float) Config.Baked.armsPartHealth,
+                    BodyPartEnum.LEFT_LEG, (float) Config.Baked.legsPartHealth,
+                    BodyPartEnum.RIGHT_LEG, (float) Config.Baked.legsPartHealth,
+                    BodyPartEnum.LEFT_FOOT, (float) Config.Baked.feetPartHealth,
+                    BodyPartEnum.RIGHT_FOOT, (float) Config.Baked.feetPartHealth
+            );
             for(BodyPartEnum part : BodyPartEnum.values()) {
-                if (lowestHp != null) {
-                    if (BodyDamageUtil.getHealthRatio(player, part) < BodyDamageUtil.getHealthRatio(player, lowestHp)) {
-                        lowestHp = part;
-                    }
-                } else {
-                    lowestHp = part;
-                }
+                float defaultValuePart = defaultValue / healthPercentages.get(part);
+                float baseMaxHealth = 20 / healthPercentages.get(part);
+                float newBodyAmount = (float) Math.max(defaultValuePart, Math.ceil(defaultValuePart / baseMaxHealth * BodyDamageUtil.getMaxHealth(player, part)));
+                BodyDamageUtil.healBodyPart(player, part, newBodyAmount);
             }
-            float bodyHealingAmount = (newAmount / BodyDamageUtil.getMaxHealth(player, lowestHp));
-            BodyDamageUtil.healBodyPart(player, lowestHp, bodyHealingAmount);
             if (defaultValue != newAmount) {
-                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their {} for {}", player.getName().getString(), newAmount, lowestHp.getClass().getName(), bodyHealingAmount);
+                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their limbs", player.getName().getString(), newAmount);
             }
             else {
-                DeicideAdditions.LOGGER.debug("Healed {} of {} by {} since they were affected by Instant Health", lowestHp.toString().toLowerCase(), player.getName().getString(), bodyHealingAmount);
-            }
-            return newAmount;
+                DeicideAdditions.LOGGER.debug("Healed the libs of {} since they were affected by Instant Health", player.getName().getString());
+            }            return newAmount;
         }
         return defaultValue;
     }
