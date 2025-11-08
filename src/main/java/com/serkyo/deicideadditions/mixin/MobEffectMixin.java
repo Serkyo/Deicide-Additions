@@ -75,7 +75,7 @@ public class MobEffectMixin {
                     lowestHp = part;
                 }
             }
-            float bodyHealingAmount = (newAmount / BodyDamageUtil.getHealthRatio(player, lowestHp));
+            float bodyHealingAmount = (newAmount / BodyDamageUtil.getMaxHealth(player, lowestHp));
             BodyDamageUtil.healBodyPart(player, lowestHp, bodyHealingAmount);
             if (defaultValue != newAmount) {
                 DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their {} for {}", player.getName().getString(), newAmount, lowestHp.getClass().getName(), bodyHealingAmount);
@@ -126,7 +126,7 @@ public class MobEffectMixin {
                     lowestHp = part;
                 }
             }
-            float bodyHealingAmount = (newAmount / BodyDamageUtil.getHealthRatio(player, lowestHp));
+            float bodyHealingAmount = (newAmount / BodyDamageUtil.getMaxHealth(player, lowestHp));
             BodyDamageUtil.healBodyPart(player, lowestHp, bodyHealingAmount);
             if (defaultValue != newAmount) {
                 DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their {} for {}", player.getName().getString(), newAmount, lowestHp.getClass().getName(), bodyHealingAmount);
