@@ -8,6 +8,8 @@ import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import sfiomn.legendarysurvivaloverhaul.api.bodydamage.BodyDamageUtil;
+import sfiomn.legendarysurvivaloverhaul.api.bodydamage.BodyPartEnum;
 
 @Mixin(MobEffect.class)
 public class MobEffectMixin {
@@ -63,8 +65,23 @@ public class MobEffectMixin {
     public float modifyInstantHealth1(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player player) {
             float newAmount = (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * player.getMaxHealth()));
+            BodyPartEnum lowestHp = null;
+            for(BodyPartEnum part : BodyPartEnum.values()) {
+                if (lowestHp != null) {
+                    if (BodyDamageUtil.getHealthRatio(player, part) < BodyDamageUtil.getHealthRatio(player, lowestHp)) {
+                        lowestHp = part;
+                    }
+                } else {
+                    lowestHp = part;
+                }
+            }
+            float bodyHealingAmount = (newAmount / BodyDamageUtil.getHealthRatio(player, lowestHp));
+            BodyDamageUtil.healBodyPart(player, lowestHp, bodyHealingAmount);
             if (defaultValue != newAmount) {
-                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {}", player.getName().getString(), newAmount);
+                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their {} for {}", player.getName().getString(), newAmount, lowestHp.getClass().getName(), bodyHealingAmount);
+            }
+            else {
+                DeicideAdditions.LOGGER.debug("Healed {} of {} by {} since they were affected by Instant Health", lowestHp.toString().toLowerCase(), player.getName().getString(), bodyHealingAmount);
             }
             return newAmount;
         }
@@ -99,8 +116,23 @@ public class MobEffectMixin {
     public float modifyInstantHealth2(float defaultValue, @Local(argsOnly = true) LivingEntity entity) {
         if (entity instanceof Player player) {
             float newAmount = (float) Math.max(defaultValue, Math.ceil(defaultValue / 20 * player.getMaxHealth()));
+            BodyPartEnum lowestHp = null;
+            for(BodyPartEnum part : BodyPartEnum.values()) {
+                if (lowestHp != null) {
+                    if (BodyDamageUtil.getHealthRatio(player, part) < BodyDamageUtil.getHealthRatio(player, lowestHp)) {
+                        lowestHp = part;
+                    }
+                } else {
+                    lowestHp = part;
+                }
+            }
+            float bodyHealingAmount = (newAmount / BodyDamageUtil.getHealthRatio(player, lowestHp));
+            BodyDamageUtil.healBodyPart(player, lowestHp, bodyHealingAmount);
             if (defaultValue != newAmount) {
-                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {}", player.getName().getString(), newAmount);
+                DeicideAdditions.LOGGER.debug("Increased the healing received by {} from Instant Health to {} and healed their {} for {}", player.getName().getString(), newAmount, lowestHp.getClass().getName(), bodyHealingAmount);
+            }
+            else {
+                DeicideAdditions.LOGGER.debug("Healed {} of {} by {} since they were affected by Instant Health", lowestHp.toString().toLowerCase(), player.getName().getString(), bodyHealingAmount);
             }
             return newAmount;
         }
