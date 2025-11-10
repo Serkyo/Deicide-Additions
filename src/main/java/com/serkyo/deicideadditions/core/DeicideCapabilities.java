@@ -36,12 +36,12 @@ public class DeicideCapabilities {
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         if (event.isWasDeath()) {
             event.getOriginal().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(oldStore -> {
-                event.getOriginal().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
+                event.getEntity().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
                 });
             });
             event.getOriginal().getCapability(GluttonyProvider.GLUTTONY).ifPresent(oldStore -> {
-                event.getOriginal().getCapability(GluttonyProvider.GLUTTONY).ifPresent(newStore -> {
+                event.getEntity().getCapability(GluttonyProvider.GLUTTONY).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
                 });
             });
