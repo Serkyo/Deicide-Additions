@@ -182,7 +182,7 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="dungeonnowloading"
     mandatory=true
-    versionRange="[2.0]"
+    versionRange="[2.11]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
