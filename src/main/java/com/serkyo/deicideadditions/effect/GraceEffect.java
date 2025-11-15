@@ -36,6 +36,12 @@ public class GraceEffect extends DeicideMobEffect {
                 -0.5D,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         );
+        this.addAttributeModifier(
+                ForgeMod.SWIM_SPEED.get(),
+                "1a733ba7-0c3c-4586-88ff-5c5d8697e7ee",
+                0.5D,
+                AttributeModifier.Operation.MULTIPLY_TOTAL
+        );
     }
 
     @Override
