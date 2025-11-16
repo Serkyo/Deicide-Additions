@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.capability.progression;
+package com.serkyo.deicideadditions.capability;
 
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ChapterProgress {
+public class ProgressionSystem {
     private Set<ResourceLocation> defeatedBosses = new HashSet<>();
     private Set<String> completedChaptersId = new HashSet<>();
 
@@ -56,7 +56,7 @@ public class ChapterProgress {
         return null;
     }
 
-    public void copyFrom(ChapterProgress source) {
+    public void copyFrom(ProgressionSystem source) {
         this.defeatedBosses = source.defeatedBosses;
         this.completedChaptersId = source.completedChaptersId;
     }

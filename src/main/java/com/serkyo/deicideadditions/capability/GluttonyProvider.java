@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.capability.misc;
+package com.serkyo.deicideadditions.capability;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

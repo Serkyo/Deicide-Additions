@@ -2,8 +2,8 @@ package com.serkyo.deicideadditions.handler;
 
 import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
+import com.serkyo.deicideadditions.capability.ProgressionSystem;
+import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
 import com.serkyo.deicideadditions.utils.Chapter;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
@@ -64,7 +64,7 @@ public class ChapterProgressionHandler {
         List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
 
         for (Player playerNearby : nearbyPlayers) {
-            playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+            playerNearby.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
                 if (teamMembers.contains(playerNearby.getUUID())) {
                     updateChapterProgressForBoss(chapterProgress, bossId);
                     logProgressionUpdate(playerNearby, bossId);
@@ -74,16 +74,16 @@ public class ChapterProgressionHandler {
     }
 
     private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
-        player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+        player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
             updateChapterProgressForBoss(chapterProgress, bossId);
             logProgressionUpdate(player, bossId);
         });
     }
 
-    private static void updateChapterProgressForBoss(ChapterProgress chapterProgress, ResourceLocation bossId) {
-        Chapter currentChapter = chapterProgress.getCurrentChapter();
+    private static void updateChapterProgressForBoss(ProgressionSystem progressionSystem, ResourceLocation bossId) {
+        Chapter currentChapter = progressionSystem.getCurrentChapter();
         if (currentChapter != null && isBossInChapter(currentChapter, bossId)) {
-            chapterProgress.addDefeatedBoss(bossId);
+            progressionSystem.addDefeatedBoss(bossId);
         }
     }
 

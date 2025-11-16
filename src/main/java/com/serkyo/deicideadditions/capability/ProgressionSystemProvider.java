@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.capability.progression;
+package com.serkyo.deicideadditions.capability;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -11,17 +11,17 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class ChapterProgressProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<ChapterProgress> CHAPTER_PROGRESS = CapabilityManager.get(new CapabilityToken<>() {});
+public class ProgressionSystemProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+    public static Capability<ProgressionSystem> CHAPTER_PROGRESS = CapabilityManager.get(new CapabilityToken<>() {});
 
-    private ChapterProgress chapterProgress = null;
-    private final LazyOptional<ChapterProgress> optional = LazyOptional.of(this::createChapterProgress);
+    private ProgressionSystem progressionSystem = null;
+    private final LazyOptional<ProgressionSystem> optional = LazyOptional.of(this::createChapterProgress);
 
-    private ChapterProgress createChapterProgress() {
-        if (this.chapterProgress == null) {
-            this.chapterProgress = new ChapterProgress();
+    private ProgressionSystem createChapterProgress() {
+        if (this.progressionSystem == null) {
+            this.progressionSystem = new ProgressionSystem();
         }
-        return this.chapterProgress;
+        return this.progressionSystem;
     }
 
     @Override
