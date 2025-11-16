@@ -5,15 +5,11 @@ import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
 import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
-import com.serkyo.deicideadditions.core.DeicideSavedData;
 import com.serkyo.deicideadditions.utils.Chapter;
-import daripher.autoleveling.saveddata.GlobalLevelingData;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -44,24 +40,8 @@ public class ChapterProgressionHandler {
     private static void handleBossDeath(LivingEntity boss, Entity killer) {
         ResourceLocation bossId = EntityType.getKey(boss.getType());
 
-        handleGlobalBossProgression(bossId, boss.getServer());
         handlePlayerBossProgression(boss, bossId, killer);
         handleSpecialBossCases(boss, killer);
-    }
-
-    private static void handleGlobalBossProgression(ResourceLocation bossId, MinecraftServer server) {
-        DeicideSavedData deicideSavedData = DeicideSavedData.get(server);
-        GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
-
-        if (!deicideSavedData.isBossDefeated(bossId)) {
-            List<ServerPlayer> players = server.getPlayerList().getPlayers();
-            for (ServerPlayer player : players) {
-                player.sendSystemMessage(Component.translatable("event.deicideadditions.difficulty_increase"));
-            }
-            deicideSavedData.markBossDefeated(bossId);
-            globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
-            DeicideAdditions.LOGGER.info("Increased difficulty of the world after {} has been slain for the first time", bossId);
-        }
     }
 
     private static void handlePlayerBossProgression(LivingEntity boss, ResourceLocation bossId, Entity killer) {
