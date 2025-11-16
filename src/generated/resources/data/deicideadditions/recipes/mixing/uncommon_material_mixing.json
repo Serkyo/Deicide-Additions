@@ -18,10 +18,7 @@
       "item": "apotheosis:common_material"
     },
     {
-      "item": "goety:void_eye"
-    },
-    {
-      "amount": 100,
+      "amount": 300,
       "fluid": "create_enchantment_industry:experience",
       "nbt": {}
     }

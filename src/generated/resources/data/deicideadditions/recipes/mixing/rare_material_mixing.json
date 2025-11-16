@@ -18,13 +18,13 @@
       "item": "apotheosis:uncommon_material"
     },
     {
-      "item": "goety:void_eye"
+      "item": "minecraft:amethyst_shard"
     },
     {
-      "item": "goety:void_eye"
+      "item": "minecraft:amethyst_shard"
     },
     {
-      "amount": 200,
+      "amount": 500,
       "fluid": "create_enchantment_industry:experience",
       "nbt": {}
     }

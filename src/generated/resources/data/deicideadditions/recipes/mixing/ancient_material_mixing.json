@@ -12,28 +12,13 @@
       "item": "apotheosis:mythic_material"
     },
     {
-      "item": "apotheosis:mythic_material"
+      "item": "macabre:blood_clot_ingot"
     },
     {
-      "item": "apotheosis:mythic_material"
+      "item": "macabre:blood_clot_ingot"
     },
     {
-      "item": "goety:void_eye"
-    },
-    {
-      "item": "goety:void_eye"
-    },
-    {
-      "item": "goety:void_eye"
-    },
-    {
-      "item": "goety:void_eye"
-    },
-    {
-      "item": "goety:void_eye"
-    },
-    {
-      "amount": 100,
+      "amount": 120,
       "fluid": "create_enchantment_industry:hyper_experience",
       "nbt": {}
     }
