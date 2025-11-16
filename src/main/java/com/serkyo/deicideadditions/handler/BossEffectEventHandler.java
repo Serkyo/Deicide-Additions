@@ -1,8 +1,8 @@
 package com.serkyo.deicideadditions.handler;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
+import com.serkyo.deicideadditions.capability.ProgressionSystem;
+import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
@@ -53,7 +53,7 @@ public class BossEffectEventHandler {
     }
 
     private static void applyEffectsToPlayer(Player player, ResourceLocation bossId) {
-        player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+        player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
             Chapter currentChapter = chapterProgress.getCurrentChapter();
             player.addEffect(new MobEffectInstance(DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get(), 200, 0, true, true));
             DeicideAdditions.LOGGER.debug("Applied Warped Equilibrium to {} since they are standing next to {}", player.getName().getString(), bossId);
@@ -69,19 +69,19 @@ public class BossEffectEventHandler {
         });
     }
 
-    private static boolean checkDespairCondition(ChapterProgress chapterProgress, Chapter currentChapter, ResourceLocation bossId) {
+    private static boolean checkDespairCondition(ProgressionSystem progressionSystem, Chapter currentChapter, ResourceLocation bossId) {
         boolean isCurrentChapterFinalBoss = currentChapter.getFinalBoss().getId().equals(bossId) ||
                 (currentChapter.getSecondaryFinalBoss() != null && currentChapter.getSecondaryFinalBoss().getId().equals(bossId));
 
         if (isCurrentChapterFinalBoss) {
             boolean allIntermediaryDefeated = currentChapter.getIntermediaryBosses().stream()
-                    .allMatch(chapterProgress::hasDefeatedBoss);
+                    .allMatch(progressionSystem::hasDefeatedBoss);
 
             return !allIntermediaryDefeated;
         }
         else {
             for (Chapter chapter : DeicideRegistry.CHAPTERS) {
-                if (!chapter.getId().equals(currentChapter.getId()) && !chapterProgress.getCompletedChaptersId().contains(chapter.getId())) {
+                if (!chapter.getId().equals(currentChapter.getId()) && !progressionSystem.getCompletedChaptersId().contains(chapter.getId())) {
                     boolean bossInFutureChapter = chapter.getIntermediaryBosses().stream().anyMatch(b -> b.getId().equals(bossId)) ||
                             chapter.getFinalBoss().getId().equals(bossId) ||
                             (chapter.getSecondaryFinalBoss() != null && chapter.getSecondaryFinalBoss().getId().equals(bossId));

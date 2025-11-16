@@ -1,6 +1,7 @@
 package com.serkyo.deicideadditions.datagen;
 
 import com.Polarice3.Goety.common.items.ModItems;
+import com.curseforge.macabre.init.MacabreModItems;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideItems;
 import com.serkyo.deicideadditions.core.DeicideTags;
@@ -56,8 +57,7 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(Adventure.Items.COMMON_MATERIAL.get())
             .require(Adventure.Items.COMMON_MATERIAL.get())
             .require(Adventure.Items.COMMON_MATERIAL.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(CeiFluids.EXPERIENCE.get(), 100)
+            .require(CeiFluids.EXPERIENCE.get(), 300)
             .output(Adventure.Items.UNCOMMON_MATERIAL.get())
             .requiresHeat(HeatCondition.HEATED));
     GeneratedRecipe RARE_MATERIAL = create("rare_material_mixing", b -> b
@@ -66,9 +66,9 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(Adventure.Items.UNCOMMON_MATERIAL.get())
             .require(Adventure.Items.UNCOMMON_MATERIAL.get())
             .require(Adventure.Items.UNCOMMON_MATERIAL.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(CeiFluids.EXPERIENCE.get(), 200)
+            .require(Items.AMETHYST_SHARD)
+            .require(Items.AMETHYST_SHARD)
+            .require(CeiFluids.EXPERIENCE.get(), 500)
             .output(Adventure.Items.RARE_MATERIAL.get())
             .requiresHeat(HeatCondition.HEATED));
     GeneratedRecipe EPIC_MATERIAL = create("epic_material_mixing", b -> b
@@ -76,38 +76,27 @@ public class DeicideMixingRecipeGenerator extends MixingRecipeGen {
             .require(Adventure.Items.RARE_MATERIAL.get())
             .require(Adventure.Items.RARE_MATERIAL.get())
             .require(Adventure.Items.RARE_MATERIAL.get())
-            .require(Adventure.Items.RARE_MATERIAL.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(CeiFluids.EXPERIENCE.get(), 300)
+            .require(Items.GHAST_TEAR)
+            .require(Items.GHAST_TEAR)
+            .require(CeiFluids.HYPER_EXPERIENCE.get(), 70)
             .output(Adventure.Items.EPIC_MATERIAL.get())
             .requiresHeat(HeatCondition.SUPERHEATED));
     GeneratedRecipe MYTHIC_MATERIAL = create("mythic_material_mixing", b -> b
             .require(Adventure.Items.EPIC_MATERIAL.get())
             .require(Adventure.Items.EPIC_MATERIAL.get())
             .require(Adventure.Items.EPIC_MATERIAL.get())
-            .require(Adventure.Items.EPIC_MATERIAL.get())
-            .require(Adventure.Items.EPIC_MATERIAL.get())
             .require(ModItems.VOIDED_EYE.get())
             .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(CeiFluids.EXPERIENCE.get(), 400)
+            .require(CeiFluids.HYPER_EXPERIENCE.get(), 90)
             .output(Adventure.Items.MYTHIC_MATERIAL.get())
             .requiresHeat(HeatCondition.SUPERHEATED));
     GeneratedRecipe ANCIENT_MATERIAL = create("ancient_material_mixing", b -> b
             .require(Adventure.Items.MYTHIC_MATERIAL.get())
             .require(Adventure.Items.MYTHIC_MATERIAL.get())
             .require(Adventure.Items.MYTHIC_MATERIAL.get())
-            .require(Adventure.Items.MYTHIC_MATERIAL.get())
-            .require(Adventure.Items.MYTHIC_MATERIAL.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(ModItems.VOIDED_EYE.get())
-            .require(CeiFluids.HYPER_EXPERIENCE.get(), 100)
+            .require(MacabreModItems.BLOOD_CLOT_INGOT.get())
+            .require(MacabreModItems.BLOOD_CLOT_INGOT.get())
+            .require(CeiFluids.HYPER_EXPERIENCE.get(), 120)
             .output(Adventure.Items.ANCIENT_MATERIAL.get())
             .requiresHeat(HeatCondition.SUPERHEATED));
 }

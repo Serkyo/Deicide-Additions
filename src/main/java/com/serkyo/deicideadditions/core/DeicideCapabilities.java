@@ -1,10 +1,10 @@
 package com.serkyo.deicideadditions.core;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.capability.misc.Gluttony;
-import com.serkyo.deicideadditions.capability.misc.GluttonyProvider;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
+import com.serkyo.deicideadditions.capability.Gluttony;
+import com.serkyo.deicideadditions.capability.GluttonyProvider;
+import com.serkyo.deicideadditions.capability.ProgressionSystem;
+import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -23,8 +23,8 @@ public class DeicideCapabilities {
     @SubscribeEvent
     public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof Player) {
-            if (!event.getObject().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).isPresent()) {
-                event.addCapability(CHAPTER_PROGRESS, new ChapterProgressProvider());
+            if (!event.getObject().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).isPresent()) {
+                event.addCapability(CHAPTER_PROGRESS, new ProgressionSystemProvider());
             }
             if (!event.getObject().getCapability(GluttonyProvider.GLUTTONY).isPresent()) {
                 event.addCapability(GLUTTONY, new GluttonyProvider());
@@ -35,8 +35,8 @@ public class DeicideCapabilities {
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         if (event.isWasDeath()) {
-            event.getOriginal().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(oldStore -> {
-                event.getEntity().getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
+            event.getOriginal().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(oldStore -> {
+                event.getEntity().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
                 });
             });
@@ -50,7 +50,7 @@ public class DeicideCapabilities {
 
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        event.register(ChapterProgress.class);
+        event.register(ProgressionSystem.class);
         event.register(Gluttony.class);
     }
 

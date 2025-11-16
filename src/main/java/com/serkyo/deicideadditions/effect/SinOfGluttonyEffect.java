@@ -1,7 +1,7 @@
 package com.serkyo.deicideadditions.effect;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.capability.misc.GluttonyProvider;
+import com.serkyo.deicideadditions.capability.GluttonyProvider;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;

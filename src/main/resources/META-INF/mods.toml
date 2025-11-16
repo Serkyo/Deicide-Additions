@@ -68,7 +68,7 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="create"
     mandatory=true
-    versionRange="[6.0.8]"
+    versionRange="[6.0.8,6.0.9)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -150,12 +150,6 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="autoleveling"
-    mandatory=true
-    versionRange="[1.19b]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
     modId="projectile_damage"
     mandatory=true
     versionRange="[3.2.2+1.20.1]"
@@ -195,6 +189,12 @@ description='''${mod_description}'''
     modId="galosphere"
     mandatory=false
     versionRange="[1.20.1-1.4.1]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="macabre"
+    mandatory=true
+    versionRange="[0.8.4]"
     ordering="AFTER"
     side="BOTH"
 

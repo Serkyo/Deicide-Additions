@@ -2,18 +2,14 @@ package com.serkyo.deicideadditions.handler;
 
 import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgress;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
+import com.serkyo.deicideadditions.capability.ProgressionSystem;
+import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
-import com.serkyo.deicideadditions.core.DeicideSavedData;
 import com.serkyo.deicideadditions.utils.Chapter;
-import daripher.autoleveling.saveddata.GlobalLevelingData;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -44,24 +40,8 @@ public class ChapterProgressionHandler {
     private static void handleBossDeath(LivingEntity boss, Entity killer) {
         ResourceLocation bossId = EntityType.getKey(boss.getType());
 
-        handleGlobalBossProgression(bossId, boss.getServer());
         handlePlayerBossProgression(boss, bossId, killer);
         handleSpecialBossCases(boss, killer);
-    }
-
-    private static void handleGlobalBossProgression(ResourceLocation bossId, MinecraftServer server) {
-        DeicideSavedData deicideSavedData = DeicideSavedData.get(server);
-        GlobalLevelingData globalLevelingData = GlobalLevelingData.get(server);
-
-        if (!deicideSavedData.isBossDefeated(bossId)) {
-            List<ServerPlayer> players = server.getPlayerList().getPlayers();
-            for (ServerPlayer player : players) {
-                player.sendSystemMessage(Component.translatable("event.deicideadditions.difficulty_increase"));
-            }
-            deicideSavedData.markBossDefeated(bossId);
-            globalLevelingData.setLevel(globalLevelingData.getLevelBonus() + 2);
-            DeicideAdditions.LOGGER.info("Increased difficulty of the world after {} has been slain for the first time", bossId);
-        }
     }
 
     private static void handlePlayerBossProgression(LivingEntity boss, ResourceLocation bossId, Entity killer) {
@@ -84,7 +64,7 @@ public class ChapterProgressionHandler {
         List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
 
         for (Player playerNearby : nearbyPlayers) {
-            playerNearby.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+            playerNearby.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
                 if (teamMembers.contains(playerNearby.getUUID())) {
                     updateChapterProgressForBoss(chapterProgress, bossId);
                     logProgressionUpdate(playerNearby, bossId);
@@ -94,16 +74,16 @@ public class ChapterProgressionHandler {
     }
 
     private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
-        player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+        player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
             updateChapterProgressForBoss(chapterProgress, bossId);
             logProgressionUpdate(player, bossId);
         });
     }
 
-    private static void updateChapterProgressForBoss(ChapterProgress chapterProgress, ResourceLocation bossId) {
-        Chapter currentChapter = chapterProgress.getCurrentChapter();
+    private static void updateChapterProgressForBoss(ProgressionSystem progressionSystem, ResourceLocation bossId) {
+        Chapter currentChapter = progressionSystem.getCurrentChapter();
         if (currentChapter != null && isBossInChapter(currentChapter, bossId)) {
-            chapterProgress.addDefeatedBoss(bossId);
+            progressionSystem.addDefeatedBoss(bossId);
         }
     }
 

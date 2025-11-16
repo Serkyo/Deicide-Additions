@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.capability.misc;
+package com.serkyo.deicideadditions.capability;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import net.minecraft.nbt.CompoundTag;

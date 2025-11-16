@@ -2,7 +2,7 @@ package com.serkyo.deicideadditions.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import com.serkyo.deicideadditions.capability.progression.ChapterProgressProvider;
+import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
 import net.minecraft.commands.CommandSourceStack;
@@ -23,7 +23,7 @@ public class ProgressionCommand {
         StringBuilder message = new StringBuilder();
 
         if (player != null) {
-            player.getCapability(ChapterProgressProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+            player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
                 Chapter currentChapter = chapterProgress.getCurrentChapter();
 
                 if (currentChapter != null) {

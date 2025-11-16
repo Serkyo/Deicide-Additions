@@ -15,20 +15,14 @@
       "item": "apotheosis:rare_material"
     },
     {
-      "item": "apotheosis:rare_material"
+      "item": "minecraft:ghast_tear"
     },
     {
-      "item": "goety:void_eye"
+      "item": "minecraft:ghast_tear"
     },
     {
-      "item": "goety:void_eye"
-    },
-    {
-      "item": "goety:void_eye"
-    },
-    {
-      "amount": 300,
-      "fluid": "create_enchantment_industry:experience",
+      "amount": 70,
+      "fluid": "create_enchantment_industry:hyper_experience",
       "nbt": {}
     }
   ],
