@@ -35,21 +35,16 @@ public class ProgressionCommand {
                         ResourceLocation bossId = boss.getId();
 
                         if (defeatedBosses.contains(bossId)) {
-                            message.append("\n[x] ").append(bossId);
+                            message.append("\n[x] ").append(boss.getName());
                         }
                         else {
-                            message.append("\n[ ] ").append(bossId);
+                            message.append("\n[ ] ").append(boss.getName());
                         }
                     }
-                    message.append("\n Final boss : ").append(currentChapter.getFinalBoss().getId());
-
-                    Boss secondaryFinalBoss = currentChapter.getSecondaryFinalBoss();
-                    if (secondaryFinalBoss != null) {
-                        message.append("\n Secondary final boss : ").append(secondaryFinalBoss.getId());
-                    }
+                    message.append("\nFinal boss : ").append(currentChapter.getFinalBoss().getName());
                 }
                 else {
-                    message.append("All chapters have been completed");
+                    message.append("All chapters have been completed !");
                 }
             });
             context.getSource().sendSuccess(() -> Component.literal(message.toString()), false);

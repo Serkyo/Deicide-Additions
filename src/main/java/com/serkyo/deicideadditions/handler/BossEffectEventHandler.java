@@ -70,8 +70,7 @@ public class BossEffectEventHandler {
     }
 
     private static boolean checkDespairCondition(ProgressionSystem progressionSystem, Chapter currentChapter, ResourceLocation bossId) {
-        boolean isCurrentChapterFinalBoss = currentChapter.getFinalBoss().getId().equals(bossId) ||
-                (currentChapter.getSecondaryFinalBoss() != null && currentChapter.getSecondaryFinalBoss().getId().equals(bossId));
+        boolean isCurrentChapterFinalBoss = currentChapter.getFinalBoss().getId().equals(bossId) || currentChapter.getFinalBoss().getSubparts().contains(bossId);
 
         if (isCurrentChapterFinalBoss) {
             boolean allIntermediaryDefeated = currentChapter.getIntermediaryBosses().stream()
@@ -82,9 +81,10 @@ public class BossEffectEventHandler {
         else {
             for (Chapter chapter : DeicideRegistry.CHAPTERS) {
                 if (!chapter.getId().equals(currentChapter.getId()) && !progressionSystem.getCompletedChaptersId().contains(chapter.getId())) {
-                    boolean bossInFutureChapter = chapter.getIntermediaryBosses().stream().anyMatch(b -> b.getId().equals(bossId)) ||
-                            chapter.getFinalBoss().getId().equals(bossId) ||
-                            (chapter.getSecondaryFinalBoss() != null && chapter.getSecondaryFinalBoss().getId().equals(bossId));
+                    boolean bossInFutureChapter = chapter.getIntermediaryBosses().stream()
+                            .anyMatch(b -> b.getId().equals(bossId) || b.getSubparts().contains(bossId)) ||
+                            chapter.getFinalBoss().getId().equals(bossId) || chapter.getFinalBoss().getSubparts().contains(bossId);
+
                     if (bossInFutureChapter) {
                         return true;
                     }
