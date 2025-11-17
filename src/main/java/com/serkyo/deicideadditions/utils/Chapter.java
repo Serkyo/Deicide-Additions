@@ -7,17 +7,13 @@ public class Chapter {
     private final String id;
     private final Set<Boss> intermediaryBosses;
     private final Boss finalBoss;
-    private final Boss secondaryFinalBoss;
+    private final int difficultyIncrement;
 
-    public Chapter(String id, Set<Boss> intermediaryBosses, Boss finalBoss, Boss secondaryFinalBoss) {
+    public Chapter(String id, Set<Boss> intermediaryBosses, Boss finalBoss, int difficultyIncrement) {
         this.id = id;
         this.intermediaryBosses = new LinkedHashSet<>(intermediaryBosses);
         this.finalBoss = finalBoss;
-        this.secondaryFinalBoss = secondaryFinalBoss;
-    }
-
-    public Chapter(String id, Set<Boss> intermediaryBosses, Boss finalBoss) {
-        this(id, intermediaryBosses, finalBoss, null);
+        this.difficultyIncrement = difficultyIncrement;
     }
 
     public String getId() {
@@ -32,7 +28,7 @@ public class Chapter {
         return finalBoss;
     }
 
-    public Boss getSecondaryFinalBoss() {
-        return secondaryFinalBoss;
+    public int getDifficultyIncrement(){
+        return difficultyIncrement;
     }
 }

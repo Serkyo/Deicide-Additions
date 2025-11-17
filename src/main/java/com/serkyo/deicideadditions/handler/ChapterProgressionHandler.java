@@ -5,6 +5,7 @@ import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.ProgressionSystem;
 import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
+import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
@@ -82,20 +83,31 @@ public class ChapterProgressionHandler {
 
     private static void updateChapterProgressForBoss(ProgressionSystem progressionSystem, ResourceLocation bossId) {
         Chapter currentChapter = progressionSystem.getCurrentChapter();
-        if (currentChapter != null && isBossInChapter(currentChapter, bossId)) {
-            progressionSystem.addDefeatedBoss(bossId);
+        if (currentChapter != null) {
+            if (isBossInChapter(currentChapter, bossId)) {
+                progressionSystem.addDefeatedBoss(bossId);
+            }
         }
     }
 
     private static boolean isBossInChapter(Chapter chapter, ResourceLocation bossId) {
-        boolean isIntermediaryBoss = chapter.getIntermediaryBosses().stream()
-                .anyMatch(boss -> boss.getId().equals(bossId));
-        boolean isFinalBoss = chapter.getFinalBoss() != null &&
-                chapter.getFinalBoss().getId().equals(bossId);
-        boolean isSecondaryFinalBoss = chapter.getSecondaryFinalBoss() != null &&
-                chapter.getSecondaryFinalBoss().getId().equals(bossId);
+        for (Boss boss: chapter.getIntermediaryBosses()) {
+            if (boss.getId().equals(bossId)) {
+                return true;
+            }
+            if (boss.getSubparts().contains(bossId)) {
+                return true;
+            }
+        }
 
-        return isIntermediaryBoss || isFinalBoss || isSecondaryFinalBoss;
+        Boss finalboss = chapter.getFinalBoss();
+        if (finalboss.getId().equals(bossId)) {
+            return true;
+        }
+        if (finalboss.getSubparts().contains(bossId)) {
+            return true;
+        }
+        return false;
     }
 
     private static void handleSpecialBossCases(LivingEntity boss, Entity killer) {

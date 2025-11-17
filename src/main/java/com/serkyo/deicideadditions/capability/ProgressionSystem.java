@@ -14,37 +14,19 @@ import java.util.Set;
 public class ProgressionSystem {
     private Set<ResourceLocation> defeatedBosses = new HashSet<>();
     private Set<String> completedChaptersId = new HashSet<>();
+    private int difficultyLevel;
 
     public Set<String> getCompletedChaptersId() {
         return completedChaptersId;
     }
 
-    public Set<ResourceLocation> getDefeatedBosses() { return defeatedBosses; }
-
-    public void addDefeatedBoss(ResourceLocation bossId) {
-        defeatedBosses.add(bossId);
-
-        Chapter currentChapter = getCurrentChapter();
-
-        if (currentChapter != null) {
-            Set<Boss> bossList = new HashSet<>(currentChapter.getIntermediaryBosses());
-            bossList.add(currentChapter.getFinalBoss());
-            bossList.add(currentChapter.getSecondaryFinalBoss());
-            boolean chapterComplete = bossList.stream().allMatch(this::hasDefeatedBoss);
-
-            if (chapterComplete) {
-                addCompletedChapterId(currentChapter.getId());
-            }
-        }
-
+    public Set<ResourceLocation> getDefeatedBosses() {
+        return defeatedBosses;
     }
 
-    private void addCompletedChapterId(String chapterId) {
-        completedChaptersId.add(chapterId);
-    }
-
-    public Boolean hasDefeatedBoss(Boss boss) {
-        return defeatedBosses.contains(boss.getId());
+    public float getDifficultyLevelScaled(double xCoord, double yCoord, double zCoord, ResourceLocation dimension) {
+        // todo
+        return 0;
     }
 
     public Chapter getCurrentChapter() {
@@ -54,6 +36,40 @@ public class ProgressionSystem {
             }
         }
         return null;
+    }
+
+    public Boolean hasDefeatedBoss(Boss boss) {
+        if (boss.requireAllSubparts()) {
+            return defeatedBosses.contains(boss.getId()) && defeatedBosses.containsAll(boss.getSubparts());
+        }
+        return defeatedBosses.contains(boss.getId());
+    }
+
+    public void addDefeatedBoss(ResourceLocation bossId) {
+        defeatedBosses.add(bossId);
+
+        Chapter currentChapter = getCurrentChapter();
+
+        if (currentChapter != null) {
+            Set<Boss> bossList = new HashSet<>(currentChapter.getIntermediaryBosses());
+            bossList.add(currentChapter.getFinalBoss());
+
+            boolean chapterComplete = bossList.stream().allMatch(this::hasDefeatedBoss);
+
+            if (chapterComplete) {
+                addCompletedChapterId(currentChapter.getId());
+                increaseDifficultyLevel(currentChapter.getDifficultyIncrement());
+            }
+        }
+
+    }
+
+    public void increaseDifficultyLevel(int amount) {
+        difficultyLevel += amount;
+    }
+
+    private void addCompletedChapterId(String chapterId) {
+        completedChaptersId.add(chapterId);
     }
 
     public void copyFrom(ProgressionSystem source) {
