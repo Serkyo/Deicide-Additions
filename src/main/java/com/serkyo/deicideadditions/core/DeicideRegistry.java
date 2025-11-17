@@ -123,7 +123,7 @@ public class DeicideRegistry {
 
     public static Boss getBoss(ResourceLocation bossId) {
         return BOSSES.stream()
-                .filter(boss -> boss.getId().equals(bossId))
+                .filter(boss -> boss.getId().equals(bossId) || boss.getSubparts().contains(bossId))
                 .findFirst()
                 .orElse(null);
     }
