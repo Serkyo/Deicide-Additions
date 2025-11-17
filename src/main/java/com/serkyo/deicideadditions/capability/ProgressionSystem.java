@@ -73,8 +73,9 @@ public class ProgressionSystem {
     }
 
     public void copyFrom(ProgressionSystem source) {
-        this.defeatedBosses = source.defeatedBosses;
-        this.completedChaptersId = source.completedChaptersId;
+        this.defeatedBosses = Set.copyOf(source.defeatedBosses);
+        this.completedChaptersId = Set.copyOf(source.completedChaptersId);
+        this.difficultyLevel = source.difficultyLevel;
     }
 
     public void saveNBTDate(CompoundTag nbt) {
@@ -82,27 +83,30 @@ public class ProgressionSystem {
         for (ResourceLocation boss : defeatedBosses) {
             defeatedBossesList.add(StringTag.valueOf(boss.toString()));
         }
-        nbt.put("DefeatedBosses", defeatedBossesList);
+        nbt.put("defeatedBosses", defeatedBossesList);
 
         ListTag completedChaptersList = new ListTag();
         for (String chapterId : completedChaptersId) {
             completedChaptersList.add(StringTag.valueOf(chapterId));
         }
-        nbt.put("CompletedChapters", completedChaptersList);
+        nbt.put("completedChapters", completedChaptersList);
+        nbt.putInt("difficultyLevel", difficultyLevel);
     }
 
     public void loadNBTData(CompoundTag nbt) {
         defeatedBosses.clear();
         completedChaptersId.clear();
 
-        ListTag defeatedBossesList = nbt.getList("DefeatedBosses", 8);
+        ListTag defeatedBossesList = nbt.getList("defeatedBosses", 8);
         for (int i = 0; i < defeatedBossesList.size(); i++) {
             defeatedBosses.add(ResourceLocation.parse(defeatedBossesList.getString(i)));
         }
 
-        ListTag completedChaptersList = nbt.getList("CompletedChapters", 8);
+        ListTag completedChaptersList = nbt.getList("completedChapters", 8);
         for (int i = 0; i < completedChaptersList.size(); i++) {
             completedChaptersId.add(completedChaptersList.getString(i));
         }
+
+        difficultyLevel = nbt.getInt("difficultyLevel");
     }
 }

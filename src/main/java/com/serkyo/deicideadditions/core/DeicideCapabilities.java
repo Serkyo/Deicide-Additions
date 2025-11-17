@@ -35,6 +35,8 @@ public class DeicideCapabilities {
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         if (event.isWasDeath()) {
+            event.getEntity().reviveCaps();
+
             event.getOriginal().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(oldStore -> {
                 event.getEntity().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
@@ -45,6 +47,8 @@ public class DeicideCapabilities {
                     newStore.copyFrom(oldStore);
                 });
             });
+
+            event.getOriginal().invalidateCaps();
         }
     }
 
