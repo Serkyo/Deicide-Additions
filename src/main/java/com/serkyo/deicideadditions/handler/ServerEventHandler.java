@@ -1,12 +1,15 @@
 package com.serkyo.deicideadditions.handler;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
+import com.serkyo.deicideadditions.capability.ProgressionSystemProvider;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import sfiomn.legendarysurvivaloverhaul.api.ModDamageTypes;
 
@@ -40,6 +43,17 @@ public class ServerEventHandler {
                     }
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (event.side == LogicalSide.CLIENT && event.phase == TickEvent.Phase.START) {
+            Player player = event.player;
+            player.getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(progressionSystem -> {
+                float difficulty = progressionSystem.getDifficultyLevelScaled(player.getX(), player.getY(), player.getZ(), player.level().dimension().location());
+                System.out.println(difficulty);
+            });
         }
     }
 }

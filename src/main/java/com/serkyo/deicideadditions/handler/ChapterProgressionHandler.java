@@ -65,9 +65,9 @@ public class ChapterProgressionHandler {
         List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
 
         for (Player playerNearby : nearbyPlayers) {
-            playerNearby.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
+            playerNearby.getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(progressionSystem -> {
                 if (teamMembers.contains(playerNearby.getUUID())) {
-                    updateChapterProgressForBoss(chapterProgress, bossId);
+                    updateChapterProgressForBoss(progressionSystem, bossId);
                     logProgressionUpdate(playerNearby, bossId);
                 }
             });
@@ -75,8 +75,8 @@ public class ChapterProgressionHandler {
     }
 
     private static void handleSoloBossDefeat(ResourceLocation bossId, ServerPlayer player) {
-        player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-            updateChapterProgressForBoss(chapterProgress, bossId);
+        player.getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(progressionSystem -> {
+            updateChapterProgressForBoss(progressionSystem, bossId);
             logProgressionUpdate(player, bossId);
         });
     }

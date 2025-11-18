@@ -53,13 +53,13 @@ public class BossEffectEventHandler {
     }
 
     private static void applyEffectsToPlayer(Player player, ResourceLocation bossId) {
-        player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-            Chapter currentChapter = chapterProgress.getCurrentChapter();
+        player.getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(progressionSystem -> {
+            Chapter currentChapter = progressionSystem.getCurrentChapter();
             player.addEffect(new MobEffectInstance(DeicideEffects.WARPED_EQUILIBRIUM_EFFECT.get(), 200, 0, true, true));
             DeicideAdditions.LOGGER.debug("Applied Warped Equilibrium to {} since they are standing next to {}", player.getName().getString(), bossId);
 
             if (currentChapter != null) {
-                boolean shouldApplyDespair = checkDespairCondition(chapterProgress, currentChapter, bossId);
+                boolean shouldApplyDespair = checkDespairCondition(progressionSystem, currentChapter, bossId);
 
                 if (shouldApplyDespair) {
                     player.addEffect(new MobEffectInstance(DeicideEffects.DESPAIR_EFFECT.get(), 200, 0, true, true));

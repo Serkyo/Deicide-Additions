@@ -23,13 +23,13 @@ public class ProgressionCommand {
         StringBuilder message = new StringBuilder();
 
         if (player != null) {
-            player.getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(chapterProgress -> {
-                Chapter currentChapter = chapterProgress.getCurrentChapter();
+            player.getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(progressionSystem -> {
+                Chapter currentChapter = progressionSystem.getCurrentChapter();
 
                 if (currentChapter != null) {
                     message.append("Current chapter : ").append(currentChapter.getId());
                     Set<Boss> intermediaryBosses = currentChapter.getIntermediaryBosses();
-                    Set<ResourceLocation> defeatedBosses = chapterProgress.getDefeatedBosses();
+                    Set<ResourceLocation> defeatedBosses = progressionSystem.getDefeatedBosses();
 
                     for (Boss boss : intermediaryBosses) {
                         ResourceLocation bossId = boss.getId();

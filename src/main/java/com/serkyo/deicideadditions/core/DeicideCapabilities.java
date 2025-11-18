@@ -17,14 +17,14 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID)
 public class DeicideCapabilities {
-    public static final ResourceLocation CHAPTER_PROGRESS = ResourceLocation.fromNamespaceAndPath(DeicideAdditions.MOD_ID, "chapter_progress");
+    public static final ResourceLocation PROGRESSION_SYSTEM = ResourceLocation.fromNamespaceAndPath(DeicideAdditions.MOD_ID, "chapter_progress");
     public static final ResourceLocation GLUTTONY = ResourceLocation.fromNamespaceAndPath(DeicideAdditions.MOD_ID, "gluttony");
 
     @SubscribeEvent
     public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof Player) {
-            if (!event.getObject().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).isPresent()) {
-                event.addCapability(CHAPTER_PROGRESS, new ProgressionSystemProvider());
+            if (!event.getObject().getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).isPresent()) {
+                event.addCapability(PROGRESSION_SYSTEM, new ProgressionSystemProvider());
             }
             if (!event.getObject().getCapability(GluttonyProvider.GLUTTONY).isPresent()) {
                 event.addCapability(GLUTTONY, new GluttonyProvider());
@@ -37,8 +37,8 @@ public class DeicideCapabilities {
         if (event.isWasDeath()) {
             event.getEntity().reviveCaps();
 
-            event.getOriginal().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(oldStore -> {
-                event.getEntity().getCapability(ProgressionSystemProvider.CHAPTER_PROGRESS).ifPresent(newStore -> {
+            event.getOriginal().getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(oldStore -> {
+                event.getEntity().getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
                 });
             });

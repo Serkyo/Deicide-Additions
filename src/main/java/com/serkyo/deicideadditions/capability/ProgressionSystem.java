@@ -14,7 +14,7 @@ import java.util.Set;
 public class ProgressionSystem {
     private Set<ResourceLocation> defeatedBosses = new HashSet<>();
     private Set<String> completedChaptersId = new HashSet<>();
-    private int difficultyLevel;
+    private int difficultyLevel = 1;
 
     public Set<String> getCompletedChaptersId() {
         return completedChaptersId;
@@ -25,8 +25,27 @@ public class ProgressionSystem {
     }
 
     public float getDifficultyLevelScaled(double xCoord, double yCoord, double zCoord, ResourceLocation dimension) {
-        // todo
-        return 0;
+        float dimensionMultiplier;
+        switch (dimension.toString()) {
+            case "minecraft:overworld": {
+                dimensionMultiplier = 1;
+                break;
+            }
+            case "minecraft:the_nether": {
+                dimensionMultiplier = 1.5F;
+                break;
+            }
+            case "macabre:the_pit": {
+                dimensionMultiplier = 3F;
+                break;
+            }
+            default: {
+                dimensionMultiplier = 2F;
+                break;
+            }
+        }
+        float distanceFromOrigin = (float) Math.sqrt(Math.pow(xCoord, 2) + Math.pow(yCoord - 0, 2) + Math.pow(zCoord, 2));
+        return dimensionMultiplier * (difficultyLevel * (1 + 0.001F * distanceFromOrigin));
     }
 
     public Chapter getCurrentChapter() {
