@@ -61,7 +61,7 @@ public class ServerEventHandler {
     public static void onMobSpawn(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         if (!entity.level().isClientSide && entity instanceof LivingEntity livingEntity) {
-            if (!livingEntity.getType().is(Tags.EntityTypes.BOSSES) && livingEntity instanceof Enemy) {
+            if (!livingEntity.getType().is(Tags.EntityTypes.BOSSES)) {
                 float entityDifficultyLevel = getNearbyPlayerDifficultyLevel(livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
 
                 AttributeInstance maxHealth = livingEntity.getAttribute(Attributes.MAX_HEALTH);
