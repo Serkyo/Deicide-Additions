@@ -60,7 +60,7 @@ public class ServerEventHandler {
     @SubscribeEvent
     public static void onMobSpawn(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
-        if (!entity.level().isClientSide && entity instanceof LivingEntity livingEntity && (livingEntity instanceof Player)) {
+        if (!entity.level().isClientSide && entity instanceof LivingEntity livingEntity && !(livingEntity instanceof Player)) {
             if (!livingEntity.getType().is(Tags.EntityTypes.BOSSES)) {
                 float entityDifficultyLevel = getNearbyPlayerDifficultyLevel(livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
 
