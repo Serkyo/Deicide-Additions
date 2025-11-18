@@ -62,43 +62,54 @@ public class ServerEventHandler {
         Entity entity = event.getEntity();
         if (!entity.level().isClientSide && entity instanceof LivingEntity livingEntity && !(livingEntity instanceof Player)) {
             if (!livingEntity.getType().is(Tags.EntityTypes.BOSSES)) {
-                float entityDifficultyLevel = getNearbyPlayerDifficultyLevel(livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
-
-                AttributeInstance maxHealth = livingEntity.getAttribute(Attributes.MAX_HEALTH);
-                if (maxHealth != null) {
-                    maxHealth.setBaseValue(maxHealth.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
-                    livingEntity.setHealth(livingEntity.getMaxHealth());
+                if (livingEntity.getPersistentData().contains("Level")) {
+                    applyAttributeBonuses(livingEntity);
                 }
-                AttributeInstance armor = livingEntity.getAttribute(Attributes.ARMOR);
-                if (armor != null) {
-                    armor.setBaseValue(armor.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
+                else {
+                    float entityDifficultyLevel = getNearbyPlayerDifficultyLevel(livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+                    livingEntity.getPersistentData().putFloat("Level", entityDifficultyLevel);
+                    applyAttributeBonuses(livingEntity);
                 }
-                AttributeInstance attackDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
-                if (attackDamage != null) {
-                    attackDamage.setBaseValue(attackDamage.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
-                }
-                AttributeInstance projectileDamage = livingEntity.getAttribute(EntityAttributes_ProjectileDamage.GENERIC_PROJECTILE_DAMAGE);
-                if (projectileDamage != null) {
-                    projectileDamage.setBaseValue(projectileDamage.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
-                }
-                AttributeInstance speed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
-                if (speed != null) {
-                    speed.setBaseValue(speed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
-                }
-                AttributeInstance flyingSpeed = livingEntity.getAttribute(Attributes.FLYING_SPEED);
-                if (flyingSpeed != null) {
-                    flyingSpeed.setBaseValue(flyingSpeed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
-                }
-
-                DeicideAdditions.LOGGER.debug("Modified attributes of {} based on player level {}", EntityType.getKey(livingEntity.getType()), entityDifficultyLevel);
             }
         }
     }
 
+    private static void applyAttributeBonuses(LivingEntity livingEntity) {
+        float entityDifficultyLevel = livingEntity.getPersistentData().getFloat("Level");
+
+        AttributeInstance maxHealth = livingEntity.getAttribute(Attributes.MAX_HEALTH);
+        if (maxHealth != null) {
+            maxHealth.setBaseValue(maxHealth.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
+            livingEntity.setHealth(livingEntity.getMaxHealth());
+        }
+        AttributeInstance armor = livingEntity.getAttribute(Attributes.ARMOR);
+        if (armor != null) {
+            armor.setBaseValue(armor.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
+        }
+        AttributeInstance attackDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
+        if (attackDamage != null) {
+            attackDamage.setBaseValue(attackDamage.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
+        }
+        AttributeInstance projectileDamage = livingEntity.getAttribute(EntityAttributes_ProjectileDamage.GENERIC_PROJECTILE_DAMAGE);
+        if (projectileDamage != null) {
+            projectileDamage.setBaseValue(projectileDamage.getBaseValue() * (1 + entityDifficultyLevel * 0.1));
+        }
+        AttributeInstance speed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
+        if (speed != null) {
+            speed.setBaseValue(speed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
+        }
+        AttributeInstance flyingSpeed = livingEntity.getAttribute(Attributes.FLYING_SPEED);
+        if (flyingSpeed != null) {
+            flyingSpeed.setBaseValue(flyingSpeed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
+        }
+
+        DeicideAdditions.LOGGER.debug("Modified attributes of {} based on player level {}", EntityType.getKey(livingEntity.getType()), entityDifficultyLevel);
+    }
+
     private static float getNearbyPlayerDifficultyLevel(Level level, double xCoord, double yCoord, double zCoord) {
         List<Player> nearbyPlayers = level.getEntitiesOfClass(Player.class, new AABB(
-                xCoord - 128, yCoord - 128, zCoord - 128,
-                xCoord + 128, yCoord + 128, zCoord + 128
+                xCoord - 256, yCoord - 256, zCoord - 256,
+                xCoord + 256, yCoord + 256, zCoord + 256
         ));
 
         if (nearbyPlayers.isEmpty()) {
