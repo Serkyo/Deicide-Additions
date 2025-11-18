@@ -26,25 +26,30 @@ public class ProgressionSystem {
 
     public float getDifficultyLevelScaled(double xCoord, double yCoord, double zCoord, ResourceLocation dimension) {
         float dimensionMultiplier;
+        double seaLevel;
         switch (dimension.toString()) {
             case "minecraft:overworld": {
                 dimensionMultiplier = 1;
+                seaLevel = 62;
                 break;
             }
             case "minecraft:the_nether": {
                 dimensionMultiplier = 1.5F;
+                seaLevel = 31;
                 break;
             }
             case "macabre:the_pit": {
                 dimensionMultiplier = 3F;
+                seaLevel = 62;
                 break;
             }
             default: {
                 dimensionMultiplier = 2F;
+                seaLevel = 0;
                 break;
             }
         }
-        float distanceFromOrigin = (float) Math.sqrt(Math.pow(xCoord, 2) + Math.pow(yCoord - 0, 2) + Math.pow(zCoord, 2));
+        float distanceFromOrigin = (float) Math.sqrt(Math.pow(xCoord, 2) + Math.pow(yCoord - seaLevel, 2) + Math.pow(zCoord, 2));
         return dimensionMultiplier * (difficultyLevel * (1 + 0.001F * distanceFromOrigin));
     }
 
