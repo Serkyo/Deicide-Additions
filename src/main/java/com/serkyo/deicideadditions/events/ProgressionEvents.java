@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.handler;
+package com.serkyo.deicideadditions.events;
 
 import com.github.sculkhorde.common.blockentity.SculkAncientNodeBlockEntity;
 import com.serkyo.deicideadditions.DeicideAdditions;
@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ChapterProgressionHandler {
+public class ProgressionEvents {
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();

@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.handler;
+package com.serkyo.deicideadditions.events;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID)
-public class DeicideEventHandler {
+public class DeicideEvents {
     @SubscribeEvent
     public static void onServerStopped(ServerStoppedEvent event) {
         DeicideRegistry.clearRegisteredNodes();

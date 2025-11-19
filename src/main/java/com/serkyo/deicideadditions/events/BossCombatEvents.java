@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.handler;
+package com.serkyo.deicideadditions.events;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.capability.ProgressionSystem;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class BossEffectEventHandler {
+public class BossCombatEvents {
     @SubscribeEvent
     public static void onWorldTick(TickEvent.LevelTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
