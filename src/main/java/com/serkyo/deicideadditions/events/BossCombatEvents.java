@@ -13,10 +13,13 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -39,12 +42,24 @@ public class BossCombatEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void onBossTargetChange(LivingChangeTargetEvent event) {
+        LivingEntity boss = event.getEntity();
+        if (boss.getType().is(Tags.EntityTypes.BOSSES)) {
+            LivingEntity oldTarget = event.getOriginalTarget();
+            LivingEntity newTarget = event.getNewTarget();
+
+            if (newTarget != null) {
+                scaleBossMaxHealth(boss, oldTarget == null);
+            }
+        }
+    }
+
     private static void applyBossEffectToNearbyPlayers(LivingEntity boss) {
         ResourceLocation bossId = EntityType.getKey(boss.getType());
-        Boss bossObject = DeicideRegistry.getBoss(bossId);
-        if (bossObject != null) {
-            AABB boundingBox = boss.getBoundingBox().inflate(bossObject.getCheckLength(), bossObject.getCheckHeight(), bossObject.getCheckLength());
-            List<Player> nearbyPlayers = boss.level().getEntitiesOfClass(Player.class, boundingBox);
+        Boss bossData = DeicideRegistry.getBoss(bossId);
+        if (bossData != null) {
+            List<Player> nearbyPlayers = getPlayersNearBoss(boss, bossData);
 
             for (Player player : nearbyPlayers) {
                 applyEffectsToPlayer(player, bossId);
@@ -92,5 +107,38 @@ public class BossCombatEvents {
             }
         }
         return false;
+    }
+
+    private static List<Player> getPlayersNearBoss(LivingEntity boss, Boss bossData) {
+        AABB boundingBox = boss.getBoundingBox().inflate(bossData.getCheckLength(), bossData.getCheckHeight(), bossData.getCheckLength());
+        return boss.level().getEntitiesOfClass(Player.class, boundingBox);
+    }
+
+    private static void scaleBossMaxHealth(LivingEntity boss, boolean shouldHeal) {
+        Boss bossData = DeicideRegistry.getBoss(EntityType.getKey(boss.getType()));
+
+        if (bossData != null) {
+            List<Player> nearbyPlayers = getPlayersNearBoss(boss, bossData);
+            int numberOfNearbyPlayers = nearbyPlayers.size();
+
+            AttributeInstance maxHealth = boss.getAttribute(Attributes.MAX_HEALTH);
+
+            if (maxHealth != null) {
+                double baseMaxHP = boss.getPersistentData().getDouble("UnscaledMaxHealth");
+
+                if (baseMaxHP == 0.0) {
+                    boss.getPersistentData().putDouble("UnscaledMaxHealth", maxHealth.getBaseValue());
+                    baseMaxHP = maxHealth.getBaseValue();
+                }
+
+                maxHealth.setBaseValue(baseMaxHP * (1 + (numberOfNearbyPlayers - 1) * 0.25));
+
+                if (shouldHeal) {
+                    boss.setHealth(boss.getMaxHealth());
+                }
+
+                DeicideAdditions.LOGGER.debug("Modified attributes of boss {} based on the amount of player nearby ({})", bossData.getName(), numberOfNearbyPlayers);
+            }
+        }
     }
 }
