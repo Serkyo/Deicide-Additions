@@ -7,6 +7,7 @@ import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.utils.Boss;
 import com.serkyo.deicideadditions.utils.Chapter;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -24,6 +25,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = DeicideAdditions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BossCombatEvents {
@@ -45,12 +47,17 @@ public class BossCombatEvents {
     @SubscribeEvent
     public static void onBossTargetChange(LivingChangeTargetEvent event) {
         LivingEntity boss = event.getEntity();
-        if (boss.getType().is(Tags.EntityTypes.BOSSES)) {
-            LivingEntity oldTarget = event.getOriginalTarget();
-            LivingEntity newTarget = event.getNewTarget();
 
-            if (newTarget != null) {
-                scaleBossMaxHealth(boss, oldTarget == null);
+        if (boss.getType().is(Tags.EntityTypes.BOSSES)) {
+            LivingEntity newTarget = event.getNewTarget();
+            CompoundTag bossPersistentData = boss.getPersistentData();
+            UUID lastTarget =  bossPersistentData.hasUUID("LastTarget") ? bossPersistentData.getUUID("LastTarget") : null;
+
+            if (newTarget instanceof Player) {
+                if (!newTarget.getUUID().equals(lastTarget)) {
+                    scaleBossMaxHealth(boss, lastTarget == null, bossPersistentData);
+                    boss.getPersistentData().putUUID("LastTarget", newTarget.getUUID());
+                }
             }
         }
     }
@@ -58,6 +65,7 @@ public class BossCombatEvents {
     private static void applyBossEffectToNearbyPlayers(LivingEntity boss) {
         ResourceLocation bossId = EntityType.getKey(boss.getType());
         Boss bossData = DeicideRegistry.getBoss(bossId);
+
         if (bossData != null) {
             List<Player> nearbyPlayers = getPlayersNearBoss(boss, bossData);
 
@@ -114,7 +122,7 @@ public class BossCombatEvents {
         return boss.level().getEntitiesOfClass(Player.class, boundingBox);
     }
 
-    private static void scaleBossMaxHealth(LivingEntity boss, boolean shouldHeal) {
+    private static void scaleBossMaxHealth(LivingEntity boss, boolean shouldHeal, CompoundTag bossPersistentData) {
         Boss bossData = DeicideRegistry.getBoss(EntityType.getKey(boss.getType()));
 
         if (bossData != null) {
@@ -124,10 +132,10 @@ public class BossCombatEvents {
             AttributeInstance maxHealth = boss.getAttribute(Attributes.MAX_HEALTH);
 
             if (maxHealth != null) {
-                double baseMaxHP = boss.getPersistentData().getDouble("UnscaledMaxHealth");
+                double baseMaxHP = bossPersistentData.getDouble("UnscaledMaxHealth");
 
                 if (baseMaxHP == 0.0) {
-                    boss.getPersistentData().putDouble("UnscaledMaxHealth", maxHealth.getBaseValue());
+                    bossPersistentData.putDouble("UnscaledMaxHealth", maxHealth.getBaseValue());
                     baseMaxHP = maxHealth.getBaseValue();
                 }
 
