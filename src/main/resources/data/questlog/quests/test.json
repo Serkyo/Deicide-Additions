@@ -1,0 +1,16 @@
+{
+  "triggers": [],
+  "objectives": [],
+  "rewards": [],
+  "display": {
+    "title": "test",
+    "description": "test",
+    "icon": {
+      "item": "minecraft:stone"
+    },
+    "sound": {
+      "completed": "minecraft:ambient.cave",
+      "triggered": "minecraft:ambient.basalt_deltas.mood"
+    }
+  }
+}
