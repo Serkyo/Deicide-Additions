@@ -57,8 +57,9 @@
   "deicideadditions.smithing.dreadsteel.upgrade": "Dreadsteel Upgrade",
   "deicideadditions.smithing.dreadsteel.base_slot": "Add dragonsteel armor",
   "deicideadditions.smithing.dreadsteel.additions_slot": "Add dreadsteel ingot",
-  "event.deicideadditions.difficulty_increase": "A unique boss has been slain, the difficulty of the world around you has increased.",
+  "event.deicideadditions.difficulty_increase": "A chapter has been finished, the difficulty of the world around you has increased.",
   "event.deicideadditions.powerful_foe": "This foe is beyond your reach ...",
   "event.deicideadditions.overeating": "Gluttony consumes you... Beware your endless appetite.",
-  "event.deicideadditions.cancel_eat": "Sinners cannot consume food or drink"
+  "event.deicideadditions.cancel_eat": "Sinners cannot consume food or drink",
+  "event.deicideadditions.nether_locked": "The Old Champion prevents you from entering the nether"
 }

@@ -69,7 +69,7 @@ public class ProgressionSystem {
         return defeatedBosses.contains(boss.getId());
     }
 
-    public void addDefeatedBoss(ResourceLocation bossId) {
+    public boolean addDefeatedBoss(ResourceLocation bossId) {
         defeatedBosses.add(bossId);
 
         Chapter currentChapter = getCurrentChapter();
@@ -84,8 +84,9 @@ public class ProgressionSystem {
                 addCompletedChapterId(currentChapter.getId());
                 increaseDifficultyLevel(currentChapter.getDifficultyIncrement());
             }
+            return chapterComplete;
         }
-
+        return false;
     }
 
     public void increaseDifficultyLevel(int amount) {

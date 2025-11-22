@@ -6,6 +6,7 @@ import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,7 +47,7 @@ public class SinOfGluttonyEffect extends DeicideMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
-        if (entity instanceof Player player && !player.level().isClientSide) {
+        if (entity instanceof ServerPlayer player) {
             player.setSprinting(false);
         }
     }
@@ -109,7 +110,7 @@ public class SinOfGluttonyEffect extends DeicideMobEffect {
 
     @SubscribeEvent
     public static void onPlayerFinishEating(LivingEntityUseItemEvent.Finish event) {
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide) {
+        if (event.getEntity() instanceof ServerPlayer player) {
             ItemStack item = event.getItem();
             boolean edibleItem = item.isEdible();
             boolean drinkableItem = item.getUseAnimation() == UseAnim.DRINK;

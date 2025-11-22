@@ -17,6 +17,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.TickEvent;
@@ -34,9 +35,20 @@ public class BossCombatEvents {
         if (event.phase == TickEvent.Phase.END) {
             if (event.level.getGameTime() % 80 == 0) {
                 if (event.level instanceof ServerLevel serverLevel) {
-                    for (Entity entity : serverLevel.getAllEntities()) {
-                        if (entity instanceof LivingEntity living && living.getType().is(Tags.EntityTypes.BOSSES)) {
-                            applyBossEffectToNearbyPlayers(living);
+                    WorldBorder worldBorder = serverLevel.getWorldBorder();
+                    List<LivingEntity> livingEntities = serverLevel.getEntitiesOfClass(LivingEntity.class,
+                        new AABB(
+                            worldBorder.getMinX(),
+                            serverLevel.getMinBuildHeight(),
+                            worldBorder.getMinZ(),
+                            worldBorder.getMaxX(),
+                            serverLevel.getMaxBuildHeight(),
+                            worldBorder.getMaxZ()
+                        ));
+
+                    for (LivingEntity livingEntity : livingEntities) {
+                        if (livingEntity.getType().is(Tags.EntityTypes.BOSSES)) {
+                            applyBossEffectToNearbyPlayers(livingEntity);
                         }
                     }
                 }

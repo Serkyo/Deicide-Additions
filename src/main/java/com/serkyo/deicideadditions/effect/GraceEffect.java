@@ -2,6 +2,7 @@ package com.serkyo.deicideadditions.effect;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,7 +47,7 @@ public class GraceEffect extends DeicideMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
-        if (entity instanceof Player player && !player.level().isClientSide) {
+        if (entity instanceof ServerPlayer player) {
             if (player.swinging || player.isUsingItem()) {
                 player.removeEffect(this);
                 DeicideAdditions.LOGGER.debug("Removed Grace from {} since they interacted with something", player.getName().getString());
@@ -63,7 +64,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onEffectApplied(MobEffectEvent.Added event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player player && !player.level().isClientSide) {
+        if (entity instanceof ServerPlayer player) {
             if (event.getEffectInstance().getEffect().equals(DeicideEffects.GRACE_EFFECT.get())) {
                 List<Mob> mobsAround = player.level().getEntitiesOfClass(Mob.class, entity.getBoundingBox().inflate(64));
                 for (Mob mob : mobsAround) {
@@ -80,7 +81,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingAttacked(LivingAttackEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player player && !player.level().isClientSide) {
+        if (entity instanceof ServerPlayer player) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
                 DeicideAdditions.LOGGER.debug("Cancelled attack received by {} since they are afflicted by Grace", player.getName().getString());
@@ -92,7 +93,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingHealed(LivingHealEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (entity instanceof Player player && !player.level().isClientSide) {
+        if (entity instanceof ServerPlayer player) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
                 DeicideAdditions.LOGGER.debug("Cancelled healing received by {} since they are afflicted by Grace", player.getName().getString());
@@ -104,7 +105,7 @@ public class GraceEffect extends DeicideMobEffect {
     public static void onLivingChangeTarget(LivingChangeTargetEvent event) {
         LivingEntity targetedEntity = event.getNewTarget();
 
-        if (targetedEntity instanceof Player player && !player.level().isClientSide) {
+        if (targetedEntity instanceof ServerPlayer player) {
             if (player.hasEffect(DeicideEffects.GRACE_EFFECT.get())) {
                 event.setCanceled(true);
                 DeicideAdditions.LOGGER.debug("Prevented a mob from targeting {} since they are afflicted by Grace", player.getName().getString());
