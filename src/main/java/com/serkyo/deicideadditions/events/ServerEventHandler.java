@@ -1,12 +1,17 @@
 package com.serkyo.deicideadditions.events;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import sfiomn.legendarysurvivaloverhaul.api.ModDamageTypes;
@@ -36,6 +41,26 @@ public class ServerEventHandler {
                     event.setAmount(newAmount);
                     DeicideAdditions.LOGGER.debug("Increased the damage received by {} from {} to {}", player.getName().getString(), source.type().msgId(), newAmount);
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            CompoundTag data = player.getPersistentData();
+            if (!data.getBoolean("joinedBefore")) {
+                data.putBoolean("joinedBefore", true);
+
+                player.server.getCommands().performPrefixedCommand(
+                    player.server.createCommandSourceStack().withPermission(4),
+                    "epicfight skill add " + player.getName().getString() + " dodge wom:precise_roll"
+                );
+
+                player.server.getCommands().performPrefixedCommand(
+                        player.server.createCommandSourceStack().withPermission(4),
+                        "epicfight skill add " + player.getName().getString() + " guard epicfight:parrying"
+                );
             }
         }
     }
