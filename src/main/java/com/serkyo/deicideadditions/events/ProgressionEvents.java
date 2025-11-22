@@ -11,6 +11,7 @@ import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
 import dev.ftb.mods.ftbteams.api.Team;
 import dev.ftb.mods.ftbteams.api.TeamManager;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
@@ -36,10 +38,20 @@ public class ProgressionEvents {
     public static void onPlayerChangeDimension(EntityTravelToDimensionEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             player.getCapability(ProgressionSystemProvider.PROGRESSION_SYSTEM).ifPresent(progressionSystem -> {
-                if (!progressionSystem.getCompletedChaptersId().contains("chapter1")) {
-                    event.setCanceled(true);
-                    player.displayClientMessage(Component.translatable("event.deicideadditions.nether_locked"), true);
-                    DeicideAdditions.LOGGER.debug("Prevented {} from entering the nether because they haven't beaten the first chapter yet", player.getName().getString());
+                ResourceKey<Level> dimension = event.getDimension();
+                if (dimension == Level.NETHER) {
+                    if (!progressionSystem.getCompletedChaptersId().contains("chapter1")) {
+                        event.setCanceled(true);
+                        player.displayClientMessage(Component.translatable("event.deicideadditions.nether_locked"), true);
+                        DeicideAdditions.LOGGER.debug("Prevented {} from entering the nether because they haven't beaten the first chapter yet", player.getName().getString());
+                    }
+                }
+                else if (dimension == Level.END) {
+                    if (!progressionSystem.getCompletedChaptersId().contains("chapter3")) {
+                        event.setCanceled(true);
+                        player.displayClientMessage(Component.translatable("event.deicideadditions.end_locked"), true);
+                        DeicideAdditions.LOGGER.debug("Prevented {} from entering the end because they haven't beaten the third chapter yet", player.getName().getString());
+                    }
                 }
             });
         }

@@ -61,5 +61,6 @@
   "event.deicideadditions.powerful_foe": "This foe is beyond your reach ...",
   "event.deicideadditions.overeating": "Gluttony consumes you... Beware your endless appetite.",
   "event.deicideadditions.cancel_eat": "Sinners cannot consume food or drink",
-  "event.deicideadditions.nether_locked": "The Old Champion prevents you from entering the nether"
+  "event.deicideadditions.nether_locked": "The Old Champion prevents you from entering the Nether",
+  "event.deicideadditions.end_locked": "You need to have beaten the wither to access the End"
 }
