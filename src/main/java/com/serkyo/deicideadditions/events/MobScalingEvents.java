@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -65,6 +66,10 @@ public class MobScalingEvents {
         AttributeInstance flyingSpeed = livingEntity.getAttribute(Attributes.FLYING_SPEED);
         if (flyingSpeed != null) {
             flyingSpeed.setBaseValue(flyingSpeed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
+        }
+        AttributeInstance swimSpeed = livingEntity.getAttribute(ForgeMod.SWIM_SPEED.get());
+        if (swimSpeed != null) {
+            swimSpeed.setBaseValue(swimSpeed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
         }
 
         DeicideAdditions.LOGGER.debug("Modified attributes of {} based on player level {}", EntityType.getKey(livingEntity.getType()), entityDifficultyLevel);
