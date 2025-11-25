@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ProgressionSystemProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<ProgressionSystem> CHAPTER_PROGRESS = CapabilityManager.get(new CapabilityToken<>() {});
+    public static Capability<ProgressionSystem> PROGRESSION_SYSTEM = CapabilityManager.get(new CapabilityToken<>() {});
 
     private ProgressionSystem progressionSystem = null;
     private final LazyOptional<ProgressionSystem> optional = LazyOptional.of(this::createChapterProgress);
@@ -26,7 +26,7 @@ public class ProgressionSystemProvider implements ICapabilityProvider, INBTSeria
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == CHAPTER_PROGRESS) {
+        if (cap == PROGRESSION_SYSTEM) {
             return optional.cast();
         }
         return LazyOptional.empty();

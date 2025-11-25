@@ -48,7 +48,9 @@
   "deicideadditions.smithing.dreadsteel.upgrade": "Amélioration de Dreadacier",
   "deicideadditions.smithing.dreadsteel.base_slot": "Ajoutez une armure en dragonacier",
   "deicideadditions.smithing.dreadsteel.additions_slot": "Ajoutez un lingot de dreadacier",
-  "event.deicideadditions.difficulty_increase": "Un boss unique a été vaincu, la difficulté du monde qui vous entoure s’est accrue.",
+  "event.deicideadditions.difficulty_increase": "Un chapitre a été terminé, la difficulté du monde qui vous entoure s’est accrue.",
   "event.deicideadditions.powerful_foe": "Cet ennemi dépasse votre compréhension...",
-  "event.deicideadditions.overeating": "La gourmandise vous dévore... Méfiez-vous de votre appétit sans fin"
+  "event.deicideadditions.overeating": "La gourmandise vous dévore... Méfiez-vous de votre appétit sans fin",
+  "event.deicideadditions.nether_locked": "L'Ancien Champion vous empèche d'entrer dans le Nether",
+  "event.deicideadditions.end_locked": "Vous devez avoir battu le wither pour accéder à l'End"
 }

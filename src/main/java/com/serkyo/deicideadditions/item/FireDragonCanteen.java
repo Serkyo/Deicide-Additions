@@ -3,6 +3,7 @@ package com.serkyo.deicideadditions.item;
 import net.donne431.ice_and_fire_delight.init.IceAndFireDelightModMobEffects;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +37,7 @@ public class FireDragonCanteen extends DragonPurifyingCanteenItem {
 
     @Override
     public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, Level level, @NotNull LivingEntity entity) {
-        if (!level.isClientSide && entity instanceof Player player) {
+        if (entity instanceof ServerPlayer player) {
             player.addEffect(new MobEffectInstance(IceAndFireDelightModMobEffects.FIRE_ASPECT.get(), 3600, 0, false, true, true));
         }
         return super.finishUsingItem(stack, level, entity);

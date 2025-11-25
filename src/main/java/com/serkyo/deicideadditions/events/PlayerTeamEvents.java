@@ -1,4 +1,4 @@
-package com.serkyo.deicideadditions.handler;
+package com.serkyo.deicideadditions.events;
 
 import com.serkyo.deicideadditions.DeicideAdditions;
 import dev.ftb.mods.ftbteams.api.FTBTeamsAPI;
@@ -19,15 +19,15 @@ import java.util.Set;
 
 import static net.minecraft.world.scores.Team.CollisionRule;
 
-public class TeamEventHandler {
+public class PlayerTeamEvents {
     private static final Set<String> WARNED_MISSING_TEAMS = new HashSet<>();
 
     public static void init() {
-        TeamEvent.PLAYER_JOINED_PARTY.register(TeamEventHandler::onPlayerJoinedParty);
-        TeamEvent.PLAYER_LEFT_PARTY.register(TeamEventHandler::onPlayerLeftParty);
-        TeamEvent.CREATED.register(TeamEventHandler::onTeamCreated);
-        TeamEvent.DELETED.register(TeamEventHandler::onTeamDeleted);
-        TeamEvent.PROPERTIES_CHANGED.register(TeamEventHandler::onTeamPropertiesChanged);
+        TeamEvent.PLAYER_JOINED_PARTY.register(PlayerTeamEvents::onPlayerJoinedParty);
+        TeamEvent.PLAYER_LEFT_PARTY.register(PlayerTeamEvents::onPlayerLeftParty);
+        TeamEvent.CREATED.register(PlayerTeamEvents::onTeamCreated);
+        TeamEvent.DELETED.register(PlayerTeamEvents::onTeamDeleted);
+        TeamEvent.PROPERTIES_CHANGED.register(PlayerTeamEvents::onTeamPropertiesChanged);
     }
 
     private static void onPlayerJoinedParty(PlayerJoinedPartyTeamEvent event) {

@@ -6,7 +6,7 @@ import com.serkyo.deicideadditions.core.DeicideCreativeTab;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.core.DeicideItems;
 import com.serkyo.deicideadditions.core.DeicideRegistry;
-import com.serkyo.deicideadditions.handler.TeamEventHandler;
+import com.serkyo.deicideadditions.events.PlayerTeamEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -39,7 +39,7 @@ public class DeicideAdditions {
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        TeamEventHandler.init();
+        PlayerTeamEvents.init();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

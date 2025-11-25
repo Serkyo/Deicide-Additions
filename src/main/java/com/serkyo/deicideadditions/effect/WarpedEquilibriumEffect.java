@@ -3,6 +3,7 @@ package com.serkyo.deicideadditions.effect;
 import com.serkyo.deicideadditions.DeicideAdditions;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,7 +20,7 @@ public class WarpedEquilibriumEffect extends DeicideMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int pAmplifier) {
-        if (entity instanceof Player player && !player.level().isClientSide) {
+        if (entity instanceof ServerPlayer player) {
             if (player.hasEffect(ModEffects.COMFORT.get())) {
                 player.removeEffect(ModEffects.COMFORT.get());
                 DeicideAdditions.LOGGER.debug("Removed the comfort effect from {} since they have Warped Equilibrium", player.getName().getString());

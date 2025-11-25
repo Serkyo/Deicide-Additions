@@ -1,10 +1,10 @@
 package com.serkyo.deicideadditions.item;
 
-import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.donne431.ice_and_fire_delight.init.IceAndFireDelightModMobEffects;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,7 +39,7 @@ public class LightningDragonCanteen extends DragonPurifyingCanteenItem {
     public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, Level level, @NotNull LivingEntity entity) {
         if (!level.isClientSide && entity instanceof Player player) {
             player.addEffect(new MobEffectInstance(IceAndFireDelightModMobEffects.LIGHTNING_STRIKE.get(), 3600, 0, false, true, true));
-            player.addEffect(new MobEffectInstance(MobEffectRegistry.CHARGED.get(), 1800, 0, false, true, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1800, 0, false, true, true));
         }
         return super.finishUsingItem(stack, level, entity);
     }
