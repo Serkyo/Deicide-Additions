@@ -152,8 +152,6 @@ dependencies {
     implementation fg.deobf("curse.maven:sophisticated-backpacks-${soph_backpacks_version}")
     // Sophisticated Core
     runtimeOnly fg.deobf("curse.maven:sophisticated-core-${soph_core_version}")
-    // Puffish
-    implementation fg.deobf("curse.maven:puffish-skills-${puffish_skills_version}")
     // Goety
     implementation fg.deobf("curse.maven:goety-${goety_version}")
     // Dungeon now loading
