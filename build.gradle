@@ -162,6 +162,12 @@ dependencies {
     implementation fg.deobf("curse.maven:macabre-${macabre_version}")
     // Projectile Damage Attribute
     implementation fg.deobf("curse.maven:projectile-damage-attribute-${pda_version}")
+    // Simply Swords
+    implementation fg.deobf("curse.maven:simply-swords-${simplyswords_version}")
+    // Simply More
+    implementation fg.deobf("curse.maven:simply-more-${simplymore_version}")
+    // Cloth Config
+    runtimeOnly fg.deobf("curse.maven:cloth-config-${cloth_config_version}")
 }
 
 mixin {
