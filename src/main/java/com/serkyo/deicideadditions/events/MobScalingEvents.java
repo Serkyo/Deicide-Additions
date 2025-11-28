@@ -71,8 +71,6 @@ public class MobScalingEvents {
         if (swimSpeed != null) {
             swimSpeed.setBaseValue(swimSpeed.getBaseValue() * (1 + entityDifficultyLevel * 0.001));
         }
-
-        DeicideAdditions.LOGGER.debug("Modified attributes of {} based on player level {}", EntityType.getKey(livingEntity.getType()), entityDifficultyLevel);
     }
 
     private static float getNearbyPlayerDifficultyLevel(Level level, double xCoord, double yCoord, double zCoord) {
