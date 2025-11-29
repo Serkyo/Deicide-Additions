@@ -1,17 +1,17 @@
 package com.serkyo.deicideadditions.events;
 
+import com.redpxnda.respawnobelisks.registry.ModRegistries;
 import com.serkyo.deicideadditions.DeicideAdditions;
-import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import sfiomn.legendarysurvivaloverhaul.api.ModDamageTypes;
@@ -61,6 +61,32 @@ public class ServerEventHandler {
                         player.server.createCommandSourceStack().withPermission(4),
                         "epicfight skill add " + player.getName().getString() + " guard epicfight:parrying"
                 );
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerClone(PlayerEvent.Clone event) {
+        if (event.isWasDeath()) {
+            Player original = event.getOriginal();
+            Player newPlayer = event.getEntity();
+
+            if (original instanceof ServerPlayer serverPlayer) {
+                System.out.println(serverPlayer.getRespawnPosition());
+                BlockPos respawnPos = serverPlayer.getRespawnPosition();
+
+                if (respawnPos == null) {
+                    if (original.hasEffect(ModRegistries.immortalityCurse.get())) {
+                        MobEffectInstance immortalityCurseEffect = original.getEffect(ModRegistries.immortalityCurse.get());
+                        int amplifier = immortalityCurseEffect.getAmplifier();
+                        System.out.println("Amplifier current : " + amplifier);
+
+                        newPlayer.addEffect(new MobEffectInstance(ModRegistries.immortalityCurse.get(), 72000, amplifier < 4 ? amplifier + 1 : amplifier, false, true));
+                    }
+                    else {
+                        newPlayer.addEffect(new MobEffectInstance(ModRegistries.immortalityCurse.get(), 72000, 0, false, true));
+                    }
+                }
             }
         }
     }
