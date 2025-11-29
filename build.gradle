@@ -77,6 +77,8 @@ repositories {
     maven { url = "https://maven.kosmx.dev/" }
     // Curios / Caelus
     maven { url = "https://maven.theillusivec4.top" }
+    // Nucleus
+    maven { url = "https://maven.uuid.gg/releases" }
 }
 
 dependencies {
@@ -168,6 +170,12 @@ dependencies {
     implementation fg.deobf("curse.maven:simply-more-${simplymore_version}")
     // Cloth Config
     runtimeOnly fg.deobf("curse.maven:cloth-config-${cloth_config_version}")
+    // Respawn Obelisks
+    implementation fg.deobf("curse.maven:respawn-obelisks-${respawn_obelisks_version}")
+    runtimeOnly fg.deobf("com.redpxnda.nucleus:nucleus-core-forge:${minecraft_version}+${nucleus_core_version}")
+    runtimeOnly fg.deobf("com.redpxnda.nucleus:nucleus-codec-forge:${minecraft_version}+${nucleus_codec_version}")
+    runtimeOnly fg.deobf("com.redpxnda.nucleus:nucleus-config-forge:${minecraft_version}+${nucleus_config_version}")
+    runtimeOnly fg.deobf("com.redpxnda.nucleus:nucleus-facet-forge:${minecraft_version}+${nucleus_facet_version}")
 }
 
 mixin {
