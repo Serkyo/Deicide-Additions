@@ -13,6 +13,7 @@
     "CampfireBlockEntityMixin",
     "ChaosSpawnerEntityMixin",
     "ComfortEffectMixin",
+    "ImmortalityCurseEffectMixin",
     "InventoryMixin",
     "LivingEntityMixin",
     "MobEffectMixin",
