@@ -164,7 +164,7 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="caravans"
     mandatory=false
-    versionRange="[1.4.0]"
+    versionRange="[1.4.1]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -201,6 +201,12 @@ description='''${mod_description}'''
     modId="simplymore"
     mandatory=true
     versionRange="[1.1.3]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="respawnobelisks"
+    mandatory=true
+    versionRange="[2.6-d]"
     ordering="AFTER"
     side="BOTH"
 
