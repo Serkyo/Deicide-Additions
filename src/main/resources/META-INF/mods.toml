@@ -78,18 +78,6 @@ description='''${mod_description}'''
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
-    modId="epicfight"
-    mandatory=false
-    versionRange="[20.9.7]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
-    modId="aquaculture"
-    mandatory=false
-    versionRange="[2.5.5]"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.${mod_id}]]
     modId="farmersdelight"
     mandatory=true
     versionRange="[1.20.1-1.2.9]"
@@ -134,13 +122,13 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="irons_spellbooks"
     mandatory=true
-    versionRange="[1.20.1-3.4.0.11]"
+    versionRange="[1.20.1-3.15.0]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="legendarysurvivaloverhaul"
     mandatory=true
-    versionRange="[1.20.1-2.3.23.1]"
+    versionRange="[1.20.1-2.3.24.6]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.${mod_id}]]
@@ -206,7 +194,7 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="respawnobelisks"
     mandatory=true
-    versionRange="[2.6-d]"
+    versionRange="[2.6-e]"
     ordering="AFTER"
     side="BOTH"
 
