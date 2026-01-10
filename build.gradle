@@ -98,7 +98,7 @@ dependencies {
     // Create enchant industry
     implementation fg.deobf("curse.maven:create-enchantment-industry-${create_enchant_industry_version}")
     // ISS
-    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_spells_version}")
+    implementation fg.deobf("io.redspace:irons_spellbooks:${irons_spells_version}")
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
