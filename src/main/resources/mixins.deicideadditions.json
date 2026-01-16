@@ -23,8 +23,6 @@
     "RecoveryEffectMixin",
     "ThirstCapabilityMixin",
     "spells.BlessingOfLifeSpellMixin",
-    "spells.GreaterHealSpellMixin",
-    "spells.HealingAoeMixin",
-    "spells.HealSpellMixin"
+    "spells.GreaterHealSpellMixin"
   ]
 }
