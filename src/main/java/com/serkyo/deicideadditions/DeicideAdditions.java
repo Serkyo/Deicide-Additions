@@ -1,7 +1,7 @@
 package com.serkyo.deicideadditions;
 
 import com.mojang.logging.LogUtils;
-import com.serkyo.deicideadditions.client.tabs_menu.QuestlogTab;
+//import com.serkyo.deicideadditions.client.tabs_menu.QuestlogTab;
 import com.serkyo.deicideadditions.core.DeicideCreativeTab;
 import com.serkyo.deicideadditions.core.DeicideEffects;
 import com.serkyo.deicideadditions.core.DeicideItems;
@@ -57,7 +57,7 @@ public class DeicideAdditions {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            TabsMenu.register(new QuestlogTab());
+//            TabsMenu.register(new QuestlogTab());
         }
     }
 }
